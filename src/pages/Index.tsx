@@ -9,7 +9,7 @@ const Index = () => {
       <div 
         className="fixed inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: `url(/lovable-uploads/64e96829-9671-4609-a2bc-69581b7933ef.png)`,
+          backgroundImage: `url(/lovable-uploads/64e96829-9671-4609-a2bc-69581b7933ef.png?v=${Date.now()})`,
           backgroundColor: '#1e3a8a'
         }}
       >
