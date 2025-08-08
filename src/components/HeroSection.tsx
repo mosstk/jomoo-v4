@@ -14,7 +14,7 @@ const HeroSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % bannerImages.length);
-    }, 6000); // เพิ่มเวลาให้ดูรูปได้นานขึ้น
+    }, 4000); // ลดเวลาให้เหมาะกับ mobile
 
     return () => clearInterval(interval);
   }, [bannerImages.length]);
@@ -28,7 +28,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-transparent" style={{ marginTop: '-80px' }}>
+    <section className="relative h-[60vh] md:min-h-screen overflow-hidden bg-transparent" style={{ marginTop: '-80px' }}>
       <HeroBackground 
         image={bannerImages[currentImageIndex]}
         overlay={false}
@@ -40,10 +40,10 @@ const HeroSection = () => {
           <button
             key={index}
             onClick={() => setCurrentImageIndex(index)}
-            className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
+            className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
               index === currentImageIndex 
-                ? "bg-primary scale-125" 
-                : "bg-white/50 hover:bg-white/70"
+                ? "bg-primary scale-125 shadow-lg" 
+                : "bg-white/60 hover:bg-white/80"
             }`}
           />
         ))}

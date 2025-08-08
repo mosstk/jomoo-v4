@@ -14,7 +14,7 @@ const HeroBackground = ({
       className="absolute inset-0 transition-all duration-1000 ease-in-out transform"
       style={{ 
         backgroundImage: `url(${image})`,
-        backgroundSize: 'contain',
+        backgroundSize: 'cover',
         backgroundPosition: 'center center',
         backgroundRepeat: 'no-repeat',
         width: '100%',
