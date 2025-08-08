@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -11,26 +11,36 @@ const MainLayout = ({
   backgroundImage,
   overlay = true 
 }: MainLayoutProps) => {
-  console.log('MainLayout backgroundImage:', backgroundImage);
+  useEffect(() => {
+    // ใช้ CSS variable เพื่อกำหนดพื้นหลัง
+    if (backgroundImage) {
+      document.body.style.backgroundImage = `url(${backgroundImage})`;
+      document.body.style.backgroundSize = 'cover';
+      document.body.style.backgroundPosition = 'center';
+      document.body.style.backgroundRepeat = 'no-repeat';
+      document.body.style.backgroundAttachment = 'fixed';
+    } else {
+      // รีเซ็ตกลับเป็นค่าเดิม
+      document.body.style.backgroundImage = '';
+      document.body.style.backgroundSize = '';
+      document.body.style.backgroundPosition = '';
+      document.body.style.backgroundRepeat = '';
+      document.body.style.backgroundAttachment = '';
+    }
+
+    return () => {
+      // Cleanup เมื่อ component unmount
+      document.body.style.backgroundImage = '';
+      document.body.style.backgroundSize = '';
+      document.body.style.backgroundPosition = '';
+      document.body.style.backgroundRepeat = '';
+      document.body.style.backgroundAttachment = '';
+    };
+  }, [backgroundImage]);
+
   return (
     <div className="min-h-screen relative">
-      {backgroundImage && (
-        <div 
-          className="fixed inset-0 z-0 w-full h-full"
-          style={{ 
-            backgroundImage: `url(${backgroundImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        >
-          {overlay && <div className="absolute inset-0 bg-black/10"></div>}
-        </div>
-      )}
-      
-      <div className="relative z-10">
-        {children}
-      </div>
+      {children}
     </div>
   );
 };
