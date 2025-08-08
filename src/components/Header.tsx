@@ -7,13 +7,12 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="bg-primary rounded-lg p-2">
-              <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center">
-                <span className="text-primary font-bold text-lg">J</span>
-              </div>
-            </div>
-            <span className="text-2xl font-bold text-foreground font-playfair">JOMOO</span>
+          <div className="flex items-center">
+            <img 
+              src="/lovable-uploads/45d93c9d-39e5-448a-95f0-bb91d447f112.png" 
+              alt="TOA JOMOO Logo" 
+              className="h-10 w-auto"
+            />
           </div>
 
           {/* Navigation */}
