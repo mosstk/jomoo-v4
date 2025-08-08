@@ -25,7 +25,7 @@ const ProductSection = ({
       )}
       
       <div className="relative z-10">
-        <div className="container mx-auto px-8 md:px-16 lg:px-24 xl:px-32">
+        <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-24">
           <div className="text-center mb-16">
             <h2 className="text-title font-playfair text-foreground mb-4">
               {title}

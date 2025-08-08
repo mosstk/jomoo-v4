@@ -21,8 +21,8 @@ const ProductCard = ({ name, image, onClick, className = "" }: ProductCardProps)
             className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
           />
         </div>
-        <div className="p-4">
-          <h3 className="text-lg font-semibold text-foreground text-center">
+        <div className="p-2 md:p-4">
+          <h3 className="text-sm md:text-lg font-semibold text-foreground text-center">
             {name}
           </h3>
         </div>
