@@ -17,7 +17,7 @@ const MainLayout = ({
         <div 
           className="fixed inset-0 bg-cover bg-center bg-no-repeat"
           style={{ 
-            backgroundColor: 'hsl(var(--background))'
+            backgroundImage: `url(${backgroundImage})`
           }}
         >
           {overlay && <div className="absolute inset-0 bg-black/10"></div>}
