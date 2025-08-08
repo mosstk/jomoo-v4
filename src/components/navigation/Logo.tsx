@@ -6,21 +6,12 @@ interface LogoProps {
 
 const Logo = ({ src, alt, className = "h-10 w-auto" }: LogoProps) => {
   return (
-    <div className="flex items-center space-x-3">
-      {/* TOA Logo - สีเดิม */}
-      <div className="flex items-center">
-        <div className="bg-red-500 px-3 py-1 rounded-md">
-          <span className="text-white font-bold text-lg">TOA</span>
-        </div>
-      </div>
-      
-      {/* ขีดแบ่ง */}
-      <div className="w-px h-6 bg-white/30"></div>
-      
-      {/* JOMOO - สีขาว */}
-      <div className="text-white font-bold text-xl tracking-wider">
-        JOMOO
-      </div>
+    <div className="flex items-center">
+      <img 
+        src="/lovable-uploads/08e95c0e-ffcc-4205-8c9f-8b124ba30728.png" 
+        alt="TOA JOMOO Logo" 
+        className={className}
+      />
     </div>
   );
 };
