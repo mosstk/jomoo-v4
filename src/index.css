@@ -2,41 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Premium Bathroom Fixtures Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Brand Colors - Luxury Navy Blue Theme */
+    --background: 220 20% 8%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 25% 12%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 25% 12%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 217 91% 60%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 20% 16%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 15% 20%;
+    --muted-foreground: 217 10% 64%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 217 91% 60%;
 
-    --radius: 0.5rem;
+    /* Design System Tokens */
+    --radius: 0.75rem;
+    
+    /* Brand Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 25% 12%), hsl(217 91% 60% / 0.3));
+    --gradient-hero: linear-gradient(135deg, hsl(220 20% 8%), hsl(217 91% 60% / 0.1));
+    --gradient-card: linear-gradient(145deg, hsl(220 25% 12%), hsl(220 20% 16%));
+    
+    /* Luxury Shadows */
+    --shadow-luxury: 0 25px 50px -12px hsl(220 25% 5% / 0.25);
+    --shadow-card: 0 10px 25px -5px hsl(220 25% 5% / 0.2);
+    --shadow-glow: 0 0 50px hsl(217 91% 60% / 0.3);
+    
+    /* Typography Scale */
+    --font-size-hero: 3.5rem;
+    --font-size-title: 2.25rem;
+    --font-size-subtitle: 1.125rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +116,55 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Design System Classes */
+@layer components {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .shadow-luxury {
+    box-shadow: var(--shadow-luxury);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .text-hero {
+    font-size: var(--font-size-hero);
+    line-height: 1.1;
+    font-weight: 700;
+  }
+  
+  .text-title {
+    font-size: var(--font-size-title);
+    line-height: 1.2;
+    font-weight: 600;
+  }
+  
+  .text-subtitle {
+    font-size: var(--font-size-subtitle);
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  
+  .luxury-backdrop {
+    backdrop-filter: blur(20px);
+    background: hsl(220 25% 12% / 0.8);
   }
 }
