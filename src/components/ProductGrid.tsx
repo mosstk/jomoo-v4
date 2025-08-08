@@ -12,7 +12,7 @@ const ProductGrid = () => {
     <ProductSection
       title="Our Premium Collection"
       description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      backgroundImage="/lovable-uploads/f423a3af-1d01-4bff-9f92-dac7f73b7c6d.png"
+      backgroundImage=""
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {products.map((product) => (

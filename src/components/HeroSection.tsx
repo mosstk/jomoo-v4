@@ -14,8 +14,8 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
-      <HeroBackground image={heroImage} />
+    <section className="relative min-h-screen overflow-hidden bg-transparent">
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
       
       <div className="relative z-10 container mx-auto px-4 h-screen flex items-center">
         <HeroContent
