@@ -31,8 +31,7 @@ const HeroSection = () => {
     <section className="relative min-h-screen overflow-hidden bg-transparent">
       <HeroBackground 
         image={bannerImages[currentImageIndex]}
-        overlay={true}
-        overlayClass="bg-gradient-to-r from-background/95 via-background/70 to-background/40"
+        overlay={false}
       />
       
       {/* Banner indicators */}
@@ -43,20 +42,11 @@ const HeroSection = () => {
             onClick={() => setCurrentImageIndex(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               index === currentImageIndex 
-                ? 'bg-primary scale-125' 
-                : 'bg-white/50 hover:bg-white/70'
+                ? "bg-primary scale-125" 
+                : "bg-white/50 hover:bg-white/70"
             }`}
           />
         ))}
-      </div>
-      
-      <div className="relative z-10 container mx-auto px-4 h-screen flex items-center">
-        <HeroContent
-          title="Lorem Text"
-          description="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-          onPrimaryClick={handleExploreProducts}
-          onSecondaryClick={handleLearnMore}
-        />
       </div>
     </section>
   );
