@@ -10,8 +10,8 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Logo 
-              src="/lovable-uploads/45d93c9d-39e5-448a-95f0-bb91d447f112.png"
-              alt="TOA JOMOO Logo"
+              src=""
+              alt="TOA living space"
             />
           </div>
           
