@@ -7,10 +7,10 @@ const Index = () => {
   return (
     <div className="min-h-screen relative">
       <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat"
+        className="fixed inset-0"
         style={{ 
-          backgroundImage: `url(/lovable-uploads/64e96829-9671-4609-a2bc-69581b7933ef.png?v=${Date.now()})`,
-          backgroundColor: '#1e3a8a'
+          background: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1e40af 100%)',
+          backgroundAttachment: 'fixed'
         }}
       >
         <div className="absolute inset-0 bg-black/10"></div>
