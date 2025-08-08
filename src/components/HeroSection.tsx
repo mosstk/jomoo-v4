@@ -14,7 +14,7 @@ const HeroSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % bannerImages.length);
-    }, 5000);
+    }, 6000); // เพิ่มเวลาให้ดูรูปได้นานขึ้น
 
     return () => clearInterval(interval);
   }, [bannerImages.length]);
