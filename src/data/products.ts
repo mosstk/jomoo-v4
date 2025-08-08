@@ -21,4 +21,5 @@ export const products: Product[] = [
   { id: "7", name: "Rain Shower", image: showerImg, category: "shower" },
   { id: "8", name: "Bidet Sprayer", image: faucetImg, category: "faucet" },
   { id: "9", name: "Urinal", image: smartToiletImg, category: "toilet" },
+  { id: "10", name: "Accessories", image: faucetImg, category: "accessories" },
 ];

@@ -24,18 +24,6 @@ const ProductGrid = () => {
           />
         ))}
       </div>
-
-      {/* Accessories Section */}
-      <div className="mt-16">
-        <Card className="gradient-card border-border/50 shadow-card">
-          <CardContent className="p-8 text-center">
-            <h3 className="text-2xl font-semibold text-foreground mb-4">Accessories</h3>
-            <p className="text-muted-foreground">
-              Complete your bathroom with our premium accessories collection
-            </p>
-          </CardContent>
-        </Card>
-      </div>
     </ProductSection>
   );
 };
