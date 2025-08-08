@@ -15,10 +15,6 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-transparent">
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(/lovable-uploads/e5027f69-aeb8-4655-bfc9-d4b856028c32.png)` }}
-      />
       
       <div className="relative z-10 container mx-auto px-4 h-screen flex items-center">
         <HeroContent
