@@ -11,13 +11,17 @@ const MainLayout = ({
   backgroundImage,
   overlay = true 
 }: MainLayoutProps) => {
+  console.log('MainLayout backgroundImage:', backgroundImage);
   return (
     <div className="min-h-screen relative">
       {backgroundImage && (
         <div 
-          className="fixed inset-0 bg-cover bg-center bg-no-repeat"
+          className="fixed inset-0 z-0 w-full h-full"
           style={{ 
-            backgroundImage: `url(${backgroundImage})`
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
           }}
         >
           {overlay && <div className="absolute inset-0 bg-black/10"></div>}
