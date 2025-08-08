@@ -19,7 +19,17 @@ const products = [
 
 const ProductGrid = () => {
   return (
-    <section className="py-20 bg-background">
+    <section className="relative py-20">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(/lovable-uploads/f423a3af-1d01-4bff-9f92-dac7f73b7c6d.png)` }}
+      >
+        <div className="absolute inset-0 bg-navy-950/20"></div>
+      </div>
+      
+      {/* Content */}
+      <div className="relative z-10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-title font-playfair text-foreground mb-4">
@@ -64,6 +74,7 @@ const ProductGrid = () => {
               </p>
             </CardContent>
           </Card>
+        </div>
         </div>
       </div>
     </section>
