@@ -5,11 +5,22 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen relative">
+      {/* Main Background */}
+      <div 
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(/lovable-uploads/ad3e3237-b36c-40f8-b4d6-c8ae342e97fa.png)` }}
+      >
+        <div className="absolute inset-0 bg-background/20"></div>
+      </div>
+      
+      {/* Content */}
+      <div className="relative z-10">
       <Header />
       <HeroSection />
       <ProductGrid />
       <Footer />
+      </div>
     </div>
   );
 };
