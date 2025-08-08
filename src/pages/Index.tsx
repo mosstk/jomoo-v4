@@ -6,7 +6,7 @@ import MainLayout from "@/components/layout/MainLayout";
 
 const Index = () => {
   return (
-    <MainLayout backgroundImage="/lovable-uploads/ef605ef2-7357-461a-b7ee-ef4e8c7891bc.png">
+    <MainLayout backgroundImage="/lovable-uploads/c366600e-3443-4d33-b8d0-73044d37fb9e.png">
       <Header />
       <HeroSection />
       <ProductGrid />
