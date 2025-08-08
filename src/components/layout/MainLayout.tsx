@@ -12,21 +12,12 @@ const MainLayout = ({
   overlay = true 
 }: MainLayoutProps) => {
   useEffect(() => {
-    // ใช้ CSS variable เพื่อกำหนดพื้นหลัง
-    if (backgroundImage) {
-      document.body.style.backgroundImage = `url(${backgroundImage})`;
-      document.body.style.backgroundSize = 'cover';
-      document.body.style.backgroundPosition = 'center';
-      document.body.style.backgroundRepeat = 'no-repeat';
-      document.body.style.backgroundAttachment = 'fixed';
-    } else {
-      // รีเซ็ตกลับเป็นค่าเดิม
-      document.body.style.backgroundImage = '';
-      document.body.style.backgroundSize = '';
-      document.body.style.backgroundPosition = '';
-      document.body.style.backgroundRepeat = '';
-      document.body.style.backgroundAttachment = '';
-    }
+    // ลบพื้นหลังจาก body
+    document.body.style.backgroundImage = '';
+    document.body.style.backgroundSize = '';
+    document.body.style.backgroundPosition = '';
+    document.body.style.backgroundRepeat = '';
+    document.body.style.backgroundAttachment = '';
 
     return () => {
       // Cleanup เมื่อ component unmount
@@ -41,6 +32,21 @@ const MainLayout = ({
   return (
     <div className="min-h-screen relative">
       {children}
+      {/* Background section ที่แสดงจากใต้ Hero Banner ลงไป */}
+      {backgroundImage && (
+        <div 
+          className="fixed inset-0 z-[-1]"
+          style={{
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            backgroundAttachment: 'fixed',
+            top: '100vh', // เริ่มจากใต้ Hero Banner
+            height: 'calc(100vh * 2)' // ขยายความสูงให้ครอบคลุม
+          }}
+        />
+      )}
     </div>
   );
 };
