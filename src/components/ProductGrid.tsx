@@ -1,4 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import smartToiletImg from "@/assets/smart-toilet.jpg";
 import basinImg from "@/assets/basin.jpg";
 import bathtubImg from "@/assets/bathtub.jpg";
@@ -40,29 +47,40 @@ const ProductGrid = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
-            <Card 
-              key={index} 
-              className="gradient-card border-border/50 shadow-card hover:shadow-luxury transition-all duration-300 hover:scale-105 group"
-            >
-              <CardContent className="p-0">
-                <div className="aspect-square overflow-hidden rounded-t-lg">
-                  <img 
-                    src={product.image} 
-                    alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-5xl mx-auto"
+        >
+          <CarouselContent className="-ml-2 md:-ml-4">
+            {products.map((product, index) => (
+              <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                <div className="p-1">
+                  <Card className="bg-background/90 backdrop-blur-sm border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+                    <CardContent className="p-0">
+                      <div className="aspect-square overflow-hidden rounded-t-lg">
+                        <img 
+                          src={product.image} 
+                          alt={product.name}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                      </div>
+                      <div className="p-6 bg-background/95">
+                        <h3 className="text-xl font-semibold text-foreground text-center">
+                          {product.name}
+                        </h3>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-foreground text-center">
-                    {product.name}
-                  </h3>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="left-4" />
+          <CarouselNext className="right-4" />
+        </Carousel>
 
         {/* Accessories Section */}
         <div className="mt-16">
