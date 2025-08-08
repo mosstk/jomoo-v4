@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ProductGrid from "@/components/ProductGrid";
 import Footer from "@/components/Footer";
-import backgroundImage from "@/assets/background-blue-gradient.jpg";
 
 const Index = () => {
   return (
@@ -10,7 +9,7 @@ const Index = () => {
       <div 
         className="fixed inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: `url(${backgroundImage})`,
+          backgroundImage: `url(/lovable-uploads/64e96829-9671-4609-a2bc-69581b7933ef.png)`,
           backgroundColor: '#1e3a8a'
         }}
       >
