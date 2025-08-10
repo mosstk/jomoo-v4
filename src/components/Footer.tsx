@@ -12,6 +12,9 @@ const LineIcon = () => (
 const Footer = () => {
   return (
     <footer>
+      {/* White divider line */}
+      <div className="w-full h-px bg-white/30"></div>
+      
       {/* Main Footer Content - Transparent background to show main background */}
       <div className="py-8">
         <div className="container mx-auto px-4">
