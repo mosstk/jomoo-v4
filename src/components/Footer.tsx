@@ -69,7 +69,7 @@ const Footer = () => {
       {/* Bottom Copyright with dark background */}
       <div className="bg-slate-800">
         <div className="container mx-auto px-4">
-          <div className="border-t border-gray-600 pt-6">
+          <div className="border-t border-gray-600 pt-6 pb-8">
             <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
               <p className="text-gray-400 text-xs">
                 © Copyright 2023 TOA Paint (Thailand) Public Company Limited. All rights reserved.
