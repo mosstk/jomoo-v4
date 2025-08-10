@@ -6,8 +6,8 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen relative">
-      {/* Background color layer */}
-      <div className="fixed inset-0 z-[-2] bg-background" />
+      {/* Gradient background layer - จากอ่อนไปเข้ม แนวทแยง */}
+      <div className="fixed inset-0 z-[-2] bg-gradient-to-br from-background via-secondary to-card" />
       
       <Header />
       <HeroSection />
