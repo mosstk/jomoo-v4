@@ -14,8 +14,8 @@ const ProductGrid = () => {
       description=""
       backgroundImage=""
     >
-      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
-        {products.map((product) => (
+      <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
+        {products.slice(0, 9).map((product) => (
           <ProductCard
             key={product.id}
             name={product.name}
