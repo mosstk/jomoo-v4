@@ -9,12 +9,18 @@ const Index = () => {
   
   return (
     <div className="min-h-screen relative">
-      {/* Background image full width */}
+      {/* Background color layer */}
+      <div className="fixed inset-0 z-[-2] bg-background" />
+      
+      {/* Background image aligned with header content */}
       <div 
-        className="fixed inset-0 z-[-1] bg-center bg-no-repeat"
+        className="fixed inset-0 z-[-1] bg-bottom bg-no-repeat bg-primary/5"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'auto 100%',
+          backgroundPosition: 'bottom center',
+          marginLeft: 'calc(2rem + 120px)', // Account for logo width
+          marginRight: 'calc(2rem + 80px)', // Account for action buttons width
           imageRendering: 'crisp-edges',
           filter: 'contrast(1.1) saturate(1.2) brightness(1.05)'
         }}
