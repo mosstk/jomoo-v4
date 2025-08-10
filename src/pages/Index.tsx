@@ -14,7 +14,9 @@ const Index = () => {
         className="fixed inset-0 z-[-1] bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: '100% 100%'
+          backgroundSize: 'cover',
+          imageRendering: 'crisp-edges',
+          filter: 'contrast(1.1) saturate(1.2) brightness(1.05)'
         }}
       />
       
