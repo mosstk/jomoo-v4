@@ -4,8 +4,8 @@ import ProductGrid from "@/components/ProductGrid";
 import Footer from "@/components/Footer";
 
 const Index = () => {
-  // ใช้รูป BG.jpg เป็นพื้นหลัง
-  const backgroundImage = "/lovable-uploads/68cc554b-bdb6-457e-8131-9524ef60f8c6.png";
+  // ใช้รูป background สีน้ำเงินใหม่เป็นพื้นหลัง
+  const backgroundImage = "/lovable-uploads/9a6de6ab-edc8-45f4-82a5-36054dd3462c.png";
   
   return (
     <div className="min-h-screen relative">
