@@ -2,16 +2,22 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ProductGrid from "@/components/ProductGrid";
 import Footer from "@/components/Footer";
-import MainLayout from "@/components/layout/MainLayout";
+import FullBackgroundLayout from "@/components/layout/FullBackgroundLayout";
 
 const Index = () => {
+  // ใช้รูป BG.jpg เป็นพื้นหลัง
+  const backgroundImage = "/lovable-uploads/68cc554b-bdb6-457e-8131-9524ef60f8c6.png";
+  
   return (
-    <MainLayout backgroundImage="/lovable-uploads/c366600e-3443-4d33-b8d0-73044d37fb9e.png">
+    <FullBackgroundLayout 
+      backgroundImage={backgroundImage}
+      option="fixed" // เปลี่ยนเป็น "parallax" สำหรับ option 2
+    >
       <Header />
       <HeroSection />
       <ProductGrid />
       <Footer />
-    </MainLayout>
+    </FullBackgroundLayout>
   );
 };
 
