@@ -19,7 +19,7 @@ const Index = () => {
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'auto 100%',
           backgroundPosition: 'bottom center',
-          marginLeft: 'calc(2rem + 120px)', // Account for logo width
+          marginLeft: '2rem', // Align with logo left edge
           marginRight: 'calc(2rem + 80px)', // Account for action buttons width
           imageRendering: 'crisp-edges',
           filter: 'contrast(1.1) saturate(1.2) brightness(1.05)'
