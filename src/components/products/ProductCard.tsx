@@ -13,11 +13,12 @@ const ProductCard = ({ name, image, onClick, className = "" }: ProductCardProps)
       className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${className}`}
       onClick={onClick}
     >
-      <div className="aspect-[5/4] overflow-hidden rounded-lg relative group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all duration-500">
+      <div className="aspect-square overflow-hidden rounded-lg relative group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all duration-500">
         <img 
           src={image} 
           alt={name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+          style={{ imageRendering: 'crisp-edges' }}
         />
       </div>
       <div className="mt-2 md:mt-4">
