@@ -11,10 +11,10 @@ const Index = () => {
     <div className="min-h-screen relative">
       {/* Background image full width */}
       <div 
-        className="fixed inset-0 z-[-1] bg-bottom bg-no-repeat"
+        className="fixed inset-0 z-[-1] bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: '100% auto',
+          backgroundSize: 'auto 100%',
           imageRendering: 'crisp-edges',
           filter: 'contrast(1.1) saturate(1.2) brightness(1.05)'
         }}
