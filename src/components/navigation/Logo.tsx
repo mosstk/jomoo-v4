@@ -7,9 +7,11 @@ interface LogoProps {
 const Logo = ({ src, alt, className = "h-10 w-auto" }: LogoProps) => {
   return (
     <div className="flex items-center">
-      <h1 className="text-2xl font-bold text-white tracking-wider">
-        JOMOO
-      </h1>
+      <img 
+        src="/lovable-uploads/08e95c0e-ffcc-4205-8c9f-8b124ba30728.png" 
+        alt="TOA JOMOO Logo" 
+        className={className}
+      />
     </div>
   );
 };
