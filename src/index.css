@@ -42,6 +42,7 @@
     --gradient-primary: linear-gradient(135deg, hsl(220 25% 12%), hsl(217 91% 60% / 0.3));
     --gradient-hero: linear-gradient(135deg, hsl(220 20% 8%), hsl(217 91% 60% / 0.1));
     --gradient-card: linear-gradient(145deg, hsl(220 25% 12%), hsl(220 20% 16%));
+    --gradient-deep-blue: linear-gradient(135deg, hsl(220 100% 15%), hsl(230 95% 25%), hsl(240 90% 35%));
     
     /* Luxury Shadows */
     --shadow-luxury: 0 25px 50px -12px hsl(220 25% 5% / 0.25);
@@ -132,6 +133,10 @@
   
   .gradient-card {
     background: var(--gradient-card);
+  }
+  
+  .gradient-deep-blue {
+    background: var(--gradient-deep-blue);
   }
   
   .shadow-luxury {
