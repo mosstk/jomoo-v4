@@ -11,26 +11,26 @@ const LineIcon = () => (
 
 const Footer = () => {
   return (
-    <footer className="bg-navy-950/95 backdrop-blur-sm border-t border-border/20 py-12">
+    <footer className="bg-slate-800 py-8">
       <div className="container mx-auto px-4">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8">
           {/* Left Side */}
-          <div className="space-y-6">
+          <div className="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-12 mb-6 lg:mb-0">
             {/* Follow TOA LIVING SPACE */}
-            <div>
-              <p className="text-gray-300 mb-4">Follow TOA LIVING SPACE</p>
-              <div className="flex space-x-4">
-                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8">
-                  <Facebook className="h-5 w-5" />
+            <div className="flex items-center space-x-4">
+              <span className="text-gray-300 text-sm">Follow TOA LIVING SPACE</span>
+              <div className="flex space-x-2">
+                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
+                  <Facebook className="h-4 w-4" />
                 </Button>
-                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8">
-                  <Instagram className="h-5 w-5" />
+                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
+                  <Instagram className="h-4 w-4" />
                 </Button>
-                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8">
-                  <Youtube className="h-5 w-5" />
+                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
+                  <Youtube className="h-4 w-4" />
                 </Button>
-                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8">
+                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
                   <LineIcon />
                 </Button>
               </div>
@@ -38,25 +38,25 @@ const Footer = () => {
 
             {/* Contact Showroom */}
             <div className="flex items-center space-x-2">
-              <p className="text-gray-300">Contact Showroom</p>
-              <MapPin className="h-5 w-5 text-gray-400" />
+              <span className="text-gray-300 text-sm">Contact Showroom</span>
+              <MapPin className="h-4 w-4 text-gray-400" />
             </div>
           </div>
 
           {/* Right Side - Newsletter */}
-          <div className="flex flex-col items-end">
-            <div className="text-right mb-4">
+          <div className="flex flex-col items-end space-y-4">
+            <div className="text-right">
               <p className="text-gray-300 text-sm">
                 Sign up to receive email, news, promotions<br />
                 and information about JOMOO.
               </p>
             </div>
-            <div className="flex space-x-2 w-full max-w-md">
+            <div className="flex space-x-2">
               <Input 
                 placeholder="E-mail Address" 
-                className="bg-gray-600/50 border-gray-500 text-white placeholder:text-gray-400 flex-1"
+                className="bg-gray-600 border-gray-500 text-white placeholder:text-gray-400 w-64"
               />
-              <Button className="bg-gray-500 hover:bg-gray-400 text-white px-6 whitespace-nowrap">
+              <Button className="bg-gray-500 hover:bg-gray-400 text-white px-6">
                 Sign Up
               </Button>
             </div>
@@ -64,16 +64,19 @@ const Footer = () => {
         </div>
 
         {/* Bottom Copyright */}
-        <div className="border-t border-gray-700/50 pt-6">
+        <div className="border-t border-gray-600 pt-6">
           <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-xs">
               © Copyright 2023 TOA Paint (Thailand) Public Company Limited. All rights reserved.
             </p>
-            <div className="flex flex-wrap gap-6">
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Terms & Conditions</a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Notice</a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Cookies Policy</a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Site Map</a>
+            <div className="flex space-x-6">
+              <a href="#" className="text-gray-400 hover:text-white text-xs">Terms & Conditions</a>
+              <span className="text-gray-400 text-xs">|</span>
+              <a href="#" className="text-gray-400 hover:text-white text-xs">Privacy Notice</a>
+              <span className="text-gray-400 text-xs">|</span>
+              <a href="#" className="text-gray-400 hover:text-white text-xs">Cookies Policy</a>
+              <span className="text-gray-400 text-xs">|</span>
+              <a href="#" className="text-gray-400 hover:text-white text-xs">Site Map</a>
             </div>
           </div>
         </div>
