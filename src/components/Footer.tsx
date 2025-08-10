@@ -11,72 +11,78 @@ const LineIcon = () => (
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-800 py-8">
-      <div className="container mx-auto px-4">
-        {/* Main Footer Content */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8">
-          {/* Left Side */}
-          <div className="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-12 mb-6 lg:mb-0">
-            {/* Follow TOA LIVING SPACE */}
-            <div className="flex items-center space-x-4">
-              <span className="text-gray-300 text-sm">Follow TOA LIVING SPACE</span>
-              <div className="flex space-x-2">
-                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
-                  <Facebook className="h-4 w-4" />
-                </Button>
-                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
-                  <Instagram className="h-4 w-4" />
-                </Button>
-                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
-                  <Youtube className="h-4 w-4" />
-                </Button>
-                <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
-                  <LineIcon />
-                </Button>
+    <footer>
+      {/* Main Footer Content - Transparent background to show main background */}
+      <div className="py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8">
+            {/* Left Side */}
+            <div className="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-12 mb-6 lg:mb-0">
+              {/* Follow TOA LIVING SPACE */}
+              <div className="flex items-center space-x-4">
+                <span className="text-gray-300 text-sm">Follow TOA LIVING SPACE</span>
+                <div className="flex space-x-2">
+                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
+                    <Facebook className="h-4 w-4" />
+                  </Button>
+                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
+                    <Instagram className="h-4 w-4" />
+                  </Button>
+                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
+                    <Youtube className="h-4 w-4" />
+                  </Button>
+                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
+                    <LineIcon />
+                  </Button>
+                </div>
+              </div>
+
+              {/* Contact Showroom */}
+              <div className="flex items-center space-x-2">
+                <span className="text-gray-300 text-sm">Contact Showroom</span>
+                <MapPin className="h-4 w-4 text-gray-400" />
               </div>
             </div>
 
-            {/* Contact Showroom */}
-            <div className="flex items-center space-x-2">
-              <span className="text-gray-300 text-sm">Contact Showroom</span>
-              <MapPin className="h-4 w-4 text-gray-400" />
-            </div>
-          </div>
-
-          {/* Right Side - Newsletter */}
-          <div className="flex flex-col items-end space-y-4">
-            <div className="text-right">
-              <p className="text-gray-300 text-sm">
-                Sign up to receive email, news, promotions<br />
-                and information about JOMOO.
-              </p>
-            </div>
-            <div className="flex space-x-2">
-              <Input 
-                placeholder="E-mail Address" 
-                className="bg-gray-600 border-gray-500 text-white placeholder:text-gray-400 w-64"
-              />
-              <Button className="bg-gray-500 hover:bg-gray-400 text-white px-6">
-                Sign Up
-              </Button>
+            {/* Right Side - Newsletter */}
+            <div className="flex flex-col items-end space-y-4">
+              <div className="text-right">
+                <p className="text-gray-300 text-sm">
+                  Sign up to receive email, news, promotions<br />
+                  and information about JOMOO.
+                </p>
+              </div>
+              <div className="flex space-x-2">
+                <Input 
+                  placeholder="E-mail Address" 
+                  className="bg-gray-600 border-gray-500 text-white placeholder:text-gray-400 w-64"
+                />
+                <Button className="bg-gray-500 hover:bg-gray-400 text-white px-6">
+                  Sign Up
+                </Button>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Bottom Copyright */}
-        <div className="border-t border-gray-600 pt-6">
-          <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
-            <p className="text-gray-400 text-xs">
-              © Copyright 2023 TOA Paint (Thailand) Public Company Limited. All rights reserved.
-            </p>
-            <div className="flex space-x-6">
-              <a href="#" className="text-gray-400 hover:text-white text-xs">Terms & Conditions</a>
-              <span className="text-gray-400 text-xs">|</span>
-              <a href="#" className="text-gray-400 hover:text-white text-xs">Privacy Notice</a>
-              <span className="text-gray-400 text-xs">|</span>
-              <a href="#" className="text-gray-400 hover:text-white text-xs">Cookies Policy</a>
-              <span className="text-gray-400 text-xs">|</span>
-              <a href="#" className="text-gray-400 hover:text-white text-xs">Site Map</a>
+      {/* Bottom Copyright with dark background */}
+      <div className="bg-slate-800">
+        <div className="container mx-auto px-4">
+          <div className="border-t border-gray-600 pt-6">
+            <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+              <p className="text-gray-400 text-xs">
+                © Copyright 2023 TOA Paint (Thailand) Public Company Limited. All rights reserved.
+              </p>
+              <div className="flex space-x-6">
+                <a href="#" className="text-gray-400 hover:text-white text-xs">Terms & Conditions</a>
+                <span className="text-gray-400 text-xs">|</span>
+                <a href="#" className="text-gray-400 hover:text-white text-xs">Privacy Notice</a>
+                <span className="text-gray-400 text-xs">|</span>
+                <a href="#" className="text-gray-400 hover:text-white text-xs">Cookies Policy</a>
+                <span className="text-gray-400 text-xs">|</span>
+                <a href="#" className="text-gray-400 hover:text-white text-xs">Site Map</a>
+              </div>
             </div>
           </div>
         </div>
