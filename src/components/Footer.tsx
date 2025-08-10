@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8">
             {/* Left Side */}
-            <div className="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-12 mb-6 lg:mb-0">
+            <div className="flex flex-col space-y-4 mb-6 lg:mb-0">
               {/* Follow TOA LIVING SPACE */}
               <div className="flex items-center space-x-4">
                 <span className="text-gray-300 text-sm">Follow TOA LIVING SPACE</span>
