@@ -17,15 +17,15 @@ const Index = () => {
           style={{
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: '100% 100%',
-            left: '10%',
-            right: '10%',
-            width: '80%'
+            left: '5%',
+            right: '5%',
+            width: '90%'
           }}
         />
         
         {/* Left gradient */}
         <div 
-          className="absolute left-0 top-0 bottom-0 w-[10%]"
+          className="absolute left-0 top-0 bottom-0 w-[5%]"
           style={{
             background: 'linear-gradient(to right, hsl(220 40% 15%), hsl(220 40% 15% / 0.8), transparent)'
           }}
@@ -33,7 +33,7 @@ const Index = () => {
         
         {/* Right gradient */}
         <div 
-          className="absolute right-0 top-0 bottom-0 w-[10%]"
+          className="absolute right-0 top-0 bottom-0 w-[5%]"
           style={{
             background: 'linear-gradient(to left, hsl(220 40% 15%), hsl(220 40% 15% / 0.8), transparent)'
           }}
