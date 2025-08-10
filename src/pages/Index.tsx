@@ -11,7 +11,7 @@ const Index = () => {
   return (
     <FullBackgroundLayout 
       backgroundImage={backgroundImage}
-      option="parallax" // Option 2: Parallax Effect
+      option="fixed" // เปลี่ยนเป็น "parallax" สำหรับ option 2
     >
       <Header />
       <HeroSection />
