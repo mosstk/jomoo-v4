@@ -14,11 +14,12 @@ const ProductCard = ({ name, image, onClick, className = "" }: ProductCardProps)
       onClick={onClick}
     >
       <CardContent className="p-0">
-        <div className="aspect-[1/1] overflow-hidden rounded-t-lg bg-gray-50">
+        <div className="aspect-[1/1] overflow-hidden rounded-t-lg bg-gray-50 relative group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all duration-500">
+          <div className="absolute inset-0 rounded-t-lg group-hover:ring-2 group-hover:ring-blue-400 group-hover:ring-opacity-60 transition-all duration-500"></div>
           <img 
             src={image} 
             alt={name}
-            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 relative z-10"
           />
         </div>
         <div className="p-2 md:p-4">
