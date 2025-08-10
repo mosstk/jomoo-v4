@@ -52,9 +52,9 @@ const Footer = () => {
             {/* Right Side - Newsletter */}
             <div className="flex flex-col items-end space-y-4">
               <div className="text-right">
-                <p className="text-gray-300 text-sm">
+                <p className="text-white text-sm">
                   Sign up to receive email, news, promotions<br />
-                  and information about JOMOO.
+                  and information about <span className="text-white font-semibold">JOMOO</span>.
                 </p>
               </div>
               <div className="flex space-x-2">
