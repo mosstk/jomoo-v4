@@ -57,10 +57,10 @@
     --shadow-card: 0 10px 25px -5px hsl(220 25% 5% / 0.2);
     --shadow-glow: 0 0 50px hsl(217 91% 60% / 0.3);
     
-    /* Typography Scale */
-    --font-size-hero: 3.5rem;
-    --font-size-title: 2.25rem;
-    --font-size-subtitle: 1.125rem;
+    /* Typography Scale - Responsive */
+    --font-size-hero: clamp(2rem, 5vw, 3.5rem);
+    --font-size-title: clamp(1.5rem, 4vw, 2.25rem);
+    --font-size-subtitle: clamp(1rem, 2.5vw, 1.125rem);
 
     --sidebar-background: 0 0% 98%;
 
