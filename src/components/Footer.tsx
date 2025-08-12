@@ -14,7 +14,7 @@ const Footer = () => {
     <footer>
       {/* White divider line */}
       <div className="mx-auto px-4" style={{ width: '1080px', maxWidth: '100%' }}>
-        <div className="w-full bg-white/30" style={{ height: '3px' }}></div>
+        <div className="w-full bg-white/30" style={{ height: '2px' }}></div>
       </div>
       
       {/* Main Footer Content - Transparent background to show main background */}
