@@ -31,8 +31,8 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="relative h-[60vh] md:min-h-screen overflow-hidden bg-transparent group" 
-      style={{ marginTop: '-80px' }}
+      className="relative overflow-hidden bg-transparent group mx-auto" 
+      style={{ marginTop: '-80px', width: '1080px', height: '587px' }}
     >
       <HeroBackground 
         image={bannerImages[currentImageIndex]}
