@@ -6,12 +6,12 @@ interface LogoProps {
   className?: string;
 }
 
-const Logo = ({ src, alt, className = "w-full h-auto" }: LogoProps) => {
+const Logo = ({ src, alt, className = "h-10 w-auto" }: LogoProps) => {
   return (
     <Link to="/" className="flex items-center cursor-pointer">
       <img 
-        src="/lovable-uploads/e6fa2337-8982-444f-9717-577c0ef5e3c4.png" 
-        alt="TOA Logo" 
+        src="/lovable-uploads/cc43ba2f-53c9-4c90-958b-3e28f6f2e4b3.png" 
+        alt="TOA JOMOO Logo" 
         className={className}
       />
     </Link>
