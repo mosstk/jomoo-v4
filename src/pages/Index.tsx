@@ -6,8 +6,16 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen relative">
-      {/* Deep blue gradient background */}
-      <div className="fixed inset-0 z-[-2] gradient-deep-blue" />
+      {/* Background image */}
+      <div 
+        className="fixed inset-0 z-[-2]" 
+        style={{
+          backgroundImage: 'url(/lovable-uploads/775eda3f-ca6c-419c-a23c-490dd2295f81.png)',
+          backgroundSize: '1080px 1920px',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
       
       <Header />
       <HeroSection />
