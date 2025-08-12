@@ -26,7 +26,7 @@ const ProductSection = ({
       
       <div className="relative z-10">
         <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-24">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16" style={{ marginTop: '50px' }}>
             <h2 className="text-title font-playfair text-foreground mb-4">
               {title}
             </h2>
