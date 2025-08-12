@@ -11,7 +11,7 @@ const Index = () => {
         className="fixed inset-0 z-[-2]" 
         style={{
           backgroundImage: 'url(/lovable-uploads/775eda3f-ca6c-419c-a23c-490dd2295f81.png)',
-          backgroundSize: '1080px 1920px',
+          backgroundSize: '1350px 100vh',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
         }}
