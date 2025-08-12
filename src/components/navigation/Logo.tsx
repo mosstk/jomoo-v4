@@ -10,7 +10,7 @@ const Logo = ({ src, alt, className = "h-[300px] w-auto" }: LogoProps) => {
   return (
     <Link to="/" className="flex items-center cursor-pointer">
       <img 
-        src="/lovable-uploads/e249e750-5c20-4915-bb68-993713e3f674.png" 
+        src="/lovable-uploads/05a2ca3e-18d2-4905-8e38-5b8ea9269bad.png" 
         alt="TOA Logo" 
         className={className}
       />
