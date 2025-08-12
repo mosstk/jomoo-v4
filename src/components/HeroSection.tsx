@@ -32,7 +32,7 @@ const HeroSection = () => {
   return (
     <section 
       className="relative overflow-hidden bg-transparent group mx-auto" 
-      style={{ marginTop: '-80px', width: '1080px', height: '587px' }}
+      style={{ marginTop: '-80px', width: '1350px', height: '734px' }}
     >
       <HeroBackground 
         image={bannerImages[currentImageIndex]}
