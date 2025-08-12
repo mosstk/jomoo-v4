@@ -1,7 +1,7 @@
 import HeroBackground from "@/components/hero/HeroBackground";
 import HeroContent from "@/components/hero/HeroContent";
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
@@ -12,18 +12,14 @@ const HeroSection = () => {
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    if (!isPlaying) return;
-    
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % bannerImages.length);
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [bannerImages.length, isPlaying]);
+  }, [bannerImages.length]);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % bannerImages.length);
@@ -31,22 +27,6 @@ const HeroSection = () => {
 
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + bannerImages.length) % bannerImages.length);
-  };
-
-  const togglePlayPause = () => {
-    setIsPlaying(!isPlaying);
-    setIsPaused(!isPaused);
-  };
-
-  const handleMouseEnter = () => {
-    setIsPaused(true);
-    setIsPlaying(false);
-  };
-
-  const handleMouseLeave = () => {
-    if (!isPaused) {
-      setIsPlaying(true);
-    }
   };
 
   const handleExploreProducts = () => {
@@ -61,8 +41,6 @@ const HeroSection = () => {
     <section 
       className="relative h-[60vh] md:min-h-screen overflow-hidden bg-transparent group" 
       style={{ marginTop: '-80px' }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       <HeroBackground 
         image={bannerImages[currentImageIndex]}
@@ -86,16 +64,6 @@ const HeroSection = () => {
         className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/20 hover:bg-black/40 text-white border-none opacity-0 group-hover:opacity-100 transition-all duration-300 h-12 w-12"
       >
         <ChevronRight className="h-6 w-6" />
-      </Button>
-
-      {/* Play/Pause Button */}
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={togglePlayPause}
-        className="absolute top-4 right-4 z-20 bg-black/20 hover:bg-black/40 text-white border-none opacity-0 group-hover:opacity-100 transition-all duration-300 h-10 w-10"
-      >
-        {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
       </Button>
       
       {/* Enhanced Banner indicators */}
