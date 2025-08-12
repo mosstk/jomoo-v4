@@ -13,8 +13,8 @@ const Footer = () => {
   return (
     <footer>
       {/* White divider line */}
-      <div className="container mx-auto px-4">
-        <div className="w-full h-px bg-white/30"></div>
+      <div className="mx-auto px-4" style={{ width: '1080px', maxWidth: '100%' }}>
+        <div className="w-full bg-white/30" style={{ height: '3px' }}></div>
       </div>
       
       {/* Main Footer Content - Transparent background to show main background */}
@@ -74,8 +74,7 @@ const Footer = () => {
       {/* Bottom Copyright with dark background */}
       <div className="bg-slate-800">
         <div className="mx-auto px-4" style={{ width: '1080px', maxWidth: '100%' }}>
-          <div className="pt-6 pb-8">
-            <div className="w-full h-0.5 bg-gray-600 mb-6"></div>
+          <div className="border-t border-gray-600 pt-6 pb-8">
             <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
               <p className="text-gray-400 text-xs">
                 © Copyright 2023 TOA Paint (Thailand) Public Company Limited. All rights reserved.
