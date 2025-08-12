@@ -29,14 +29,6 @@ const HeroSection = () => {
     setCurrentImageIndex((prev) => (prev - 1 + bannerImages.length) % bannerImages.length);
   };
 
-  const handleExploreProducts = () => {
-    console.log("Explore products clicked");
-  };
-
-  const handleLearnMore = () => {
-    console.log("Learn more clicked");
-  };
-
   return (
     <section 
       className="relative h-[60vh] md:min-h-screen overflow-hidden bg-transparent group" 
