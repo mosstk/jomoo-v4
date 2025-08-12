@@ -13,6 +13,7 @@ const ProductGrid = () => {
       title="Our Premium Collection"
       description=""
       backgroundImage=""
+      className="relative pt-0 pb-20"
     >
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 lg:gap-6 max-w-6xl mx-auto px-2 md:px-0">
         {products.map((product) => (
