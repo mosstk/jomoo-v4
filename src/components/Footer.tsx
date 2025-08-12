@@ -19,7 +19,7 @@ const Footer = () => {
       
       {/* Main Footer Content - Transparent background to show main background */}
       <div className="py-8">
-        <div className="container mx-auto px-4">
+        <div className="mx-auto px-4" style={{ width: '1080px', maxWidth: '100%' }}>
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8">
             {/* Left Side */}
             <div className="flex flex-col space-y-4 mb-6 lg:mb-0">
@@ -73,7 +73,7 @@ const Footer = () => {
 
       {/* Bottom Copyright with dark background */}
       <div className="bg-slate-800">
-        <div className="container mx-auto px-4">
+        <div className="mx-auto px-4" style={{ width: '1080px', maxWidth: '100%' }}>
           <div className="border-t border-gray-600 pt-6 pb-8">
             <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
               <p className="text-gray-400 text-xs">
