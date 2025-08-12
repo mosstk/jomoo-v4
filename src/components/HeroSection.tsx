@@ -31,11 +31,11 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="relative overflow-hidden bg-transparent group w-full max-w-[1400px] mx-auto" 
+      className="relative overflow-hidden bg-transparent group w-full max-w-[1120px] mx-auto" 
       style={{ 
         marginTop: '-80px', 
-        height: 'clamp(300px, 50vw, 734px)',
-        aspectRatio: '1400/734'
+        height: 'clamp(240px, 40vw, 587px)',
+        aspectRatio: '1120/587'
       }}
     >
       <HeroBackground 
