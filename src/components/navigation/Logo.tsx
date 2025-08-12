@@ -6,7 +6,7 @@ interface LogoProps {
   className?: string;
 }
 
-const Logo = ({ src, alt, className = "h-10 w-auto" }: LogoProps) => {
+const Logo = ({ src, alt, className = "w-full h-auto" }: LogoProps) => {
   return (
     <Link to="/" className="flex items-center cursor-pointer">
       <img 
