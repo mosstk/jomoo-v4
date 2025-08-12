@@ -22,7 +22,7 @@ const ProductCard = ({ name, image, onClick, className = "" }: ProductCardProps)
         />
       </div>
       <div className="mt-2 md:mt-4">
-        <h3 className="text-sm md:text-lg font-semibold text-foreground text-center">
+        <h3 className="text-base font-medium text-foreground text-center">
           {name}
         </h3>
       </div>
