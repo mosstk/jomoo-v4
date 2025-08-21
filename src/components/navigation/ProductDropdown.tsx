@@ -25,7 +25,7 @@ const ProductDropdown = () => {
         Product
         <ChevronDown size={16} />
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-[800px] p-6 bg-black/90 backdrop-blur-sm border-0 shadow-2xl z-50">
+      <DropdownMenuContent className="w-[800px] p-6 bg-black/90 backdrop-blur-sm border-0 shadow-2xl z-50" align="start" alignOffset={-200}>
         <div className="grid grid-cols-5 gap-6 mb-6">
           {/* แถวบน */}
           {topProducts.map((product) => (
