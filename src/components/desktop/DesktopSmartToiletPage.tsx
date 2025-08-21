@@ -8,12 +8,11 @@ const DesktopSmartToiletPage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[60vh]">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(/lovable-uploads/fe68ebd1-80f1-48dd-aa7d-03dec6c88f3a.png)'
-          }}
+      <section className="relative h-auto">
+        <img 
+          src="/lovable-uploads/fe68ebd1-80f1-48dd-aa7d-03dec6c88f3a.png"
+          alt="Smart Toilet Banner"
+          className="w-full h-auto object-contain"
         />
       </section>
 
