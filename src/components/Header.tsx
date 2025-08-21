@@ -75,14 +75,10 @@ const Header = () => {
                               }}
                             >
                               <img
-                                src={product.imageMobile}
+                                src={product.image}
                                 alt={product.name}
                                 className="w-16 h-16 mx-auto mb-2 object-cover rounded"
                                 loading="eager"
-                                onError={(e) => {
-                                  const target = e.target as HTMLImageElement;
-                                  target.src = product.image;
-                                }}
                               />
                               <h3 className="text-white text-xs font-medium group-hover:text-primary transition-colors">
                                 {product.name}
