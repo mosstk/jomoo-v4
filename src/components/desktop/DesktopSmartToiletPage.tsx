@@ -65,51 +65,6 @@ const DesktopSmartToiletPage = () => {
         </div>
       </section>
 
-      {/* Footer Section */}
-      <section className="bg-white py-16 border-t">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-start">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Follow TOA LIVING SPACE</h3>
-              <div className="flex gap-4">
-                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                  <span className="text-white text-sm">f</span>
-                </div>
-                <div className="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-sm">@</span>
-                </div>
-                <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-sm">▶</span>
-                </div>
-                <div className="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center">
-                  <span className="text-white text-sm">🌐</span>
-                </div>
-              </div>
-              <div className="mt-4">
-                <h4 className="font-semibold mb-2">Contact Showroom</h4>
-                <div className="w-6 h-6 bg-gray-400 rounded-full"></div>
-              </div>
-            </div>
-            <div className="max-w-md">
-              <p className="text-sm text-gray-600 mb-4">
-                Sign up to receive email, news, promotions<br />
-                and information about JOMOO.
-              </p>
-              <div className="flex gap-2">
-                <input 
-                  type="email" 
-                  placeholder="E-mail Address"
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded bg-gray-100"
-                />
-                <button className="px-6 py-2 bg-gray-400 text-white rounded">
-                  Sign Up
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </div>
   );
