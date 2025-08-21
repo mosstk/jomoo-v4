@@ -12,7 +12,7 @@ const DesktopSmartToiletPage = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'linear-gradient(135deg, #87CEEB 0%, #4682B4 50%, #2F4F4F 100%)'
+            backgroundImage: 'url(/lovable-uploads/fe68ebd1-80f1-48dd-aa7d-03dec6c88f3a.png)'
           }}
         />
         <div className="relative z-10 container mx-auto px-4 flex items-center justify-between">
