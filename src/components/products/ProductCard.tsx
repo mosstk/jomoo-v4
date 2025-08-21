@@ -1,13 +1,18 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ProductCardProps {
   name: string;
   image: string;
+  imageMobile: string;
   onClick?: () => void;
   className?: string;
 }
 
-const ProductCard = ({ name, image, onClick, className = "" }: ProductCardProps) => {
+const ProductCard = ({ name, image, imageMobile, onClick, className = "" }: ProductCardProps) => {
+  const isMobile = useIsMobile();
+  const displayImage = isMobile ? imageMobile : image;
+
   return (
     <div 
       className={`group cursor-pointer transition-all duration-300 hover:scale-105 ${className}`}
@@ -15,7 +20,7 @@ const ProductCard = ({ name, image, onClick, className = "" }: ProductCardProps)
     >
       <div className="aspect-square overflow-hidden relative group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all duration-500">
         <img 
-          src={image} 
+          src={displayImage} 
           alt={name}
           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
           style={{ imageRendering: 'crisp-edges' }}
