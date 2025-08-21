@@ -76,17 +76,17 @@ const Header = () => {
                               }}
                             >
                               <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 rounded-lg p-3 hover:from-slate-600/60 hover:to-slate-700/60 transition-all duration-300 border border-slate-500/30 hover:border-primary/40">
-                                <div className="aspect-square overflow-hidden rounded-lg mb-2 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                                  {product.id === "1" && <Bath className="w-12 h-12 text-blue-600" />}
-                                  {product.id === "2" && <Bath className="w-12 h-12 text-blue-600" />}
-                                  {product.id === "3" && <Bath className="w-12 h-12 text-blue-600" />}
-                                  {product.id === "4" && <Bath className="w-12 h-12 text-blue-600" />}
-                                  {product.id === "5" && <Droplets className="w-12 h-12 text-blue-600" />}
-                                  {product.id === "6" && <Wrench className="w-12 h-12 text-blue-600" />}
-                                  {product.id === "7" && <Droplets className="w-12 h-12 text-blue-600" />}
-                                  {product.id === "8" && <Droplets className="w-12 h-12 text-blue-600" />}
-                                  {product.id === "9" && <Bath className="w-12 h-12 text-blue-600" />}
-                                  {product.id === "10" && <Package className="w-12 h-12 text-blue-600" />}
+                                <div 
+                                  className="aspect-square overflow-hidden rounded-lg mb-2 bg-white/10 flex items-center justify-center bg-cover bg-center bg-no-repeat"
+                                  style={{
+                                    backgroundImage: `url(${product.image})`,
+                                    backgroundColor: '#e2e8f0'
+                                  }}
+                                >
+                                  {/* Fallback text if image doesn't load */}
+                                  <span className="text-xs text-slate-600 text-center p-2 bg-white/80 rounded opacity-50">
+                                    {product.name.split(' ')[0]}
+                                  </span>
                                 </div>
                                 <h3 className="text-white text-xs font-medium text-center leading-tight group-hover:text-primary transition-colors">
                                   {product.name}
