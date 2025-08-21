@@ -42,7 +42,7 @@ const ProductDropdown = () => {
         <div className="grid grid-cols-5 gap-4 mb-2">
           {/* แถวบน */}
           {topProducts.map((product) => (
-            <DropdownMenuItem key={product?.id} className="flex flex-col items-start p-2 cursor-pointer hover:bg-blue-500/20 focus:bg-blue-500/20 min-w-0 rounded">
+            <DropdownMenuItem key={product?.id} className="flex flex-col items-start p-2 cursor-pointer hover:bg-blue-500/30 focus:bg-blue-500/30 min-w-0 rounded">
               <div className="text-white text-xs font-normal pb-1 border-b border-white/30 w-full whitespace-nowrap overflow-hidden text-ellipsis">
                 {product?.name}
               </div>
@@ -52,7 +52,7 @@ const ProductDropdown = () => {
         <div className="grid grid-cols-5 gap-4">
           {/* แถวล่าง */}
           {bottomProducts.map((product) => (
-            <DropdownMenuItem key={product?.id} className="flex flex-col items-start p-2 cursor-pointer hover:bg-blue-500/20 focus:bg-blue-500/20 min-w-0 rounded">
+            <DropdownMenuItem key={product?.id} className="flex flex-col items-start p-2 cursor-pointer hover:bg-blue-500/30 focus:bg-blue-500/30 min-w-0 rounded">
               <div className="text-white text-xs font-normal pb-1 border-b border-white/30 w-full whitespace-nowrap overflow-hidden text-ellipsis">
                 {product?.name}
               </div>
