@@ -25,20 +25,24 @@ const ProductDropdown = () => {
         Product
         <ChevronDown size={16} />
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-96 p-4 bg-background border border-border shadow-lg z-50">
-        <div className="grid grid-cols-5 gap-4">
+      <DropdownMenuContent className="w-[600px] p-6 bg-black/90 backdrop-blur-sm border-0 shadow-2xl z-50">
+        <div className="grid grid-cols-5 gap-8 mb-6">
           {/* แถวบน */}
           {topProducts.map((product) => (
-            <DropdownMenuItem key={product?.id} className="flex flex-col items-center p-2 cursor-pointer">
-              <div className="text-sm font-medium text-center">{product?.name}</div>
+            <DropdownMenuItem key={product?.id} className="flex flex-col items-start p-0 cursor-pointer hover:bg-transparent focus:bg-transparent">
+              <div className="text-white text-sm font-normal pb-2 border-b border-white/30 w-full">
+                {product?.name}
+              </div>
             </DropdownMenuItem>
           ))}
         </div>
-        <div className="grid grid-cols-5 gap-4 mt-4">
+        <div className="grid grid-cols-5 gap-8">
           {/* แถวล่าง */}
           {bottomProducts.map((product) => (
-            <DropdownMenuItem key={product?.id} className="flex flex-col items-center p-2 cursor-pointer">
-              <div className="text-sm font-medium text-center">{product?.name}</div>
+            <DropdownMenuItem key={product?.id} className="flex flex-col items-start p-0 cursor-pointer hover:bg-transparent focus:bg-transparent">
+              <div className="text-white text-sm font-normal pb-2 border-b border-white/30 w-full">
+                {product?.name}
+              </div>
             </DropdownMenuItem>
           ))}
         </div>
