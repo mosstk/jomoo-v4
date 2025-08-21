@@ -1,10 +1,19 @@
 import { ChevronDown } from "lucide-react";
 import { products } from "@/data/products";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CustomProductDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
+  const navigate = useNavigate();
+
+  const handleProductClick = (productName: string) => {
+    if (productName === "Smart Toilet") {
+      navigate("/smart-toilet");
+    }
+    setIsOpen(false);
+  };
 
   const handleMouseEnter = () => {
     if (hoverTimeout) {
@@ -53,7 +62,11 @@ const CustomProductDropdown = () => {
           <div className="grid grid-cols-5 gap-4 mb-2">
             {/* แถวบน */}
             {topProducts.map((product) => (
-              <div key={product?.id} className="flex flex-col items-start p-2 cursor-pointer hover:bg-blue-500/30 focus:bg-blue-500/30 min-w-0 rounded">
+              <div 
+                key={product?.id} 
+                className="flex flex-col items-start p-2 cursor-pointer hover:bg-blue-500/30 focus:bg-blue-500/30 min-w-0 rounded"
+                onClick={() => handleProductClick(product?.name || "")}
+              >
                 <div className="text-white text-xs font-normal pb-1 border-b border-white/30 w-full whitespace-nowrap overflow-hidden text-ellipsis">
                   {product?.name}
                 </div>
@@ -63,7 +76,11 @@ const CustomProductDropdown = () => {
           <div className="grid grid-cols-5 gap-4">
             {/* แถวล่าง */}
             {bottomProducts.map((product) => (
-              <div key={product?.id} className="flex flex-col items-start p-2 cursor-pointer hover:bg-blue-500/30 focus:bg-blue-500/30 min-w-0 rounded">
+              <div 
+                key={product?.id} 
+                className="flex flex-col items-start p-2 cursor-pointer hover:bg-blue-500/30 focus:bg-blue-500/30 min-w-0 rounded"
+                onClick={() => handleProductClick(product?.name || "")}
+              >
                 <div className="text-white text-xs font-normal pb-1 border-b border-white/30 w-full whitespace-nowrap overflow-hidden text-ellipsis">
                   {product?.name}
                 </div>
