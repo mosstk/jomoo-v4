@@ -48,7 +48,11 @@ const DesktopSmartToiletPage = () => {
                   />
                 </div>
                 <div className="p-6 text-center">
-                  <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
+                  <h2 className="text-3xl font-bold mb-4">{product.name}</h2>
+                  <p className="text-gray-600 mb-4">{product.description} {product.model}</p>
+                  <button className="bg-black text-white px-8 py-2 rounded-full hover:bg-gray-800 transition-colors">
+                    รายละเอียดเพิ่มเติม
+                  </button>
                 </div>
               </div>
             ))}
