@@ -64,46 +64,21 @@ const Header = () => {
                       {/* Product Sub Menu */}
                       <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isProductMenuExpanded ? 'max-h-[1200px] opacity-100' : 'max-h-0 opacity-0'}`}>
                         <div className="grid grid-cols-2 gap-3 mt-4 p-4 bg-gradient-to-br from-slate-900/90 to-slate-800/90 rounded-lg border border-slate-600/50">
-                          <div className="group cursor-pointer transition-all duration-300 hover:scale-105 text-center">
-                            <img src="/lovable-uploads/49806441-47b2-4281-a536-367f90a934e2.png" alt="Smart Toilet" className="w-16 h-16 mx-auto mb-2 object-cover rounded"/>
-                            <h3 className="text-white text-xs font-medium group-hover:text-primary transition-colors">Smart Toilet</h3>
-                          </div>
-                          <div className="group cursor-pointer transition-all duration-300 hover:scale-105 text-center">
-                            <img src="/lovable-uploads/123c236d-877a-454c-aa97-0b4e863c2cd3.png" alt="One Piece Toilet" className="w-16 h-16 mx-auto mb-2 object-cover rounded"/>
-                            <h3 className="text-white text-xs font-medium group-hover:text-primary transition-colors">One Piece Toilet</h3>
-                          </div>
-                          <div className="group cursor-pointer transition-all duration-300 hover:scale-105 text-center">
-                            <img src="/lovable-uploads/87d356b6-06b6-4d40-b8be-3ee3602b5696.png" alt="Basin" className="w-16 h-16 mx-auto mb-2 object-cover rounded"/>
-                            <h3 className="text-white text-xs font-medium group-hover:text-primary transition-colors">Basin</h3>
-                          </div>
-                          <div className="group cursor-pointer transition-all duration-300 hover:scale-105 text-center">
-                            <img src="/lovable-uploads/8c2b74dd-e09f-4961-9633-b580aea42e95.png" alt="Bathtub" className="w-16 h-16 mx-auto mb-2 object-cover rounded"/>
-                            <h3 className="text-white text-xs font-medium group-hover:text-primary transition-colors">Bathtub</h3>
-                          </div>
-                          <div className="group cursor-pointer transition-all duration-300 hover:scale-105 text-center">
-                            <img src="/lovable-uploads/21c4a65f-792e-4c44-831b-e5d9b19ec2ae.png" alt="Shower Enclosure" className="w-16 h-16 mx-auto mb-2 object-cover rounded"/>
-                            <h3 className="text-white text-xs font-medium group-hover:text-primary transition-colors">Shower Enclosure</h3>
-                          </div>
-                          <div className="group cursor-pointer transition-all duration-300 hover:scale-105 text-center">
-                            <img src="/lovable-uploads/76924a76-4772-4b47-a1a2-4ebc9494f234.png" alt="Faucet" className="w-16 h-16 mx-auto mb-2 object-cover rounded"/>
-                            <h3 className="text-white text-xs font-medium group-hover:text-primary transition-colors">Faucet</h3>
-                          </div>
-                          <div className="group cursor-pointer transition-all duration-300 hover:scale-105 text-center">
-                            <img src="/lovable-uploads/94950574-5d69-4097-85af-ee7d4927c2be.png" alt="Rain Shower" className="w-16 h-16 mx-auto mb-2 object-cover rounded"/>
-                            <h3 className="text-white text-xs font-medium group-hover:text-primary transition-colors">Rain Shower</h3>
-                          </div>
-                          <div className="group cursor-pointer transition-all duration-300 hover:scale-105 text-center">
-                            <img src="/lovable-uploads/72cd55b0-754e-4fd8-9ad7-4cb9596e00aa.png" alt="Bidet Sprayer" className="w-16 h-16 mx-auto mb-2 object-cover rounded"/>
-                            <h3 className="text-white text-xs font-medium group-hover:text-primary transition-colors">Bidet Sprayer</h3>
-                          </div>
-                          <div className="group cursor-pointer transition-all duration-300 hover:scale-105 text-center">
-                            <img src="/lovable-uploads/3b319425-03a1-4c7a-9f22-8aaddfa88000.png" alt="Urinal" className="w-16 h-16 mx-auto mb-2 object-cover rounded"/>
-                            <h3 className="text-white text-xs font-medium group-hover:text-primary transition-colors">Urinal</h3>
-                          </div>
-                          <div className="group cursor-pointer transition-all duration-300 hover:scale-105 text-center">
-                            <img src="/lovable-uploads/43b4b548-71a6-4327-93ae-90547e01ef13.png" alt="Accessories" className="w-16 h-16 mx-auto mb-2 object-cover rounded"/>
-                            <h3 className="text-white text-xs font-medium group-hover:text-primary transition-colors">Accessories</h3>
-                          </div>
+                          {products.map((product) => (
+                            <div key={product.id} className="group cursor-pointer transition-all duration-300 hover:scale-105 text-center">
+                              <img 
+                                src={product.imageMobile} 
+                                alt={product.name} 
+                                className="w-16 h-16 mx-auto mb-2 object-cover rounded"
+                                loading="eager"
+                                onError={(e) => {
+                                  const target = e.target as HTMLImageElement;
+                                  target.src = product.image; // fallback ไปใช้รูป desktop ถ้ารูป mobile โหลดไม่ได้
+                                }}
+                              />
+                              <h3 className="text-white text-xs font-medium group-hover:text-primary transition-colors">{product.name}</h3>
+                            </div>
+                          ))}
                         </div>
                       </div>
                     </div>
