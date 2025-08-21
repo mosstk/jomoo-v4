@@ -17,12 +17,9 @@ const MobileLayout = () => {
             alt="TOA Logo" 
             className="h-10 w-auto object-contain"
           />
-          <span className="text-white text-2xl font-bold">|</span>
-          <span className="text-white text-2xl font-bold">JOMOO</span>
         </div>
-        <p className="text-white text-center text-base px-6 leading-relaxed max-w-md">
-          Just make sure the visitor can know it is TOA | JOMOO.<br />
-          And you are selling JOMOO products
+        <p className="text-white text-center text-sm px-6 leading-relaxed max-w-xs">
+          Just make sure the visitor can know it is TOA | JOMOO. And you are selling JOMOO products
         </p>
       </div>
       
