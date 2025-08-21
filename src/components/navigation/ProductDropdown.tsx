@@ -33,7 +33,7 @@ const ProductDropdown = () => {
         <ChevronDown size={16} />
       </DropdownMenuTrigger>
       <DropdownMenuContent 
-        className="w-[750px] p-4 bg-black/65 backdrop-blur-md border-0 shadow-2xl z-50" 
+        className="w-[750px] p-4 bg-black/20 backdrop-blur-md border-0 shadow-2xl z-50" 
         align="start" 
         alignOffset={0}
         onMouseEnter={() => setIsOpen(true)}
