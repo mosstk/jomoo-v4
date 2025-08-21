@@ -3,8 +3,9 @@ import DesktopLayout from "@/components/desktop/DesktopLayout";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
-  // Force mobile view for testing
-  return <MobileLayout />;
+  const isMobile = useIsMobile();
+
+  return isMobile ? <MobileLayout /> : <DesktopLayout />;
 };
 
 export default Index;
