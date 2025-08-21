@@ -21,7 +21,7 @@ const Index = () => {
       <HeroSection />
       
       {/* TOA JOMOO Logo and Message */}
-      <div className="flex flex-col items-center pt-8 pb-[15px] bg-transparent">
+      <div className="flex flex-col items-center pt-8 pb-0 bg-transparent">
         <img 
           src="/lovable-uploads/fbb21cd6-6867-4142-a293-5a5ad5f201ae.png" 
           alt="TOA JOMOO Logo" 
