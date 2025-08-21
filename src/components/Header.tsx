@@ -64,19 +64,34 @@ const Header = () => {
                       {/* Product Sub Menu */}
                       <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isProductMenuExpanded ? 'max-h-[1200px] opacity-100' : 'max-h-0 opacity-0'}`}>
                         <div className="grid grid-cols-2 gap-3 mt-4 p-4 bg-gradient-to-br from-slate-900/90 to-slate-800/90 rounded-lg border border-slate-600/50">
-                          {products.map((product) => (
-                            <div key={product.id} className="group cursor-pointer transition-all duration-300 hover:scale-105 text-center">
-                              <img 
-                                src={product.imageMobile} 
-                                alt={product.name} 
-                                className="w-16 h-16 mx-auto mb-2 object-cover rounded"
-                                loading="eager"
-                                onError={(e) => {
-                                  const target = e.target as HTMLImageElement;
-                                  target.src = product.image; // fallback ไปใช้รูป desktop ถ้ารูป mobile โหลดไม่ได้
-                                }}
-                              />
-                              <h3 className="text-white text-xs font-medium group-hover:text-primary transition-colors">{product.name}</h3>
+                          {products.map((product, index) => (
+                            <div
+                              key={product.id}
+                              className="group cursor-pointer transition-all duration-300 hover:scale-105 animate-fade-in"
+                              style={{ animationDelay: `${index * 80}ms` }}
+                              onClick={() => {
+                                console.log(`Product selected: ${product.name}`);
+                                setIsMobileMenuOpen(false);
+                                setIsProductMenuExpanded(false);
+                              }}
+                            >
+                              <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 rounded-lg p-3 hover:from-slate-600/60 hover:to-slate-700/60 transition-all duration-300 border border-slate-500/30 hover:border-primary/40">
+                                <div className="aspect-square overflow-hidden rounded-lg mb-2 bg-white/5 flex items-center justify-center">
+                                  <img
+                                    src={product.imageMobile}
+                                    alt={product.name}
+                                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                                    loading="lazy"
+                                    onError={(e) => {
+                                      console.log(`Failed to load image: ${product.imageMobile}`);
+                                      e.currentTarget.style.display = 'none';
+                                    }}
+                                  />
+                                </div>
+                                <h3 className="text-white text-xs font-medium text-center leading-tight group-hover:text-primary transition-colors">
+                                  {product.name}
+                                </h3>
+                              </div>
                             </div>
                           ))}
                         </div>
