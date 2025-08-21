@@ -10,7 +10,7 @@ const DesktopUniralPage = () => {
       {/* Hero Section */}
       <section className="relative h-auto">
         <img 
-          src="/lovable-uploads/a5329036-7457-4db3-908d-4fcdeabcbd2c.png"
+          src="/lovable-uploads/c5df9891-85eb-467f-93f8-8263fa34e13c.png"
           alt="Uniral Banner"
           className="w-full h-auto object-contain"
         />
