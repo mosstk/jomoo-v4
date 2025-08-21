@@ -3,17 +3,16 @@ import { Menu, X } from "lucide-react";
 import Logo from "@/components/navigation/Logo";
 import NavigationMenu from "@/components/navigation/NavigationMenu";
 import ActionButtons from "@/components/navigation/ActionButtons";
-import MobileProductMenu from "@/components/mobile/MobileProductMenu";
 import { navigationItems } from "@/data/navigation";
+import { products } from "@/data/products";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobileProductMenuOpen, setIsMobileProductMenuOpen] = useState(false);
+  const [isProductMenuExpanded, setIsProductMenuExpanded] = useState(false);
 
   const handleMobileProductClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    setIsMobileProductMenuOpen(true);
-    setIsMobileMenuOpen(false);
+    setIsProductMenuExpanded(!isProductMenuExpanded);
   };
 
   return (
@@ -50,13 +49,44 @@ const Header = () => {
             <nav className="flex flex-col space-y-4 mt-4">
               {navigationItems.map((item) => (
                 item.label === "Product" ? (
-                  <button
-                    key={item.label}
-                    onClick={handleMobileProductClick}
-                    className="text-foreground hover:text-primary transition-colors font-medium py-2 text-left"
-                  >
-                    {item.label}
-                  </button>
+                  <div key={item.label}>
+                    <button
+                      onClick={handleMobileProductClick}
+                      className="text-foreground hover:text-primary transition-colors font-medium py-2 text-left w-full flex items-center justify-between"
+                    >
+                      <span>{item.label}</span>
+                      <span className={`transition-transform duration-300 ${isProductMenuExpanded ? 'rotate-180' : ''}`}>
+                        ▼
+                      </span>
+                    </button>
+                    
+                    {/* Product Sub Menu */}
+                    <div className={`overflow-hidden transition-all duration-300 ${isProductMenuExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                      <div className="grid grid-cols-2 gap-3 mt-3 pl-4">
+                        {products.map((product, index) => (
+                          <div
+                            key={product.id}
+                            className="group cursor-pointer transition-all duration-300 hover:scale-105"
+                            style={{ animationDelay: `${index * 50}ms` }}
+                          >
+                            <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg p-3 hover:from-primary/15 hover:to-primary/10 transition-all duration-300 border border-primary/20 hover:border-primary/40">
+                              <div className="aspect-square overflow-hidden rounded-lg mb-2 bg-white/5">
+                                <img
+                                  src={product.imageMobile}
+                                  alt={product.name}
+                                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                  loading="lazy"
+                                />
+                              </div>
+                              <h3 className="text-foreground text-xs font-medium text-center leading-tight group-hover:text-primary transition-colors">
+                                {product.name}
+                              </h3>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 ) : (
                   <a 
                     key={item.label}
@@ -75,12 +105,6 @@ const Header = () => {
           </div>
         )}
       </div>
-
-      {/* Mobile Product Menu */}
-      <MobileProductMenu 
-        isOpen={isMobileProductMenuOpen}
-        onClose={() => setIsMobileProductMenuOpen(false)}
-      />
     </header>
   );
 };
