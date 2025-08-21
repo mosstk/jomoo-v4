@@ -19,15 +19,11 @@ const DesktopSmartToiletPage = () => {
       {/* TOA | JOMOO Logo Section */}
       <section className="bg-white py-8">
         <div className="container mx-auto px-4 text-center">
-          <div className="flex items-center justify-center gap-4">
-            <img 
-              src="/lovable-uploads/ac4ab13c-fd1d-4f37-af92-0deb14387cfd.png" 
-              alt="TOA Logo" 
-              className="h-16 w-auto object-contain"
-            />
-            <span className="text-3xl font-bold text-gray-600">|</span>
-            <span className="text-3xl font-bold text-gray-800">JOMOO</span>
-          </div>
+          <img 
+            src="/lovable-uploads/71ce025e-b030-4065-ab22-8ca999d67ebc.png" 
+            alt="TOA | JOMOO Logo" 
+            className="h-16 w-auto object-contain mx-auto"
+          />
         </div>
       </section>
 
