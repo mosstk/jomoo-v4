@@ -9,9 +9,9 @@ interface LogoProps {
 const Logo = ({ src, alt, className = "h-[45px] w-auto" }: LogoProps) => {
   return (
     <Link to="/" className="flex items-center cursor-pointer">
-      <span className="text-white text-xl">
-        <span className="font-bold">TOA</span>{" "}
-        <span className="font-normal">Living Space</span>
+      <span className="text-white">
+        <span className="font-bold text-2xl">TOA</span>{" "}
+        <span className="font-normal text-lg">Living Space</span>
       </span>
     </Link>
   );
