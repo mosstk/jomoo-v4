@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Bath, Wrench, Settings, Droplets, Package, Toilet, Waves, ShowerHead, Square } from "lucide-react";
+import { Menu, X, Bath, Wrench, Settings, Droplets, Package, Toilet, Waves, ShowerHead, Square, Salad } from "lucide-react";
 import Logo from "@/components/navigation/Logo";
 import NavigationMenu from "@/components/navigation/NavigationMenu";
 import ActionButtons from "@/components/navigation/ActionButtons";
@@ -14,7 +14,7 @@ const Header = () => {
     switch (productName) {
       case "Smart Toilet": return Settings;
       case "One Piece Toilet": return Toilet;
-      case "Basin": return Bath;
+      case "Basin": return Salad;
       case "Bathtub": return Bath;
       case "Shower Enclosure": return Square;
       case "Faucet": return Droplets;
