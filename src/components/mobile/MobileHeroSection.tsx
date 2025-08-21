@@ -21,7 +21,7 @@ const MobileHeroSection = () => {
   return (
     <section className="relative w-full bg-[#1a1f2e] overflow-hidden">
       {/* Hero Banner Carousel */}
-      <div className="relative w-full aspect-[9/16] sm:aspect-[4/3]">
+      <div className="relative w-full" style={{ aspectRatio: '414/517' }}>
         <div className="relative w-full h-full overflow-hidden">
           {bannerImages.map((image, index) => (
             <div
