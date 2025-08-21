@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Bath, Wrench, Settings, Droplets, Package } from "lucide-react";
 import Logo from "@/components/navigation/Logo";
 import NavigationMenu from "@/components/navigation/NavigationMenu";
 import ActionButtons from "@/components/navigation/ActionButtons";
@@ -76,12 +76,17 @@ const Header = () => {
                               }}
                             >
                               <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 rounded-lg p-3 hover:from-slate-600/60 hover:to-slate-700/60 transition-all duration-300 border border-slate-500/30 hover:border-primary/40">
-                                <div className="aspect-square overflow-hidden rounded-lg mb-2 bg-white/5 flex items-center justify-center">
-                                  <img
-                                    src={product.image}
-                                    alt={product.name}
-                                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-                                  />
+                                <div className="aspect-square overflow-hidden rounded-lg mb-2 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                                  {product.id === "1" && <Bath className="w-12 h-12 text-blue-600" />}
+                                  {product.id === "2" && <Bath className="w-12 h-12 text-blue-600" />}
+                                  {product.id === "3" && <Bath className="w-12 h-12 text-blue-600" />}
+                                  {product.id === "4" && <Bath className="w-12 h-12 text-blue-600" />}
+                                  {product.id === "5" && <Droplets className="w-12 h-12 text-blue-600" />}
+                                  {product.id === "6" && <Wrench className="w-12 h-12 text-blue-600" />}
+                                  {product.id === "7" && <Droplets className="w-12 h-12 text-blue-600" />}
+                                  {product.id === "8" && <Droplets className="w-12 h-12 text-blue-600" />}
+                                  {product.id === "9" && <Bath className="w-12 h-12 text-blue-600" />}
+                                  {product.id === "10" && <Package className="w-12 h-12 text-blue-600" />}
                                 </div>
                                 <h3 className="text-white text-xs font-medium text-center leading-tight group-hover:text-primary transition-colors">
                                   {product.name}
