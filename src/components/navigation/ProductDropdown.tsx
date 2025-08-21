@@ -39,7 +39,7 @@ const ProductDropdown = () => {
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
       >
-        <div className="grid grid-cols-5 gap-4 mb-4">
+        <div className="grid grid-cols-5 gap-4 mb-2">
           {/* แถวบน */}
           {topProducts.map((product) => (
             <DropdownMenuItem key={product?.id} className="flex flex-col items-start p-2 cursor-pointer hover:bg-blue-500/20 focus:bg-blue-500/20 min-w-0 rounded">
