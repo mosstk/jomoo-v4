@@ -63,11 +63,11 @@ const Header = () => {
                       
                       {/* Product Sub Menu */}
                       <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isProductMenuExpanded ? 'max-h-[1200px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                        <div className="grid grid-cols-2 gap-3 mt-4 p-4 bg-gradient-to-br from-slate-900/90 to-slate-800/90 rounded-lg border border-slate-600/50">
+                        <div className="mt-4 p-4 bg-gradient-to-br from-slate-900/90 to-slate-800/90 rounded-lg border border-slate-600/50">
                           {mobileProducts.map((product, index) => (
                             <div
                               key={product.id}
-                              className="group cursor-pointer transition-all duration-300 hover:scale-105 animate-fade-in"
+                              className="group cursor-pointer transition-all duration-300 hover:scale-105 animate-fade-in border-b border-slate-600/30 last:border-b-0"
                               style={{ animationDelay: `${index * 80}ms` }}
                               onClick={() => {
                                 console.log(`Product selected: ${product.name}`);
@@ -75,24 +75,8 @@ const Header = () => {
                                 setIsProductMenuExpanded(false);
                               }}
                             >
-                              <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 rounded-lg p-3 hover:from-slate-600/60 hover:to-slate-700/60 transition-all duration-300 border border-slate-500/30 hover:border-primary/40">
-                                <div className="aspect-square overflow-hidden rounded-lg mb-2 bg-white/10 flex items-center justify-center">
-                                  <img 
-                                    src={product.image} 
-                                    alt={product.name}
-                                    className="w-full h-full object-cover rounded-lg"
-                                    onError={(e) => {
-                                      const img = e.currentTarget as HTMLImageElement;
-                                      const fallback = img.nextElementSibling as HTMLSpanElement;
-                                      img.style.display = 'none';
-                                      if (fallback) fallback.style.display = 'flex';
-                                    }}
-                                  />
-                                  <span className="text-xs text-slate-600 text-center p-2 bg-white/80 rounded opacity-50 hidden">
-                                    {product.name.split(' ')[0]}
-                                  </span>
-                                </div>
-                                <h3 className="text-white text-xs font-medium text-center leading-tight group-hover:text-primary transition-colors">
+                              <div className="py-3 px-2 hover:bg-slate-700/40 rounded transition-all duration-300">
+                                <h3 className="text-white text-sm font-medium group-hover:text-primary transition-colors">
                                   {product.name}
                                 </h3>
                               </div>
