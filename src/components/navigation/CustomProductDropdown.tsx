@@ -17,6 +17,8 @@ const CustomProductDropdown = () => {
       navigate("/basin");
     } else if (productName === "Bathtub") {
       navigate("/bath");
+    } else if (productName === "Shower Enclosure") {
+      navigate("/shower");
     }
     setIsOpen(false);
   };
