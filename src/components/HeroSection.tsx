@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 const HeroSection = () => {
   const bannerImages = [
     "/lovable-uploads/banner-1-no-text.png",
-    "/lovable-uploads/banner-2-no-text.png", 
+    "/lovable-uploads/781669a4-f938-428c-91ed-01e7bb918b6d.png", 
     "/lovable-uploads/banner-3-no-text.png"
   ];
 
