@@ -198,7 +198,10 @@
     display: none;
   }
   
-  [data-radix-popper-content-wrapper] {
-    max-width: calc(100vw - 40px) !important;
+  /* Target Radix Portal specifically */
+  [data-radix-popper-content-wrapper],
+  [data-radix-dropdown-menu-content] {
+    max-width: calc(100vw - 80px) !important;
+    transform: translateX(-25px) !important;
   }
 }
