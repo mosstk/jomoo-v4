@@ -76,17 +76,11 @@ const Header = () => {
                               }}
                             >
                               <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 rounded-lg p-3 hover:from-slate-600/60 hover:to-slate-700/60 transition-all duration-300 border border-slate-500/30 hover:border-primary/40">
-                                <div className="aspect-square overflow-hidden rounded-lg mb-2 bg-slate-600/30 flex items-center justify-center p-2">
+                                <div className="aspect-square overflow-hidden rounded-lg mb-2 bg-slate-800/50">
                                   <img
                                     src={product.imageMobile}
                                     alt={product.name}
-                                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-                                    loading="eager"
-                                    onLoad={() => console.log(`Image loaded: ${product.name}`)}
-                                    onError={(e) => {
-                                      console.error(`Failed to load image for ${product.name}: ${product.imageMobile}`);
-                                      e.currentTarget.src = `data:image/svg+xml;base64,${btoa(`<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="#374151"/><text x="50" y="55" font-family="Arial" font-size="12" fill="white" text-anchor="middle">${product.name}</text></svg>`)}`;
-                                    }}
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                   />
                                 </div>
                                 <h3 className="text-white text-xs font-medium text-center leading-tight group-hover:text-primary transition-colors">
