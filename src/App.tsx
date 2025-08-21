@@ -9,7 +9,7 @@ import SmartToilet from "./pages/SmartToilet";
 import OnePieceToilet from "./pages/OnePieceToilet";
 import Basin from "./pages/Basin";
 import Bath from "./pages/Bath";
-import Shower from "./pages/Shower";
+import ShowerEnclosure from "./pages/ShowerEnclosure";
 import Inspiration from "./pages/Inspiration";
 import Service from "./pages/Service";
 import AboutUs from "./pages/AboutUs";
@@ -31,7 +31,7 @@ const App = () => (
           <Route path="/one-piece-toilet" element={<OnePieceToilet />} />
           <Route path="/basin" element={<Basin />} />
           <Route path="/bath" element={<Bath />} />
-          <Route path="/shower" element={<Shower />} />
+          <Route path="/shower-enclosure" element={<ShowerEnclosure />} />
           <Route path="/inspiration" element={<Inspiration />} />
           <Route path="/service" element={<Service />} />
           <Route path="/about-us" element={<AboutUs />} />
