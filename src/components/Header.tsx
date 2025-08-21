@@ -76,18 +76,20 @@ const Header = () => {
                               }}
                             >
                               <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 rounded-lg p-3 hover:from-slate-600/60 hover:to-slate-700/60 transition-all duration-300 border border-slate-500/30 hover:border-primary/40">
-                                <div className="w-full h-20 mb-2 bg-gray-100 rounded-lg flex items-center justify-center">
-                                  <img
-                                    src={`https://bd1e5955-9b8f-4531-9a51-5472005109a5.sandbox.lovable.dev${product.imageMobile}`}
-                                    alt={product.name}
-                                    className="max-w-full max-h-full object-contain"
-                                    onLoad={() => console.log(`Image loaded: ${product.name}`)}
-                                    onError={(e) => {
-                                      console.error(`Image failed: ${product.imageMobile}`);
-                                      e.currentTarget.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjNDc0NzQ3Ii8+Cjx0ZXh0IHg9IjIwIiB5PSIyNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iOCI+SW1hZ2U8L3RleHQ+Cjwvc3ZnPgo=";
-                                    }}
-                                  />
-                                </div>
+                                <img
+                                  src={product.imageMobile}
+                                  alt={product.name}
+                                  width="80"
+                                  height="80"
+                                  style={{ 
+                                    display: 'block',
+                                    width: '80px',
+                                    height: '80px',
+                                    objectFit: 'contain',
+                                    margin: '0 auto 8px auto',
+                                    backgroundColor: '#f3f4f6'
+                                  }}
+                                />
                                 <h3 className="text-white text-xs font-medium text-center leading-tight group-hover:text-primary transition-colors">
                                   {product.name}
                                 </h3>
