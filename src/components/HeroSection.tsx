@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   const bannerImages = [
-    "/lovable-uploads/banner-1-no-text.png",
-    "/lovable-uploads/781669a4-f938-428c-91ed-01e7bb918b6d.png", 
-    "/lovable-uploads/banner-3-no-text.png"
+    "/lovable-uploads/43dfaf93-72c8-47d1-bc4d-a393734006e7.png",
+    "/lovable-uploads/e6b5c584-c03d-4de5-97a2-5b655f7d50a9.png",
+    "/lovable-uploads/e44145de-6665-449f-a669-bc78646e2090.png"
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
