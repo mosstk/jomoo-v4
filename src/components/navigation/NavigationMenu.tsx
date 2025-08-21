@@ -1,3 +1,5 @@
+import ProductDropdown from "./ProductDropdown";
+
 interface NavigationItem {
   label: string;
   href: string;
@@ -12,13 +14,17 @@ const NavigationMenu = ({ items, className = "hidden md:flex items-center space-
   return (
     <nav className={className}>
       {items.map((item) => (
-        <a 
-          key={item.label}
-          href={item.href} 
-          className="text-foreground hover:text-primary transition-colors font-medium"
-        >
-          {item.label}
-        </a>
+        item.label === "Product" ? (
+          <ProductDropdown key={item.label} />
+        ) : (
+          <a 
+            key={item.label}
+            href={item.href} 
+            className="text-foreground hover:text-primary transition-colors font-medium"
+          >
+            {item.label}
+          </a>
+        )
       ))}
     </nav>
   );
