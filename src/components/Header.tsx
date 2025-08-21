@@ -76,15 +76,19 @@ const Header = () => {
                               }}
                             >
                               <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 rounded-lg p-3 hover:from-slate-600/60 hover:to-slate-700/60 transition-all duration-300 border border-slate-500/30 hover:border-primary/40">
-                                <div 
-                                  className="aspect-square overflow-hidden rounded-lg mb-2 bg-white/10 flex items-center justify-center bg-cover bg-center bg-no-repeat"
-                                  style={{
-                                    backgroundImage: `url(${product.image})`,
-                                    backgroundColor: '#e2e8f0'
-                                  }}
-                                >
-                                  {/* Fallback text if image doesn't load */}
-                                  <span className="text-xs text-slate-600 text-center p-2 bg-white/80 rounded opacity-50">
+                                <div className="aspect-square overflow-hidden rounded-lg mb-2 bg-white/10 flex items-center justify-center">
+                                  <img 
+                                    src={product.image} 
+                                    alt={product.name}
+                                    className="w-full h-full object-cover rounded-lg"
+                                    onError={(e) => {
+                                      const img = e.currentTarget as HTMLImageElement;
+                                      const fallback = img.nextElementSibling as HTMLSpanElement;
+                                      img.style.display = 'none';
+                                      if (fallback) fallback.style.display = 'flex';
+                                    }}
+                                  />
+                                  <span className="text-xs text-slate-600 text-center p-2 bg-white/80 rounded opacity-50 hidden">
                                     {product.name.split(' ')[0]}
                                   </span>
                                 </div>
