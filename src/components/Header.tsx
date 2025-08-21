@@ -52,25 +52,30 @@ const Header = () => {
                   <div key={item.label}>
                     <button
                       onClick={handleMobileProductClick}
-                      className="text-foreground hover:text-primary transition-colors font-medium py-2 text-left w-full flex items-center justify-between"
+                      className="text-foreground hover:text-primary transition-colors font-medium py-3 text-left w-full flex items-center justify-between bg-gradient-to-r from-primary/10 to-transparent rounded-lg px-3 hover:from-primary/20"
                     >
-                      <span>{item.label}</span>
-                      <span className={`transition-transform duration-300 ${isProductMenuExpanded ? 'rotate-180' : ''}`}>
-                        ▼
+                      <span className="text-lg">{item.label}</span>
+                      <span className={`transition-transform duration-300 text-primary ${isProductMenuExpanded ? 'rotate-180' : ''}`}>
+                        ▲
                       </span>
                     </button>
                     
                     {/* Product Sub Menu */}
-                    <div className={`overflow-hidden transition-all duration-300 ${isProductMenuExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                      <div className="grid grid-cols-2 gap-3 mt-3 pl-4">
+                    <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isProductMenuExpanded ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                      <div className="grid grid-cols-2 gap-4 mt-4 p-4 bg-gradient-to-br from-primary/5 to-background/50 rounded-lg border border-border/50">
                         {products.map((product, index) => (
                           <div
                             key={product.id}
-                            className="group cursor-pointer transition-all duration-300 hover:scale-105"
-                            style={{ animationDelay: `${index * 50}ms` }}
+                            className="group cursor-pointer transition-all duration-300 hover:scale-105 animate-fade-in"
+                            style={{ animationDelay: `${index * 100}ms` }}
+                            onClick={() => {
+                              console.log(`Product selected: ${product.name}`);
+                              setIsMobileMenuOpen(false);
+                              setIsProductMenuExpanded(false);
+                            }}
                           >
-                            <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg p-3 hover:from-primary/15 hover:to-primary/10 transition-all duration-300 border border-primary/20 hover:border-primary/40">
-                              <div className="aspect-square overflow-hidden rounded-lg mb-2 bg-white/5">
+                            <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 rounded-xl p-4 hover:from-slate-700/80 hover:to-slate-800/80 transition-all duration-300 border border-slate-600/30 hover:border-primary/40 shadow-lg hover:shadow-primary/20">
+                              <div className="aspect-square overflow-hidden rounded-xl mb-3 bg-slate-700/30">
                                 <img
                                   src={product.imageMobile}
                                   alt={product.name}
@@ -78,7 +83,7 @@ const Header = () => {
                                   loading="lazy"
                                 />
                               </div>
-                              <h3 className="text-foreground text-xs font-medium text-center leading-tight group-hover:text-primary transition-colors">
+                              <h3 className="text-white text-sm font-medium text-center leading-tight group-hover:text-primary transition-colors">
                                 {product.name}
                               </h3>
                             </div>
