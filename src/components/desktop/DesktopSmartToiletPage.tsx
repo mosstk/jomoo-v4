@@ -8,30 +8,13 @@ const DesktopSmartToiletPage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center">
+      <section className="relative h-[60vh]">
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: 'url(/lovable-uploads/fe68ebd1-80f1-48dd-aa7d-03dec6c88f3a.png)'
           }}
         />
-        <div className="relative z-10 container mx-auto px-4 flex items-center justify-between">
-          <div className="text-white max-w-md">
-            <h1 className="text-5xl font-bold mb-6">Smart Toilet</h1>
-            <p className="text-lg leading-relaxed">
-              JOMOO offers smart toilets, smart bathroom tech,<br />
-              and collections like ELEMENT, MUA, MX, and FONTAINE,<br />
-              with touchless technology and antibacterial glaze.
-            </p>
-          </div>
-          <div className="flex-1 flex justify-center">
-            <img 
-              src="/lovable-uploads/smart-toilet.jpg" 
-              alt="Smart Toilet"
-              className="max-w-md h-auto object-contain"
-            />
-          </div>
-        </div>
       </section>
 
       {/* TOA | JOMOO Logo Section */}
