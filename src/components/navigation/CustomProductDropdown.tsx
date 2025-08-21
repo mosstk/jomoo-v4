@@ -4,6 +4,22 @@ import { useState } from "react";
 
 const CustomProductDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = () => {
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout);
+      setHoverTimeout(null);
+    }
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setIsOpen(false);
+    }, 150); // 150ms delay ก่อนที่เมนูจะหาย
+    setHoverTimeout(timeout);
+  };
   
   // จัดเรียงสินค้าตามรูปที่ให้มา
   const topRowProducts = ["Smart Toilet", "Basin", "Rain Shower", "Shower Enclosure", "Urinal"];
@@ -19,18 +35,20 @@ const CustomProductDropdown = () => {
   return (
     <div 
       className="relative"
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      <button className="text-foreground hover:text-primary transition-colors font-medium flex items-center gap-1">
+      <button className="text-foreground hover:text-primary transition-colors font-medium flex items-center gap-1 py-2">
         Product
         <ChevronDown size={16} />
       </button>
       
       {isOpen && (
         <div 
-          className="absolute top-full left-0 w-[750px] max-w-[calc(100vw-2rem)] py-8 px-4 bg-black/20 backdrop-blur-md border-0 shadow-2xl z-50 mt-2 rounded"
-          style={{ transform: 'translateX(-25px)' }}
+          className="absolute top-full left-0 w-[750px] max-w-[calc(100vw-2rem)] py-8 px-4 bg-black/20 backdrop-blur-md border-0 shadow-2xl z-50 rounded"
+          style={{ transform: 'translateX(-25px)', marginTop: '0px' }}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           <div className="grid grid-cols-5 gap-4 mb-2">
             {/* แถวบน */}
