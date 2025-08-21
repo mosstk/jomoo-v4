@@ -70,7 +70,6 @@ const Header = () => {
                               className="group cursor-pointer transition-all duration-300 hover:scale-105 animate-fade-in text-center"
                               style={{ animationDelay: `${index * 80}ms` }}
                               onClick={() => {
-                                console.log(`Product selected: ${product.name}`);
                                 setIsMobileMenuOpen(false);
                                 setIsProductMenuExpanded(false);
                               }}
@@ -78,7 +77,12 @@ const Header = () => {
                               <img
                                 src={product.imageMobile}
                                 alt={product.name}
-                                className="w-16 h-16 mx-auto mb-2 object-contain"
+                                className="w-16 h-16 mx-auto mb-2 object-cover"
+                                loading="eager"
+                                onError={(e) => {
+                                  const target = e.target as HTMLImageElement;
+                                  target.src = product.image; // fallback ไปใช้รูป desktop
+                                }}
                               />
                               <h3 className="text-white text-xs font-medium group-hover:text-primary transition-colors">
                                 {product.name}
