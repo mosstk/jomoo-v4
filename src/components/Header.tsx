@@ -76,10 +76,12 @@ const Header = () => {
                               }}
                             >
                               <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 rounded-lg p-3 hover:from-slate-600/60 hover:to-slate-700/60 transition-all duration-300 border border-slate-500/30 hover:border-primary/40">
-                                <div className="aspect-square overflow-hidden rounded-lg mb-2 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300 text-slate-700 text-xs font-semibold text-center p-3">
-                                    <span className="leading-tight">{product.name}</span>
-                                  </div>
+                                <div className="aspect-square overflow-hidden rounded-lg mb-2 bg-white/5 flex items-center justify-center">
+                                  <img
+                                    src={product.image}
+                                    alt={product.name}
+                                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                                  />
                                 </div>
                                 <h3 className="text-white text-xs font-medium text-center leading-tight group-hover:text-primary transition-colors">
                                   {product.name}
