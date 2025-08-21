@@ -11,7 +11,7 @@ const DesktopShowerPage = () => {
       <section className="relative h-auto">
         <img 
           src="/lovable-uploads/6fb30b36-58ef-4c3b-8391-0e8d87a178e4.png"
-          alt="Shower Banner"
+          alt="Shower Enclosure Banner"
           className="w-full h-auto object-contain"
         />
       </section>
@@ -30,7 +30,7 @@ const DesktopShowerPage = () => {
       {/* Breadcrumb */}
       <section className="bg-gray-50 py-4">
         <div className="container mx-auto px-4">
-          <p className="text-gray-600">Product &gt; Shower</p>
+          <p className="text-gray-600">Product &gt; Shower Enclosure</p>
         </div>
       </section>
 
