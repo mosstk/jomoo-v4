@@ -33,12 +33,11 @@ const ProductDropdown = () => {
         <ChevronDown size={16} />
       </DropdownMenuTrigger>
       <DropdownMenuContent 
-        className="w-[750px] py-8 px-4 bg-black/20 backdrop-blur-md border-0 shadow-2xl z-50" 
+        className="w-[90vw] max-w-[700px] py-8 px-4 bg-black/20 backdrop-blur-md border-0 shadow-2xl z-50" 
         align="start" 
         alignOffset={-25}
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
-        style={{ maxWidth: 'calc(100vw - 40px)' }}
       >
         <div className="grid grid-cols-5 gap-4 mb-2">
           {/* แถวบน */}
