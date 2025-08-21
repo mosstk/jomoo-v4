@@ -23,6 +23,8 @@ const CustomProductDropdown = () => {
       navigate("/faucet");
     } else if (productName === "Rain Shower") {
       navigate("/rain-shower");
+    } else if (productName === "Bidet Sprayer") {
+      navigate("/bidet-spray");
     }
     setIsOpen(false);
   };
