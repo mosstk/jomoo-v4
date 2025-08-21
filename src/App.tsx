@@ -8,6 +8,7 @@ import Product from "./pages/Product";
 import SmartToilet from "./pages/SmartToilet";
 import OnePieceToilet from "./pages/OnePieceToilet";
 import Basin from "./pages/Basin";
+import Bath from "./pages/Bath";
 import Inspiration from "./pages/Inspiration";
 import Service from "./pages/Service";
 import AboutUs from "./pages/AboutUs";
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/smart-toilet" element={<SmartToilet />} />
           <Route path="/one-piece-toilet" element={<OnePieceToilet />} />
           <Route path="/basin" element={<Basin />} />
+          <Route path="/bath" element={<Bath />} />
           <Route path="/inspiration" element={<Inspiration />} />
           <Route path="/service" element={<Service />} />
           <Route path="/about-us" element={<AboutUs />} />

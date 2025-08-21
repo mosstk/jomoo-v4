@@ -15,6 +15,8 @@ const CustomProductDropdown = () => {
       navigate("/one-piece-toilet");
     } else if (productName === "Basin") {
       navigate("/basin");
+    } else if (productName === "Bathtub") {
+      navigate("/bath");
     }
     setIsOpen(false);
   };
