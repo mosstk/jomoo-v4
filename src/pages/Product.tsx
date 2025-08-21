@@ -8,7 +8,7 @@ const Product = () => {
       <div 
         className="fixed inset-0 z-[-2]" 
         style={{
-          backgroundImage: 'url(/lovable-uploads/775eda3f-ca6c-419c-a23c-490dd2295f81.png)',
+          backgroundImage: 'url(/lovable-uploads/126761bf-015e-4d63-8193-81bb462dc1eb.png)',
           backgroundSize: '1400px 100vh',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
