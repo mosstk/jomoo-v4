@@ -5,7 +5,7 @@ export interface MobileProduct {
 }
 
 export const mobileProducts: MobileProduct[] = [
-  { id: "1", name: "Smart Toilet", image: "https://bd1e5955-9b8f-4531-9a51-5472005109a5.sandbox.lovable.dev/lovable-uploads/49806441-47b2-4281-a536-367f90a934e2.png" },
+  { id: "1", name: "Smart Toilet", image: "/lovable-uploads/49806441-47b2-4281-a536-367f90a934e2.png" },
   { id: "2", name: "One Piece Toilet", image: "https://bd1e5955-9b8f-4531-9a51-5472005109a5.sandbox.lovable.dev/lovable-uploads/123c236d-877a-454c-aa97-0b4e863c2cd3.png" },
   { id: "3", name: "Basin", image: "https://bd1e5955-9b8f-4531-9a51-5472005109a5.sandbox.lovable.dev/lovable-uploads/87d356b6-06b6-4d40-b8be-3ee3602b5696.png" },
   { id: "4", name: "Bathtub", image: "https://bd1e5955-9b8f-4531-9a51-5472005109a5.sandbox.lovable.dev/lovable-uploads/8c2b74dd-e09f-4961-9633-b580aea42e95.png" },
