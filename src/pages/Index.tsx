@@ -19,6 +19,16 @@ const Index = () => {
       
       <Header />
       <HeroSection />
+      
+      {/* TOA JOMOO Logo */}
+      <div className="flex justify-center py-8 bg-transparent">
+        <img 
+          src="/lovable-uploads/fbb21cd6-6867-4142-a293-5a5ad5f201ae.png" 
+          alt="TOA JOMOO Logo" 
+          className="h-16 w-auto object-contain"
+        />
+      </div>
+      
       <ProductGrid />
       <Footer />
     </div>
