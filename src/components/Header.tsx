@@ -3,10 +3,18 @@ import { Menu, X } from "lucide-react";
 import Logo from "@/components/navigation/Logo";
 import NavigationMenu from "@/components/navigation/NavigationMenu";
 import ActionButtons from "@/components/navigation/ActionButtons";
+import MobileProductMenu from "@/components/mobile/MobileProductMenu";
 import { navigationItems } from "@/data/navigation";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileProductMenuOpen, setIsMobileProductMenuOpen] = useState(false);
+
+  const handleMobileProductClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsMobileProductMenuOpen(true);
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <header className="luxury-backdrop border-b border-border/50 sticky top-0 z-50 mb-0">
@@ -41,14 +49,24 @@ const Header = () => {
           <div className="md:hidden mt-4 pb-4 border-t border-border/50">
             <nav className="flex flex-col space-y-4 mt-4">
               {navigationItems.map((item) => (
-                <a 
-                  key={item.label}
-                  href={item.href} 
-                  className="text-foreground hover:text-primary transition-colors font-medium py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </a>
+                item.label === "Product" ? (
+                  <button
+                    key={item.label}
+                    onClick={handleMobileProductClick}
+                    className="text-foreground hover:text-primary transition-colors font-medium py-2 text-left"
+                  >
+                    {item.label}
+                  </button>
+                ) : (
+                  <a 
+                    key={item.label}
+                    href={item.href} 
+                    className="text-foreground hover:text-primary transition-colors font-medium py-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                )
               ))}
             </nav>
             <div className="mt-4 pt-4 border-t border-border/50">
@@ -57,6 +75,12 @@ const Header = () => {
           </div>
         )}
       </div>
+
+      {/* Mobile Product Menu */}
+      <MobileProductMenu 
+        isOpen={isMobileProductMenuOpen}
+        onClose={() => setIsMobileProductMenuOpen(false)}
+      />
     </header>
   );
 };
