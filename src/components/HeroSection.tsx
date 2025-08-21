@@ -63,7 +63,7 @@ const HeroSection = () => {
       </Button>
       
       {/* Enhanced Banner indicators */}
-      <div className="absolute bottom-4 md:bottom-6 lg:bottom-12 left-1/2 transform -translate-x-1/2 z-20 flex items-center space-x-2 md:space-x-3 bg-black/20 backdrop-blur-sm rounded-full px-3 py-1.5 md:px-4 md:py-2">
+      <div className="absolute bottom-2 md:bottom-4 lg:bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex items-center space-x-2 md:space-x-3 bg-black/20 backdrop-blur-sm rounded-full px-3 py-1.5 md:px-4 md:py-2">
         {bannerImages.map((_, index) => (
           <button
             key={index}
