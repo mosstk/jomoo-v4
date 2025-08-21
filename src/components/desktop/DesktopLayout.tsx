@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 const DesktopLayout = () => {
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative overflow-x-hidden">
       {/* Background image */}
       <div 
         className="fixed inset-0 z-[-2]" 
