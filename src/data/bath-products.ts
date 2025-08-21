@@ -12,41 +12,41 @@ export const bathProducts: BathProduct[] = [
     name: 'Bath 1',
     model: 'รุ่น XXX',
     description: 'สุขภัณฑ์อัจฉริยะ',
-    image: '/lovable-uploads/353d8916-0ba6-457a-95a4-cfc67b65e5f6.png'
+    image: '/lovable-uploads/47e9e26b-ce62-40f8-90cc-5de47d5de9a1.png'
   },
   {
     id: 'bath2', 
     name: 'Bath 2',
     model: 'รุ่น XXX',
     description: 'สุขภัณฑ์อัจฉริยะ',
-    image: '/lovable-uploads/450f66c7-17d5-4b40-8f20-2c239481083e.png'
+    image: '/lovable-uploads/53eaf151-b8c4-4aba-a71e-84466227c320.png'
   },
   {
     id: 'bath3',
     name: 'Bath 3', 
     model: 'รุ่น XXX',
     description: 'สุขภัณฑ์อัจฉริยะ',
-    image: '/lovable-uploads/a1e14098-9ec3-4533-828e-ea157bc48af1.png'
+    image: '/lovable-uploads/6dcf5a22-5783-4481-a327-c104e787ed44.png'
   },
   {
     id: 'bath4',
     name: 'Bath 1',
     model: 'รุ่น XXX', 
     description: 'สุขภัณฑ์อัจฉริยะ',
-    image: '/lovable-uploads/6a645c05-0d87-4303-893c-a4464c4e988a.png'
+    image: '/lovable-uploads/7299e673-1f0a-4cb0-a94c-93727a6d4205.png'
   },
   {
     id: 'bath5',
     name: 'Bath 2',
     model: 'รุ่น XXX',
     description: 'สุขภัณฑ์อัจฉริยะ',
-    image: '/lovable-uploads/ca05278f-1121-4077-9eb7-b93d1183bdb0.png'
+    image: '/lovable-uploads/237b2f28-c5b8-4fdd-8f33-2816bf0657d1.png'
   },
   {
     id: 'bath6',
     name: 'Bath 3',
     model: 'รุ่น XXX',
     description: 'สุขภัณฑ์อัจฉริยะ', 
-    image: '/lovable-uploads/918e165c-f4eb-4a78-90d0-aa340e81ff30.png'
+    image: '/lovable-uploads/3596eeb1-f851-4dca-8778-2847225bfe72.png'
   }
 ];
