@@ -10,7 +10,7 @@ const DesktopBathPage = () => {
       {/* Hero Section */}
       <section className="relative h-auto">
         <img 
-          src="/lovable-uploads/fe68ebd1-80f1-48dd-aa7d-03dec6c88f3a.png"
+          src="/lovable-uploads/a5329036-7457-4db3-908d-4fcdeabcbd2c.png"
           alt="Bath Banner"
           className="w-full h-auto object-contain"
         />
