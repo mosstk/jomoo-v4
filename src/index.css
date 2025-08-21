@@ -183,12 +183,22 @@
     background: hsl(220 25% 12% / 0.8);
   }
   
-  /* Fix dropdown overflow */
-  body {
-    overflow-x: hidden !important;
+  /* Fix dropdown overflow - Force global overflow hidden */
+  * {
+    box-sizing: border-box;
   }
   
-  html {
+  html, body, #root {
     overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+  
+  /* Hide horizontal scrollbar completely */
+  ::-webkit-scrollbar:horizontal {
+    display: none;
+  }
+  
+  [data-radix-popper-content-wrapper] {
+    max-width: calc(100vw - 40px) !important;
   }
 }
