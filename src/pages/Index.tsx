@@ -25,7 +25,7 @@ const Index = () => {
         <img 
           src="/lovable-uploads/fbb21cd6-6867-4142-a293-5a5ad5f201ae.png" 
           alt="TOA JOMOO Logo" 
-          className="h-16 w-auto object-contain"
+          className="h-8 w-auto object-contain"
         />
       </div>
       
