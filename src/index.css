@@ -126,6 +126,7 @@
   body {
     @apply text-foreground font-kumbh;
     background: var(--page-background, hsl(var(--background)));
+    overflow-x: hidden;
   }
 }
 
