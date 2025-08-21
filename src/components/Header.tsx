@@ -67,7 +67,7 @@ const Header = () => {
                           {products.map((product, index) => (
                             <div
                               key={product.id}
-                              className="group cursor-pointer transition-all duration-300 hover:scale-105 animate-fade-in"
+                              className="group cursor-pointer transition-all duration-300 hover:scale-105 animate-fade-in text-center"
                               style={{ animationDelay: `${index * 80}ms` }}
                               onClick={() => {
                                 console.log(`Product selected: ${product.name}`);
@@ -75,25 +75,14 @@ const Header = () => {
                                 setIsProductMenuExpanded(false);
                               }}
                             >
-                              <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 rounded-lg p-3 hover:from-slate-600/60 hover:to-slate-700/60 transition-all duration-300 border border-slate-500/30 hover:border-primary/40">
-                                <img
-                                  src={product.imageMobile}
-                                  alt={product.name}
-                                  width="80"
-                                  height="80"
-                                  style={{ 
-                                    display: 'block',
-                                    width: '80px',
-                                    height: '80px',
-                                    objectFit: 'contain',
-                                    margin: '0 auto 8px auto',
-                                    backgroundColor: '#f3f4f6'
-                                  }}
-                                />
-                                <h3 className="text-white text-xs font-medium text-center leading-tight group-hover:text-primary transition-colors">
-                                  {product.name}
-                                </h3>
-                              </div>
+                              <img
+                                src={product.imageMobile}
+                                alt={product.name}
+                                className="w-16 h-16 mx-auto mb-2 object-contain"
+                              />
+                              <h3 className="text-white text-xs font-medium group-hover:text-primary transition-colors">
+                                {product.name}
+                              </h3>
                             </div>
                           ))}
                         </div>
