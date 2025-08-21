@@ -22,7 +22,7 @@ const DesktopSmartToiletPage = () => {
           <img 
             src="/lovable-uploads/71ce025e-b030-4065-ab22-8ca999d67ebc.png" 
             alt="TOA | JOMOO Logo" 
-            className="h-16 w-auto object-contain mx-auto"
+            className="h-11 w-auto object-contain mx-auto"
           />
         </div>
       </section>
