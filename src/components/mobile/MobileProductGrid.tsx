@@ -19,22 +19,22 @@ const MobileProductGrid = () => {
   ).filter(Boolean);
 
   return (
-    <div className="bg-[#1a1f2e] pb-12">
-      <div className="grid grid-cols-2 gap-6 mx-auto px-6 w-full max-w-sm">
+    <div className="bg-[#1a1f2e] pb-16 px-4">
+      <div className="grid grid-cols-2 gap-4 mx-auto w-full max-w-lg">
         {orderedProducts.map((product) => (
           <div
             key={product?.id}
-            className="group cursor-pointer transition-all duration-300"
+            className="group cursor-pointer transition-all duration-300 hover:scale-105"
             onClick={() => handleProductClick(product?.name || '')}
           >
-            <div className="aspect-square overflow-hidden rounded-lg mb-3">
+            <div className="aspect-square overflow-hidden rounded-xl mb-3 shadow-lg">
               <img 
                 src={product?.imageMobile || product?.image} 
                 alt={product?.name}
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
               />
             </div>
-            <h3 className="text-white text-sm font-medium text-center">
+            <h3 className="text-white text-sm font-medium text-center leading-tight px-1">
               {product?.name}
             </h3>
           </div>
