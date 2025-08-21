@@ -1,4 +1,4 @@
-import ProductDropdown from "./ProductDropdown";
+import CustomProductDropdown from "./CustomProductDropdown";
 
 interface NavigationItem {
   label: string;
@@ -15,7 +15,7 @@ const NavigationMenu = ({ items, className = "hidden md:flex items-center space-
     <nav className={className}>
       {items.map((item) => (
         item.label === "Product" ? (
-          <ProductDropdown key={item.label} />
+          <CustomProductDropdown key={item.label} />
         ) : (
           <a 
             key={item.label}
