@@ -11,6 +11,8 @@ const CustomProductDropdown = () => {
   const handleProductClick = (productName: string) => {
     if (productName === "Smart Toilet") {
       navigate("/smart-toilet");
+    } else if (productName === "One Piece Toilet") {
+      navigate("/one-piece-toilet");
     }
     setIsOpen(false);
   };
