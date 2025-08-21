@@ -2,10 +2,33 @@ import { Card, CardContent } from "@/components/ui/card";
 import ProductCard from "@/components/products/ProductCard";
 import ProductSection from "@/components/products/ProductSection";
 import { products } from "@/data/products";
+import { useNavigate } from "react-router-dom";
 
 const ProductGrid = () => {
+  const navigate = useNavigate();
+  
   const handleProductClick = (productName: string) => {
-    console.log(`Product clicked: ${productName}`);
+    if (productName === "Smart Toilet") {
+      navigate("/smart-toilet");
+    } else if (productName === "One Piece Toilet") {
+      navigate("/one-piece-toilet");
+    } else if (productName === "Basin") {
+      navigate("/basin");
+    } else if (productName === "Bathtub") {
+      navigate("/bath");
+    } else if (productName === "Shower Enclosure") {
+      navigate("/shower-enclosure");
+    } else if (productName === "Faucet") {
+      navigate("/faucet");
+    } else if (productName === "Rain Shower") {
+      navigate("/rain-shower");
+    } else if (productName === "Bidet Sprayer") {
+      navigate("/bidet-spray");
+    } else if (productName === "Urinal") {
+      navigate("/uniral");
+    } else if (productName === "Accessories") {
+      navigate("/accessories");
+    }
   };
 
   return (
