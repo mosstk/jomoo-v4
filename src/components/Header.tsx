@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Bath, Wrench, Settings, Droplets, Package } from "lucide-react";
+import { Menu, X, Bath, Wrench, Settings, Droplets, Package, Toilet, Waves, ShowerHead, Square } from "lucide-react";
 import Logo from "@/components/navigation/Logo";
 import NavigationMenu from "@/components/navigation/NavigationMenu";
 import ActionButtons from "@/components/navigation/ActionButtons";
@@ -9,6 +9,22 @@ import { mobileProducts } from "@/data/mobile-products";
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProductMenuExpanded, setIsProductMenuExpanded] = useState(false);
+
+  const getProductIcon = (productName: string) => {
+    switch (productName) {
+      case "Smart Toilet": return Settings;
+      case "One Piece Toilet": return Toilet;
+      case "Basin": return Bath;
+      case "Bathtub": return Bath;
+      case "Shower Enclosure": return Square;
+      case "Faucet": return Droplets;
+      case "Rain Shower": return ShowerHead;
+      case "Bidet Sprayer": return Waves;
+      case "Urinal": return Toilet;
+      case "Accessories": return Package;
+      default: return Package;
+    }
+  };
 
   const handleMobileProductClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -76,9 +92,15 @@ const Header = () => {
                               }}
                             >
                               <div className="py-3 px-2 hover:bg-slate-700/40 rounded transition-all duration-300">
-                                <h3 className="text-white text-sm font-medium group-hover:text-primary transition-colors">
-                                  {product.name}
-                                </h3>
+                                <div className="flex items-center space-x-3">
+                                  {(() => {
+                                    const IconComponent = getProductIcon(product.name);
+                                    return <IconComponent className="text-blue-400 w-5 h-5" strokeWidth={2} />;
+                                  })()}
+                                  <h3 className="text-white text-sm font-medium group-hover:text-primary transition-colors">
+                                    {product.name}
+                                  </h3>
+                                </div>
                               </div>
                             </div>
                           ))}
