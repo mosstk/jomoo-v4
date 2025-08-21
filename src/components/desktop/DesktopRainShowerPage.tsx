@@ -10,7 +10,7 @@ const DesktopRainShowerPage = () => {
       {/* Hero Section */}
       <section className="relative h-auto">
         <img 
-          src="/lovable-uploads/a5329036-7457-4db3-908d-4fcdeabcbd2c.png"
+          src="/lovable-uploads/5a467e79-4f95-485a-ae3a-ad3509137f68.png"
           alt="Rain Shower Banner"
           className="w-full h-auto object-contain"
         />
