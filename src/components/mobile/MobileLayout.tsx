@@ -5,30 +5,24 @@ import Footer from "@/components/Footer";
 
 const MobileLayout = () => {
   return (
-    <div className="min-h-screen relative">
-      {/* Background image */}
-      <div 
-        className="fixed inset-0 z-[-2]" 
-        style={{
-          backgroundImage: 'url(/lovable-uploads/126761bf-015e-4d63-8193-81bb462dc1eb.png)',
-          backgroundSize: '1120px 100vh',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      />
-      
+    <div className="min-h-screen bg-[#1a1f2e]">
       <Header />
       <MobileHeroSection />
       
       {/* TOA JOMOO Logo and Message */}
-      <div className="flex flex-col items-center pt-8 pb-0 bg-transparent">
-        <img 
-          src="/lovable-uploads/fbb21cd6-6867-4142-a293-5a5ad5f201ae.png" 
-          alt="TOA JOMOO Logo" 
-          className="h-10 w-auto object-contain mb-4"
-        />
-        <p className="text-white text-center max-w-2xl">
-          Just make sure the visitor can know it is TOA JOMOO. And you are selling JOMOO products
+      <div className="flex flex-col items-center pt-8 pb-6 bg-[#1a1f2e]">
+        <div className="flex items-center gap-2 mb-4">
+          <img 
+            src="/lovable-uploads/fbb21cd6-6867-4142-a293-5a5ad5f201ae.png" 
+            alt="TOA Logo" 
+            className="h-8 w-auto object-contain"
+          />
+          <span className="text-white text-xl font-bold">|</span>
+          <span className="text-white text-xl font-bold">JOMOO</span>
+        </div>
+        <p className="text-white text-center text-sm px-6 leading-relaxed">
+          Just make sure the visitor can know it is TOA | JOMOO.<br />
+          And you are selling JOMOO products
         </p>
       </div>
       
