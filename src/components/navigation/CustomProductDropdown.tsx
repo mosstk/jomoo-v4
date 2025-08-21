@@ -13,6 +13,8 @@ const CustomProductDropdown = () => {
       navigate("/smart-toilet");
     } else if (productName === "One Piece Toilet") {
       navigate("/one-piece-toilet");
+    } else if (productName === "Basin") {
+      navigate("/basin");
     }
     setIsOpen(false);
   };
