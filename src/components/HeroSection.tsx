@@ -43,6 +43,15 @@ const HeroSection = () => {
         overlay={false}
       />
       
+      {/* Text Overlay */}
+      <div className="absolute inset-0 z-10 flex items-center justify-center">
+        <div className="text-center px-4 md:px-8">
+          <h2 className="text-white text-lg md:text-2xl lg:text-3xl font-medium leading-relaxed max-w-4xl mx-auto">
+            We are an innovative international enterprise, and a global leader in digital bathroom solutions.
+          </h2>
+        </div>
+      </div>
+      
       {/* Navigation Arrows */}
       <Button
         variant="ghost"
