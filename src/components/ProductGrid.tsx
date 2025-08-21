@@ -10,7 +10,7 @@ const ProductGrid = () => {
 
   return (
     <ProductSection
-      title="Our Premium Collection"
+      title=""
       description=""
       backgroundImage=""
       className="relative pt-0 pb-20"
