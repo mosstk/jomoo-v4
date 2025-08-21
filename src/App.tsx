@@ -11,6 +11,7 @@ import Basin from "./pages/Basin";
 import Bath from "./pages/Bath";
 import ShowerEnclosure from "./pages/ShowerEnclosure";
 import Faucet from "./pages/Faucet";
+import RainShower from "./pages/RainShower";
 import Inspiration from "./pages/Inspiration";
 import Service from "./pages/Service";
 import AboutUs from "./pages/AboutUs";
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/bath" element={<Bath />} />
           <Route path="/shower-enclosure" element={<ShowerEnclosure />} />
           <Route path="/faucet" element={<Faucet />} />
+          <Route path="/rain-shower" element={<RainShower />} />
           <Route path="/inspiration" element={<Inspiration />} />
           <Route path="/service" element={<Service />} />
           <Route path="/about-us" element={<AboutUs />} />

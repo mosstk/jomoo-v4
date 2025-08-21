@@ -21,6 +21,8 @@ const CustomProductDropdown = () => {
       navigate("/shower-enclosure");
     } else if (productName === "Faucet") {
       navigate("/faucet");
+    } else if (productName === "Rain Shower") {
+      navigate("/rain-shower");
     }
     setIsOpen(false);
   };
