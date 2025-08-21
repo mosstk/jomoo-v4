@@ -25,22 +25,22 @@ const ProductDropdown = () => {
         Product
         <ChevronDown size={16} />
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-[800px] p-6 bg-black/90 backdrop-blur-sm border-0 shadow-2xl z-50" align="start" alignOffset={-200}>
-        <div className="grid grid-cols-5 gap-6 mb-6">
+      <DropdownMenuContent className="w-[600px] p-4 bg-black/70 backdrop-blur-md border-0 shadow-2xl z-50" align="start" alignOffset={-200}>
+        <div className="grid grid-cols-5 gap-4 mb-4">
           {/* แถวบน */}
           {topProducts.map((product) => (
             <DropdownMenuItem key={product?.id} className="flex flex-col items-start p-0 cursor-pointer hover:bg-transparent focus:bg-transparent min-w-0">
-              <div className="text-white text-sm font-normal pb-2 border-b border-white/30 w-full whitespace-nowrap overflow-hidden text-ellipsis">
+              <div className="text-white text-xs font-normal pb-1 border-b border-white/30 w-full whitespace-nowrap overflow-hidden text-ellipsis">
                 {product?.name}
               </div>
             </DropdownMenuItem>
           ))}
         </div>
-        <div className="grid grid-cols-5 gap-6">
+        <div className="grid grid-cols-5 gap-4">
           {/* แถวล่าง */}
           {bottomProducts.map((product) => (
             <DropdownMenuItem key={product?.id} className="flex flex-col items-start p-0 cursor-pointer hover:bg-transparent focus:bg-transparent min-w-0">
-              <div className="text-white text-sm font-normal pb-2 border-b border-white/30 w-full whitespace-nowrap overflow-hidden text-ellipsis">
+              <div className="text-white text-xs font-normal pb-1 border-b border-white/30 w-full whitespace-nowrap overflow-hidden text-ellipsis">
                 {product?.name}
               </div>
             </DropdownMenuItem>
