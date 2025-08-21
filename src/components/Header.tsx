@@ -75,15 +75,9 @@ const Header = () => {
                               }}
                             >
                               <img
-                                src={`/lovable-uploads/${product.imageMobile.split('/').pop()}`}
+                                src={product.imageMobile}
                                 alt={product.name}
                                 className="w-16 h-16 mx-auto mb-2 object-cover rounded"
-                                style={{ 
-                                  display: 'block',
-                                  minWidth: '64px',
-                                  minHeight: '64px',
-                                  backgroundColor: '#e5e7eb'
-                                }}
                               />
                               <h3 className="text-white text-xs font-medium group-hover:text-primary transition-colors">
                                 {product.name}
