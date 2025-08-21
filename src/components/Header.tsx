@@ -81,10 +81,19 @@ const Header = () => {
                                     src={product.image}
                                     alt={product.name}
                                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-                                    loading="lazy"
+                                    loading="eager"
+                                    crossOrigin="anonymous"
+                                    onLoad={() => console.log(`Image loaded successfully: ${product.name}`)}
                                     onError={(e) => {
-                                      console.log(`Failed to load image: ${product.image}`);
-                                      e.currentTarget.style.display = 'none';
+                                      console.error(`Failed to load image for ${product.name}:`, product.image);
+                                      const target = e.currentTarget as HTMLImageElement;
+                                      target.style.display = 'block';
+                                      target.style.backgroundColor = '#334155';
+                                      target.style.color = 'white';
+                                      target.style.fontSize = '12px';
+                                      target.style.textAlign = 'center';
+                                      target.style.lineHeight = '1.2';
+                                      target.innerHTML = `<div style="padding: 10px;">${product.name}<br/>Image not found</div>`;
                                     }}
                                   />
                                 </div>
