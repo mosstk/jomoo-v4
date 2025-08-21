@@ -20,13 +20,16 @@ const Index = () => {
       <Header />
       <HeroSection />
       
-      {/* TOA JOMOO Logo */}
-      <div className="flex justify-center py-8 bg-transparent">
+      {/* TOA JOMOO Logo and Message */}
+      <div className="flex flex-col items-center py-8 bg-transparent">
         <img 
           src="/lovable-uploads/fbb21cd6-6867-4142-a293-5a5ad5f201ae.png" 
           alt="TOA JOMOO Logo" 
-          className="h-10 w-auto object-contain"
+          className="h-10 w-auto object-contain mb-4"
         />
+        <p className="text-white text-center max-w-2xl">
+          Just make sure the visitor can know it is TOA JOMOO. And you are selling JOMOO products
+        </p>
       </div>
       
       <ProductGrid />
