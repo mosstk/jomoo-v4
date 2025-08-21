@@ -38,6 +38,7 @@ const ProductDropdown = () => {
         alignOffset={-25}
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
+        style={{ maxWidth: 'calc(100vw - 40px)' }}
       >
         <div className="grid grid-cols-5 gap-4 mb-2">
           {/* แถวบน */}

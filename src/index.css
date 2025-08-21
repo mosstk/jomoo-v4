@@ -182,4 +182,13 @@
     backdrop-filter: blur(20px);
     background: hsl(220 25% 12% / 0.8);
   }
+  
+  /* Fix dropdown overflow */
+  body {
+    overflow-x: hidden !important;
+  }
+  
+  html {
+    overflow-x: hidden !important;
+  }
 }
