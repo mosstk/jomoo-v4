@@ -64,37 +64,36 @@ const Header = () => {
                       {/* Product Sub Menu */}
                       <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isProductMenuExpanded ? 'max-h-[1200px] opacity-100' : 'max-h-0 opacity-0'}`}>
                         <div className="grid grid-cols-2 gap-3 mt-4 p-4 bg-gradient-to-br from-slate-900/90 to-slate-800/90 rounded-lg border border-slate-600/50">
-                          {products.map((product, index) => {
-                            console.log(`Rendering product: ${product.name}, Image: ${product.imageMobile}`);
-                            return (
-                              <div
-                                key={product.id}
-                                className="group cursor-pointer transition-all duration-300 hover:scale-105 animate-fade-in"
-                                style={{ animationDelay: `${index * 80}ms` }}
-                                onClick={() => {
-                                  console.log(`Product selected: ${product.name}`);
-                                  setIsMobileMenuOpen(false);
-                                  setIsProductMenuExpanded(false);
-                                }}
-                              >
-                                <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 rounded-lg p-3 hover:from-slate-600/60 hover:to-slate-700/60 transition-all duration-300 border border-slate-500/30 hover:border-primary/40">
-                                  <div className="w-full h-24 mb-2 bg-white/10 rounded-lg p-1">
-                                    <img
-                                      src={product.imageMobile}
-                                      alt={product.name}
-                                      className="w-full h-full object-contain rounded group-hover:scale-105 transition-transform duration-300"
-                                      style={{ display: 'block', width: '100%', height: '100%' }}
-                                      onLoad={(e) => console.log(`✅ Image loaded successfully: ${product.name}`)}
-                                      onError={(e) => console.error(`❌ Failed to load image: ${product.name} - ${product.imageMobile}`)}
-                                    />
-                                  </div>
-                                  <h3 className="text-white text-xs font-medium text-center leading-tight group-hover:text-primary transition-colors">
-                                    {product.name}
-                                  </h3>
+                          {products.map((product, index) => (
+                            <div
+                              key={product.id}
+                              className="group cursor-pointer transition-all duration-300 hover:scale-105 animate-fade-in"
+                              style={{ animationDelay: `${index * 80}ms` }}
+                              onClick={() => {
+                                console.log(`Product selected: ${product.name}`);
+                                setIsMobileMenuOpen(false);
+                                setIsProductMenuExpanded(false);
+                              }}
+                            >
+                              <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 rounded-lg p-3 hover:from-slate-600/60 hover:to-slate-700/60 transition-all duration-300 border border-slate-500/30 hover:border-primary/40">
+                                <div className="w-full h-20 mb-2 bg-gray-100 rounded-lg flex items-center justify-center">
+                                  <img
+                                    src={`https://bd1e5955-9b8f-4531-9a51-5472005109a5.sandbox.lovable.dev${product.imageMobile}`}
+                                    alt={product.name}
+                                    className="max-w-full max-h-full object-contain"
+                                    onLoad={() => console.log(`Image loaded: ${product.name}`)}
+                                    onError={(e) => {
+                                      console.error(`Image failed: ${product.imageMobile}`);
+                                      e.currentTarget.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjNDc0NzQ3Ii8+Cjx0ZXh0IHg9IjIwIiB5PSIyNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiIGZvbnQtc2l6ZT0iOCI+SW1hZ2U8L3RleHQ+Cjwvc3ZnPgo=";
+                                    }}
+                                  />
                                 </div>
+                                <h3 className="text-white text-xs font-medium text-center leading-tight group-hover:text-primary transition-colors">
+                                  {product.name}
+                                </h3>
                               </div>
-                            );
-                          })}
+                            </div>
+                          ))}
                         </div>
                       </div>
                     </div>
