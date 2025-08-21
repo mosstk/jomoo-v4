@@ -10,7 +10,7 @@ const DesktopOnePieceToiletPage = () => {
       {/* Hero Section */}
       <section className="relative h-auto">
         <img 
-          src="/lovable-uploads/fe68ebd1-80f1-48dd-aa7d-03dec6c88f3a.png"
+          src="/lovable-uploads/14c42fc5-bfba-4e03-8cd1-b23aeadd6dea.png"
           alt="One Piece Toilet Banner"
           className="w-full h-auto object-contain"
         />
