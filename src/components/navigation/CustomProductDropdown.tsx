@@ -25,6 +25,8 @@ const CustomProductDropdown = () => {
       navigate("/rain-shower");
     } else if (productName === "Bidet Sprayer") {
       navigate("/bidet-spray");
+    } else if (productName === "Urinal") {
+      navigate("/uniral");
     }
     setIsOpen(false);
   };
