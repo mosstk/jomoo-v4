@@ -30,7 +30,7 @@ const DesktopBathPage = () => {
       {/* Breadcrumb */}
       <section className="bg-gray-50 py-4">
         <div className="container mx-auto px-4">
-          <p className="text-gray-600">Product &gt; Bath</p>
+          <p className="text-gray-600">Product &gt; Bathtub</p>
         </div>
       </section>
 
