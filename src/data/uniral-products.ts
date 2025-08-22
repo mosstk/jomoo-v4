@@ -30,7 +30,7 @@ export const uniralProducts: UniralProduct[] = [
   },
   {
     id: 'uniral4',
-    name: 'Uniral 1',
+    name: 'Uniral 4',
     model: 'รุ่น XXX', 
     description: 'สุขภัณฑ์อัจฉริยะ',
     image: '/lovable-uploads/7299e673-1f0a-4cb0-a94c-93727a6d4205.png'
