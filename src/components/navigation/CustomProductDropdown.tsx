@@ -85,7 +85,7 @@ const CustomProductDropdown = () => {
                 className="flex flex-col items-start p-2 cursor-pointer hover:bg-blue-500/50 focus:bg-blue-500/50 min-w-0 rounded"
                 onClick={() => handleProductClick(product?.name || "")}
               >
-                <div className="text-white text-xs font-normal pb-1 border-b border-white/30 w-full whitespace-nowrap overflow-hidden text-ellipsis">
+                <div className="text-white text-base font-normal pb-1 border-b border-white/30 w-full whitespace-nowrap overflow-hidden text-ellipsis">
                   {product?.name}
                 </div>
               </div>
@@ -99,7 +99,7 @@ const CustomProductDropdown = () => {
                 className="flex flex-col items-start p-2 cursor-pointer hover:bg-blue-500/50 focus:bg-blue-500/50 min-w-0 rounded"
                 onClick={() => handleProductClick(product?.name || "")}
               >
-                <div className="text-white text-xs font-normal pb-1 border-b border-white/30 w-full whitespace-nowrap overflow-hidden text-ellipsis">
+                <div className="text-white text-base font-normal pb-1 border-b border-white/30 w-full whitespace-nowrap overflow-hidden text-ellipsis">
                   {product?.name}
                 </div>
               </div>
