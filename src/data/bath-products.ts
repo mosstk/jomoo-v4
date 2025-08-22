@@ -37,7 +37,7 @@ export const bathProducts: BathProduct[] = [
   },
   {
     id: 'bath5',
-    name: 'Bathtub 2',
+    name: 'Bathtub 5',
     model: 'รุ่น XXX',
     description: 'อ่างอาบน้ำ',
     image: '/lovable-uploads/237b2f28-c5b8-4fdd-8f33-2816bf0657d1.png'
