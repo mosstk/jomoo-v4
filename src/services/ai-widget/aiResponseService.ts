@@ -1,5 +1,6 @@
 import { AIResponse, ProductContext, ProductRecommendation } from './types';
 import { SuggestionsService } from './suggestionsService';
+import { KnowledgeBaseService } from './knowledgeBaseService';
 
 export class AIResponseService {
   private static readonly API_KEY_PLACEHOLDER = 'your-openai-api-key';
@@ -9,7 +10,17 @@ export class AIResponseService {
     context: ProductContext | null
   ): Promise<AIResponse> {
     try {
-      // For demo purposes, return mock responses
+      // ตรวจสอบความเกี่ยวข้องของคำถามก่อน
+      const relevanceCheck = KnowledgeBaseService.isQuestionRelevant(message);
+      
+      if (!relevanceCheck.isRelevant) {
+        return {
+          content: KnowledgeBaseService.getIrrelevantQuestionResponse(relevanceCheck.reason),
+          suggestions: SuggestionsService.getSuggestionsForContext(context).slice(0, 3)
+        };
+      }
+
+      // For demo purposes, return mock responses based on available data
       // In production, replace with actual OpenAI API call
       const mockResponse = this.getMockResponse(message, context);
       
@@ -29,7 +40,65 @@ export class AIResponseService {
   private static getMockResponse(message: string, context: ProductContext | null): AIResponse {
     const lowerMessage = message.toLowerCase();
 
-    // Product-specific responses
+    // ตรวจสอบความเกี่ยวข้องอีกครั้งเพื่อความปลอดภัย
+    const relevanceCheck = KnowledgeBaseService.isQuestionRelevant(message);
+    if (!relevanceCheck.isRelevant) {
+      return {
+        content: KnowledgeBaseService.getIrrelevantQuestionResponse(),
+        suggestions: SuggestionsService.getSuggestionsForContext(context)
+      };
+    }
+
+    // Bidet Spray specific responses
+    if (context?.productName === 'Bidet Sprayer') {
+      if (lowerMessage.includes('ราคา')) {
+        return {
+          content: `ชุดสายฉีดชำระ (Bidet Spray) TOA JOMOO ราคาเริ่มต้น 1,500 - 8,000 บาท
+
+รุ่นพื้นฐาน: 1,500-3,000 บาท
+รุ่นมาตรฐาน: 3,000-5,000 บาท  
+รุ่นพรีเมียม: 5,000-8,000 บาท
+
+ราคารวมชุดติดตั้งครบ (หัวฉีด, สาย, วาล์ว)
+ค่าติดตั้ง: 800-1,500 บาท`,
+          suggestions: SuggestionsService.getFollowUpSuggestions(message, context)
+        };
+      }
+      
+      if (lowerMessage.includes('ติดตั้ง')) {
+        return {
+          content: `การติดตั้งชุดสายฉีดชำระ TOA JOMOO:
+
+🔧 ขั้นตอนการติดตั้ง:
+• เชื่อมต่อกับระบบประปาเดิม
+• ติดตั้งวาล์วควบคุมแรงดันน้ำ
+• วางสายและยึดหัวฉีด
+• ทดสอบการทำงานและรั่วซึม
+
+⏰ ใช้เวลา: 1-2 ชั่วโมง
+👨‍🔧 ควรใช้ช่างมืออาชีพ
+💧 ไม่ต้องเจาะกำแพงเพิ่ม (ใช้จุดเชื่อมต่อเดิม)`,
+          suggestions: SuggestionsService.getFollowUpSuggestions(message, context)
+        };
+      }
+
+      if (lowerMessage.includes('ฟีเจอร์') || lowerMessage.includes('สเปค')) {
+        return {
+          content: `คุณสมบัติชุดสายฉีดชำระ TOA JOMOO:
+
+💧 ปรับแรงดันน้ำได้ 3 ระดับ (อ่อน-กลาง-แรง)
+🚿 หัวฉีดหมุนได้ 360 องศา
+🔧 วาล์วปิด-เปิดน้ำแบบกด
+💎 วัสดุสแตนเลสคุณภาพสูง กันสนิม
+🧼 ผิวเรียบ ทำความสะอาดง่าย
+📏 ความยาวสาย 1.2-1.5 เมตร
+🛡️ รับประกัน 2 ปี`,
+          suggestions: SuggestionsService.getFollowUpSuggestions(message, context)
+        };
+      }
+    }
+
+    // Smart Toilet specific responses
     if (context?.productName === 'Smart Toilet') {
       if (lowerMessage.includes('ราคา')) {
         return {
@@ -138,15 +207,20 @@ export class AIResponseService {
       };
     }
 
-    // Default response
+    // Default response - ต้องเกี่ยวข้องกับสินค้าเท่านั้น
+    const knowledge = KnowledgeBaseService.getAvailableKnowledge();
+    
     return {
       content: `สวัสดีครับ! ยินดีให้คำปรึกษาเกี่ยวกับสินค้า TOA JOMOO 
 
-${context ? `คุณกำลังสนใจ ${context.productName} ใช่ไหมครับ?` : 'มีอะไรให้ช่วยเหลือครับ?'}
+${context ? `คุณกำลังสนใจ ${context.productName} ใช่ไหมครับ?` : 'มีอะไรให้ช่วยเหลือเกี่ยวกับสุขภัณฑ์ TOA JOMOO ไหมครับ?'}
 
 🏢 TOA JOMOO - แบรนด์สุขภัณฑ์คุณภาพสูงจากญี่ปุ่น
-✨ ผลิตภัณฑ์ทันสมัย ประหยัดน้ำ ประหยัดไฟ
-🛡️ รับประกันยาวนาน พร้อมบริการหลังการขาย`,
+✨ สินค้าที่มี: Smart Toilet, Basin, Faucet, Shower และอีกมากมาย
+🛡️ รับประกันยาวนาน พร้อมบริการหลังการขาย
+🏪 มีโชว์รูมให้ชมสินค้าจริง
+
+ผมตอบได้เฉพาะเรื่องสุขภัณฑ์และบริการของ TOA JOMOO เท่านั้นครับ`,
       suggestions: SuggestionsService.getSuggestionsForContext(context)
     };
   }

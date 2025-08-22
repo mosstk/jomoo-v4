@@ -3,6 +3,8 @@ import { products } from '@/data/products';
 import { smartToiletProducts } from '@/data/smart-toilet-products';
 import { onePieceToiletProducts } from '@/data/one-piece-toilet-products';
 import { basinProducts } from '@/data/basin-products';
+import { bidetSprayProducts } from '@/data/bidet-spray-products';
+import { faucetProducts } from '@/data/faucet-products';
 
 export class ProductContextService {
   static getCurrentContext(pathname: string): ProductContext | null {
@@ -40,7 +42,7 @@ export class ProductContextService {
       'faucet': {
         category: 'faucet',
         productName: 'Faucet',
-        availableProducts: []
+        availableProducts: faucetProducts
       },
       'rain-shower': {
         category: 'shower',
@@ -50,7 +52,7 @@ export class ProductContextService {
       'bidet-spray': {
         category: 'faucet',
         productName: 'Bidet Sprayer',
-        availableProducts: []
+        availableProducts: bidetSprayProducts
       },
       'uniral': {
         category: 'toilet',
@@ -83,21 +85,28 @@ export class ProductContextService {
   }
 
   static getContextualPrompt(context: ProductContext): string {
-    const basePrompt = `คุณเป็น AI ที่ช่วยให้คำปรึกษาเกี่ยวกับสินค้า TOA JOMOO ซึ่งเป็นแบรนด์สุขภัณฑ์คุณภาพสูง`;
+    const basePrompt = `คุณเป็น AI Assistant สำหรับเว็บไซต์ TOA JOMOO เท่านั้น 
+    
+ข้อจำกัดสำคัญ:
+- ตอบเฉพาะคำถามเกี่ยวกับสุขภัณฑ์และบริการของ TOA JOMOO เท่านั้น
+- หากคำถามไม่เกี่ยวข้อง ให้แจ้งว่าไม่สามารถตอบได้และนำกลับสู่หัวข้อสุขภัณฑ์
+- ใช้ข้อมูลที่มีในเว็บไซต์เท่านั้น อย่าแต่งเรื่องหรือสมมติข้อมูล`;
     
     if (context.currentPage === 'home') {
-      return `${basePrompt} ตอบคำถามเกี่ยวกับสินค้าทั้งหมดของ TOA JOMOO อย่างเป็นมิตรและให้ข้อมูลที่เป็นประโยชน์`;
+      return `${basePrompt} ตอบคำถามเกี่ยวกับสินค้าทั้งหมดของ TOA JOMOO อย่างเป็นมิตรและให้ข้อมูลที่มีอยู่จริงเท่านั้น`;
     }
 
     return `${basePrompt} ขณะนี้ลูกค้ากำลังดูสินค้า ${context.productName} 
     หมวดหมู่: ${context.category}
-    ให้คำแนะนำเฉพาะเจาะจงเกี่ยวกับสินค้านี้ รวมถึง:
-    - สเปคสินค้า
-    - ราคาโดยประมาณ  
-    - วิธีการติดตั้ง
-    - การรับประกัน
-    - การเปรียบเทียบรุ่นต่างๆ
     
-    ตอบเป็นภาษาไทยเสมอ และใช้น้ำเสียงที่เป็นมิตร เชี่ยวชาญ และให้ข้อมูลที่เป็นประโยชน์`;
+    ให้คำแนะนำเฉพาะเจาะจงเกี่ยวกับสินค้านี้เท่านั้น:
+    - ข้อมูลสินค้าที่มีจริงในเว็บไซต์
+    - ราคาโดยประมาณที่สมเหตุสมผล  
+    - วิธีการติดตั้งพื้นฐาน
+    - การรับประกันมาตรฐาน (2-5 ปี)
+    - การเปรียบเทียบรุ่นต่างๆ ที่มีอยู่
+    
+    ห้ามตอบคำถามที่ไม่เกี่ยวข้องกับสุขภัณฑ์ TOA JOMOO
+    ตอบเป็นภาษาไทยเสมอ และใช้น้ำเสียงที่เป็นมิตร เชี่ยวชาญ`;
   }
 }
