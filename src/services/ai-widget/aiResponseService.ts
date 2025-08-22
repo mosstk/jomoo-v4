@@ -1,14 +1,11 @@
-import { AIResponse, ProductContext, ProductRecommendation } from './types';
+import type { AIResponse, ProductContext, ProductRecommendation } from './types';
+import { supabase } from '@/integrations/supabase/client';
 import { SuggestionsService } from './suggestionsService';
 import { KnowledgeBaseService } from './knowledgeBaseService';
 
 export class AIResponseService {
-  private static readonly API_KEY_PLACEHOLDER = 'your-openai-api-key';
-
-  static async generateResponse(
-    message: string,
-    context: ProductContext | null
-  ): Promise<AIResponse> {
+  // Main method to generate AI response using RAG
+  static async generateResponse(message: string, context: ProductContext | null): Promise<AIResponse> {
     try {
       // ตรวจสอบความเกี่ยวข้องของคำถามก่อน
       const relevanceCheck = KnowledgeBaseService.isQuestionRelevant(message);
@@ -20,21 +17,88 @@ export class AIResponseService {
         };
       }
 
-      // For demo purposes, return mock responses based on available data
-      // In production, replace with actual OpenAI API call
-      const mockResponse = this.getMockResponse(message, context);
+      // Use RAG search for real knowledge base data
+      const ragResponse = await this.searchKnowledgeBase(message, context);
       
-      // Simulate API delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      if (ragResponse && ragResponse.success && ragResponse.response) {
+        return {
+          content: ragResponse.response,
+          suggestions: SuggestionsService.getSuggestionsForContext(context).slice(0, 2),
+          productRecommendations: this.getProductRecommendations(context)
+        };
+      }
       
-      return mockResponse;
+      // Fallback to previous response system if RAG fails
+      console.log('RAG search failed, using fallback response');
+      return this.getMockResponse(message, context);
+      
     } catch (error) {
-      console.error('Error generating AI response:', error);
-      return {
-        content: 'ขออภัยครับ ขณะนี้ระบบมีปัญหา กรุณาลองใหม่อีกครั้งหรือติดต่อทีมงานของเราโดยตรง',
-        suggestions: SuggestionsService.getSuggestionsForContext(context).slice(0, 2)
-      };
+      console.error('Error in AI response generation:', error);
+      return this.getMockResponse(message, context);
     }
+  }
+
+  // Search knowledge base using RAG
+  private static async searchKnowledgeBase(message: string, context: ProductContext | null) {
+    try {
+      const { data, error } = await supabase.functions.invoke('rag-search', {
+        body: {
+          query: message,
+          limit: 5,
+          category: context?.category ? this.mapCategoryToKnowledgeBase(context.category) : undefined,
+          product_type: context?.category ? this.mapCategoryToProductType(context.category) : undefined
+        }
+      });
+
+      if (error) {
+        console.error('RAG search error:', error);
+        return null;
+      }
+
+      return data;
+    } catch (error) {
+      console.error('Failed to search knowledge base:', error);
+      return null;
+    }
+  }
+
+  // Map website categories to knowledge base categories
+  private static mapCategoryToKnowledgeBase(category: string): string {
+    const categoryMap: { [key: string]: string } = {
+      'smart-toilet': 'product_info',
+      'one-piece-toilet': 'product_info', 
+      'basin': 'product_info',
+      'bathtub': 'product_info',
+      'shower-enclosure': 'product_info',
+      'faucet': 'product_info',
+      'rain-shower': 'product_info',
+      'bidet-spray': 'product_info',
+      'urinal': 'product_info',
+      'accessories': 'product_info',
+      'about': 'company_info',
+      'contact': 'contact_info',
+      'warranty': 'warranty_info'
+    };
+    
+    return categoryMap[category] || 'product_info';
+  }
+
+  // Map website categories to product types
+  private static mapCategoryToProductType(category: string): string | undefined {
+    const typeMap: { [key: string]: string } = {
+      'smart-toilet': 'smart_toilet',
+      'one-piece-toilet': 'one_piece_toilet',
+      'basin': 'basin',
+      'bathtub': 'bathtub',
+      'shower-enclosure': 'shower_enclosure',
+      'faucet': 'faucet',
+      'rain-shower': 'rain_shower',
+      'bidet-spray': 'bidet_spray',
+      'urinal': 'urinal',
+      'accessories': 'accessories'
+    };
+    
+    return typeMap[category];
   }
 
   private static getMockResponse(message: string, context: ProductContext | null): AIResponse {
@@ -208,6 +272,38 @@ ${context ? `คุณกำลังดูหน้า ${context.productName} �
     };
   }
 
+  // Get product recommendations based on context (only real products)
+  private static getProductRecommendations(context: ProductContext | null): ProductRecommendation[] {
+    if (!context?.category) return [];
+
+    // Return only real products that exist in our data files
+    if (context.category === 'smart-toilet') {
+      return [
+        {
+          productId: 'smart1',
+          productName: 'Smart Toilet รุ่น 1',
+          reason: 'สินค้าในหมวด Smart Toilet ของเรา',
+          image: '/lovable-uploads/3aede93b-84f3-4a77-acf5-a767654f5f65.png',
+          category: 'smart-toilet'
+        }
+      ];
+    }
+
+    if (context.category === 'one-piece-toilet') {
+      return [
+        {
+          productId: 'onepiece1',
+          productName: 'One Piece Toilet รุ่น 1',
+          reason: 'สินค้าในหมวด One Piece Toilet ของเรา',
+          image: '/lovable-uploads/43b4b548-71a6-4327-93ae-90547e01ef13.png',
+          category: 'one-piece-toilet'
+        }
+      ];
+    }
+
+    return [];
+  }
+
   private static getSmartToiletRecommendations(): ProductRecommendation[] {
     return [
       {
@@ -225,6 +321,25 @@ ${context ? `คุณกำลังดูหน้า ${context.productName} �
         category: 'toilet'
       }
     ];
+  }
+
+  // Generate embeddings for knowledge base (used for initial setup)
+  static async generateEmbeddings(): Promise<void> {
+    try {
+      const { data, error } = await supabase.functions.invoke('generate-embeddings', {
+        body: { action: 'generate_all' }
+      });
+
+      if (error) {
+        console.error('Error generating embeddings:', error);
+        throw error;
+      }
+
+      console.log('Embeddings generated successfully:', data);
+    } catch (error) {
+      console.error('Failed to generate embeddings:', error);
+      throw error;
+    }
   }
 
   // Method for future OpenAI integration
