@@ -64,7 +64,7 @@ const DesktopShowerPage = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer useProductPageStyle={true} />
     </div>
   );
 };

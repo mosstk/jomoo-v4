@@ -64,7 +64,7 @@ const DesktopBasinPage = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer useProductPageStyle={true} />
     </div>
   );
 };

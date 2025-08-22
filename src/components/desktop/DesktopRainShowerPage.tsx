@@ -64,7 +64,7 @@ const DesktopRainShowerPage = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer useProductPageStyle={true} />
     </div>
   );
 };

@@ -64,7 +64,7 @@ const DesktopUniralPage = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer useProductPageStyle={true} />
     </div>
   );
 };

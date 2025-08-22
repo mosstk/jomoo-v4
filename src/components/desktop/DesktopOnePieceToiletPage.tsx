@@ -64,7 +64,7 @@ const DesktopOnePieceToiletPage = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer useProductPageStyle={true} />
     </div>
   );
 };

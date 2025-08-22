@@ -64,7 +64,7 @@ const DesktopFaucetPage = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer useProductPageStyle={true} />
     </div>
   );
 };

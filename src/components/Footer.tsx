@@ -9,7 +9,7 @@ const LineIcon = () => (
   </svg>
 );
 
-const Footer = () => {
+const Footer = ({ useProductPageStyle = false }: { useProductPageStyle?: boolean }) => {
   return (
     <footer>
       {/* White divider line */}
@@ -18,7 +18,7 @@ const Footer = () => {
       </div>
       
       {/* Main Footer Content - Transparent background to show main background */}
-      <div className="py-8 w-[1120px] mx-auto luxury-backdrop">
+      <div className={`py-8 w-[1120px] mx-auto ${useProductPageStyle ? 'luxury-backdrop' : ''}`}>
         <div className="mx-auto px-4" style={{ width: '1080px', maxWidth: '100%' }}>
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8">
             {/* Left Side */}
