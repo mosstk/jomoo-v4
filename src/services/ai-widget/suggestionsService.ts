@@ -4,22 +4,22 @@ export class SuggestionsService {
   private static readonly commonSuggestions: SmartSuggestion[] = [
     {
       id: 'general-1',
-      text: 'ราคาสินค้า TOA JOMOO เป็นอย่างไร?',
+      text: 'มีสินค้าอะไรบ้าง?',
       category: 'product'
     },
     {
       id: 'general-2', 
-      text: 'การรับประกันสินค้ามีระยะเวลาเท่าไหร่?',
-      category: 'warranty'
+      text: 'อยากดูรูปสินค้า',
+      category: 'product'
     },
     {
       id: 'general-3',
-      text: 'มีบริการติดตั้งหรือไม่?',
-      category: 'installation'
+      text: 'ติดต่อทีมขายอย่างไร?',
+      category: 'product'
     },
     {
       id: 'general-4',
-      text: 'อยากนัดหมายชมโชว์รูม',
+      text: 'โชว์รูมอยู่ที่ไหน?',
       category: 'product'
     }
   ];
@@ -34,67 +34,67 @@ export class SuggestionsService {
       },
       {
         id: 'toilet-2',
-        text: 'วิธีติดตั้งสุขภัณฑ์แบบชิ้นเดียว',
-        category: 'installation'
+        text: 'มีรุ่นไหนบ้าง?',
+        category: 'product'
       },
       {
         id: 'toilet-3',
-        text: 'ฟีเจอร์ Smart Toilet มีอะไรบ้าง?',
-        category: 'specification'
+        text: 'อยากดูรูปสินค้า',
+        category: 'product'
       }
     ],
     basin: [
       {
         id: 'basin-1',
-        text: 'อ่างล้างหน้ารุ่นไหนเหมาะกับห้องน้ำขนาดเล็ก?',
-        category: 'specification'
+        text: 'มีอ่างล้างหน้ารุ่นไหนบ้าง?',
+        category: 'product'
       },
       {
         id: 'basin-2',
-        text: 'วิธีดูแลรักษาอ่างล้างหน้า',
+        text: 'อยากดูรูปสินค้า Basin',
         category: 'product'
       },
       {
         id: 'basin-3',
-        text: 'ขนาดอ่างล้างหน้ามีแบบไหนบ้าง?',
-        category: 'specification'
+        text: 'ติดต่อสอบถามรายละเอียด',
+        category: 'product'
       }
     ],
     shower: [
       {
         id: 'shower-1',
-        text: 'Rain Shower กับ Shower Enclosure ต่างกันอย่างไร?',
-        category: 'comparison'
+        text: 'มีฝักบัวแบบไหนบ้าง?',
+        category: 'product'
       },
       {
         id: 'shower-2',
-        text: 'วิธีเลือกระบบฝักบัวที่เหมาะสม',
-        category: 'specification'
+        text: 'อยากดูรูปสินค้า Shower',
+        category: 'product'
       }
     ],
     faucet: [
       {
         id: 'faucet-1',
-        text: 'ก๊อกน้ำชนิดไหนประหยัดน้ำที่สุด?',
-        category: 'specification'
+        text: 'มีก๊อกน้ำรุ่นไหนบ้าง?',
+        category: 'product'
       },
       {
         id: 'faucet-2',
-        text: 'Bidet Spray ติดตั้งยากไหม?',
-        category: 'installation'
+        text: 'Bidet Spray มีรุ่นไหนบ้าง?',
+        category: 'product'
       }
     ],
     bathtub: [
       {
         id: 'bathtub-1',
-        text: 'อ่างอาบน้ำขนาดไหนเหมาะกับห้องน้ำบ้าน?',
-        category: 'specification'
+        text: 'มีอ่างอาบน้ำแบบไหนบ้าง?',
+        category: 'product'
       }
     ],
     accessories: [
       {
         id: 'accessories-1',
-        text: 'อุปกรณ์เสริมสำหรับห้องน้ำมีอะไรบ้าง?',
+        text: 'มีอุปกรณ์เสริมอะไรบ้าง?',
         category: 'product'
       }
     ]
