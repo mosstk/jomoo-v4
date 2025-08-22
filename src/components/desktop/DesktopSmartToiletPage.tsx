@@ -21,7 +21,7 @@ const DesktopSmartToiletPage = () => {
       </section>
 
       {/* TOA | JOMOO Logo Section */}
-      <section className="bg-background py-8">
+      <section className="bg-white py-8">
         <div className="max-w-[1120px] mx-auto px-4 text-center">
           <img 
             src="/lovable-uploads/71ce025e-b030-4065-ab22-8ca999d67ebc.png" 
@@ -32,7 +32,7 @@ const DesktopSmartToiletPage = () => {
       </section>
 
       {/* Breadcrumb */}
-      <section className="bg-background py-4">
+      <section className="bg-white py-4">
         <div className="max-w-[1120px] mx-auto px-4">
           <p className="text-muted-foreground">Product &gt; Smart Toilet</p>
         </div>
