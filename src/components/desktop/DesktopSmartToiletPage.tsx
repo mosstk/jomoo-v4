@@ -32,7 +32,7 @@ const DesktopSmartToiletPage = () => {
       </section>
 
       {/* Breadcrumb */}
-      <section className="bg-white py-4">
+      <section className="bg-white py-4 w-[1120px] mx-auto">
         <div className="w-[1120px] mx-auto px-4">
           <p className="text-muted-foreground">Product &gt; Smart Toilet</p>
         </div>
