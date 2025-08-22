@@ -21,7 +21,7 @@ const DesktopRainShowerPage = () => {
       </section>
 
       {/* TOA | JOMOO Logo Section */}
-      <section className="bg-white py-8">
+      <section className="bg-background py-8">
         <div className="max-w-[1120px] mx-auto px-4 text-center">
           <img 
             src="/lovable-uploads/71ce025e-b030-4065-ab22-8ca999d67ebc.png" 
@@ -32,14 +32,14 @@ const DesktopRainShowerPage = () => {
       </section>
 
       {/* Breadcrumb */}
-      <section className="bg-gray-50 py-4">
+      <section className="bg-background py-4">
         <div className="max-w-[1120px] mx-auto px-4">
-          <p className="text-gray-600">Product &gt; Rain Shower</p>
+          <p className="text-muted-foreground">Product &gt; Rain Shower</p>
         </div>
       </section>
 
       {/* Products Grid */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-background py-16">
         <div className="max-w-[1120px] mx-auto px-4">
           <div className="grid grid-cols-3 gap-8 max-w-6xl mx-auto">
             {rainShowerProducts.map((product) => (
