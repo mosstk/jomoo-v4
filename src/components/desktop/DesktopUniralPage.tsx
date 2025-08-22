@@ -22,7 +22,7 @@ const DesktopUniralPage = () => {
 
       {/* TOA | JOMOO Logo Section */}
       <section className="bg-white py-8">
-        <div className="container mx-auto px-4 text-center">
+        <div className="max-w-[1120px] mx-auto px-4 text-center">
           <img 
             src="/lovable-uploads/71ce025e-b030-4065-ab22-8ca999d67ebc.png" 
             alt="TOA | JOMOO Logo" 
@@ -33,14 +33,14 @@ const DesktopUniralPage = () => {
 
       {/* Breadcrumb */}
       <section className="bg-gray-50 py-4">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1120px] mx-auto px-4">
           <p className="text-gray-600">Product &gt; Uniral</p>
         </div>
       </section>
 
       {/* Products Grid */}
       <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1120px] mx-auto px-4">
           <div className="grid grid-cols-3 gap-8 max-w-6xl mx-auto">
             {uniralProducts.map((product) => (
               <div key={product.id} className="bg-white rounded-lg overflow-hidden shadow-sm">
