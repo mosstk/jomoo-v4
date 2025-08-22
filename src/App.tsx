@@ -35,7 +35,7 @@ const App = () => (
           <Route path="/smart-toilet" element={<SmartToilet />} />
           <Route path="/one-piece-toilet" element={<OnePieceToilet />} />
           <Route path="/basin" element={<Basin />} />
-          <Route path="/bath" element={<Bath />} />
+          <Route path="/bathtub" element={<Bath />} />
           <Route path="/shower-enclosure" element={<ShowerEnclosure />} />
           <Route path="/faucet" element={<Faucet />} />
           <Route path="/rain-shower" element={<RainShower />} />

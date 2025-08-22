@@ -15,7 +15,7 @@ const ProductGrid = () => {
     } else if (productName === "Basin") {
       navigate("/basin");
     } else if (productName === "Bathtub") {
-      navigate("/bath");
+      navigate("/bathtub");
     } else if (productName === "Shower Enclosure") {
       navigate("/shower-enclosure");
     } else if (productName === "Faucet") {
