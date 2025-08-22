@@ -23,8 +23,8 @@ const DesktopLayout = () => {
       {/* TOA JOMOO Logo and Message */}
       <div className="flex flex-col items-center pt-8 pb-0 bg-transparent">
         <img 
-          src="/lovable-uploads/fbb21cd6-6867-4142-a293-5a5ad5f201ae.png" 
-          alt="TOA JOMOO Logo" 
+          src="/lovable-uploads/75840f22-bf19-4be1-acd5-29d143424b5f.png" 
+          alt="TOA Logo" 
           className="h-10 w-auto object-contain mb-4"
         />
         <p className="text-white text-center max-w-2xl">

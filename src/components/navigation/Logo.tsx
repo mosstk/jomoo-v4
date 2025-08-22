@@ -9,11 +9,10 @@ interface LogoProps {
 const Logo = ({ src, alt, className = "h-[45px] w-auto" }: LogoProps) => {
   return (
     <Link to="/" className="flex items-center cursor-pointer">
-      <img 
-        src="/lovable-uploads/75840f22-bf19-4be1-acd5-29d143424b5f.png" 
-        alt="TOA Logo" 
-        className={className}
-      />
+      <span className="text-white">
+        <span className="font-bold text-2xl">TOA</span>{" "}
+        <span className="font-normal text-lg">Living Space</span>
+      </span>
     </Link>
   );
 };
