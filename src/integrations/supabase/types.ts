@@ -7,106 +7,43 @@ export type Json =
   | Json[]
 
 export type Database = {
-  // Allows to automatically instantiate createClient with right options
+  // Allows to automatically instanciate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
     PostgrestVersion: "12.2.3 (519615d)"
   }
   public: {
     Tables: {
-      admin_users: {
+      contact_inquiries: {
         Row: {
           created_at: string
-          full_name: string | null
+          email: string
           id: string
-          is_active: boolean
-          password_hash: string
+          inquiry_type: string | null
+          message: string
+          name: string
+          phone: string
           updated_at: string
-          username: string
         }
         Insert: {
           created_at?: string
-          full_name?: string | null
+          email: string
           id?: string
-          is_active?: boolean
-          password_hash: string
+          inquiry_type?: string | null
+          message: string
+          name: string
+          phone: string
           updated_at?: string
-          username: string
         }
         Update: {
           created_at?: string
-          full_name?: string | null
-          id?: string
-          is_active?: boolean
-          password_hash?: string
-          updated_at?: string
-          username?: string
-        }
-        Relationships: []
-      }
-      jomoo_waranty: {
-        Row: {
-          address: string
-          dealer: string | null
-          email: string
-          first_name: string
-          id: number
-          image_url: string | null
-          install_date: string | null
-          installer: string | null
-          invoice_url: string | null
-          last_name: string
-          notes: string | null
-          phone: string
-          product_model: string
-          product_type: string
-          purchase_date: string
-          registration_date: string | null
-          serial_number: string | null
-          status: string | null
-          warranty_id: string
-        }
-        Insert: {
-          address: string
-          dealer?: string | null
-          email: string
-          first_name: string
-          id?: number
-          image_url?: string | null
-          install_date?: string | null
-          installer?: string | null
-          invoice_url?: string | null
-          last_name: string
-          notes?: string | null
-          phone: string
-          product_model: string
-          product_type: string
-          purchase_date: string
-          registration_date?: string | null
-          serial_number?: string | null
-          status?: string | null
-          warranty_id: string
-        }
-        Update: {
-          address?: string
-          dealer?: string | null
           email?: string
-          first_name?: string
-          id?: number
-          image_url?: string | null
-          install_date?: string | null
-          installer?: string | null
-          invoice_url?: string | null
-          last_name?: string
-          notes?: string | null
+          id?: string
+          inquiry_type?: string | null
+          message?: string
+          name?: string
           phone?: string
-          product_model?: string
-          product_type?: string
-          purchase_date?: string
-          registration_date?: string | null
-          serial_number?: string | null
-          status?: string | null
-          warranty_id?: string
+          updated_at?: string
         }
         Relationships: []
       }
