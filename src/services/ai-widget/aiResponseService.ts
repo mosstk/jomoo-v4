@@ -18,9 +18,11 @@ export class AIResponseService {
       }
 
       // Use RAG search for real knowledge base data
+      console.log('🚀 Starting RAG search for message:', message);
       const ragResponse = await this.searchKnowledgeBase(message, context);
       
       if (ragResponse && ragResponse.success && ragResponse.response) {
+        console.log('✅ RAG search successful, returning RAG response');
         return {
           content: ragResponse.response,
           suggestions: SuggestionsService.getSuggestionsForContext(context).slice(0, 2),
@@ -29,7 +31,8 @@ export class AIResponseService {
       }
       
       // Fallback to previous response system if RAG fails
-      console.log('RAG search failed, using fallback response');
+      console.log('❌ RAG search failed, using fallback response');
+      console.log('RAG response:', ragResponse);
       return this.getMockResponse(message, context);
       
     } catch (error) {
@@ -41,6 +44,9 @@ export class AIResponseService {
   // Search knowledge base using RAG
   private static async searchKnowledgeBase(message: string, context: ProductContext | null) {
     try {
+      console.log('🔍 Searching RAG with message:', message);
+      console.log('🔍 Context:', context);
+      
       const { data, error } = await supabase.functions.invoke('rag-search', {
         body: {
           query: message,
@@ -49,6 +55,9 @@ export class AIResponseService {
           product_type: context?.category ? this.mapCategoryToProductType(context.category) : undefined
         }
       });
+
+      console.log('📡 RAG response data:', data);
+      console.log('❌ RAG response error:', error);
 
       if (error) {
         console.error('RAG search error:', error);
