@@ -30,7 +30,7 @@ export const smartToiletProducts: SmartToiletProduct[] = [
   },
   {
     id: 'st4',
-    name: 'Smart Toilet 1',
+    name: 'Smart Toilet 4',
     model: 'รุ่น XXX', 
     description: 'สุขภัณฑ์อัจฉริยะ',
     image: '/lovable-uploads/6a645c05-0d87-4303-893c-a4464c4e988a.png'
