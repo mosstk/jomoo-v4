@@ -39,8 +39,8 @@ const DesktopSmartToiletPage = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="bg-white py-16">
-        <div className="max-w-[1120px] mx-auto px-4">
+      <section className="bg-white py-16 w-[1120px] mx-auto">
+        <div className="px-4">
           <div className="grid grid-cols-3 gap-8 max-w-6xl mx-auto">
             {smartToiletProducts.map((product) => (
               <div key={product.id} className="bg-white rounded-lg overflow-hidden shadow-sm">
