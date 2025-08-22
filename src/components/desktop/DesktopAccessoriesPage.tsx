@@ -8,11 +8,15 @@ const DesktopAccessoriesPage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-auto">
+      <section className="relative overflow-hidden w-full max-w-[1120px] mx-auto" 
+        style={{ 
+          height: '587px',
+          aspectRatio: '1120/587'
+        }}>
         <img 
           src="/lovable-uploads/d35d0c4a-dbf0-4372-94a3-0540dd5e6c1b.png"
           alt="Accessories Banner"
-          className="w-full h-auto object-contain"
+          className="w-full h-full object-cover"
         />
       </section>
 

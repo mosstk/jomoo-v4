@@ -8,11 +8,15 @@ const DesktopBathPage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-auto">
+      <section className="relative overflow-hidden w-full max-w-[1120px] mx-auto" 
+        style={{ 
+          height: '587px',
+          aspectRatio: '1120/587'
+        }}>
         <img 
           src="/lovable-uploads/a5329036-7457-4db3-908d-4fcdeabcbd2c.png"
           alt="Bath Banner"
-          className="w-full h-auto object-contain"
+          className="w-full h-full object-cover"
         />
       </section>
 

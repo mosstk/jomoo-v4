@@ -8,11 +8,15 @@ const DesktopBasinPage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-auto">
+      <section className="relative overflow-hidden w-full max-w-[1120px] mx-auto" 
+        style={{ 
+          height: '587px',
+          aspectRatio: '1120/587'
+        }}>
         <img 
           src="/lovable-uploads/3c048db6-cd92-4a0c-a8b2-519c3997caf7.png"
           alt="Basin Banner"
-          className="w-full h-auto object-contain"
+          className="w-full h-full object-cover"
         />
       </section>
 

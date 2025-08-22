@@ -8,11 +8,15 @@ const DesktopUniralPage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-auto">
+      <section className="relative overflow-hidden w-full max-w-[1120px] mx-auto" 
+        style={{ 
+          height: '587px',
+          aspectRatio: '1120/587'
+        }}>
         <img 
           src="/lovable-uploads/c5df9891-85eb-467f-93f8-8263fa34e13c.png"
           alt="Uniral Banner"
-          className="w-full h-auto object-contain"
+          className="w-full h-full object-cover"
         />
       </section>
 

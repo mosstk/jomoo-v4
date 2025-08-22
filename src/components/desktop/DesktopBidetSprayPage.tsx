@@ -8,11 +8,15 @@ const DesktopBidetSprayPage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-auto">
+      <section className="relative overflow-hidden w-full max-w-[1120px] mx-auto" 
+        style={{ 
+          height: '587px',
+          aspectRatio: '1120/587'
+        }}>
         <img 
           src="/lovable-uploads/133433bd-14e7-4eae-9336-455cfd6fcdf3.png"
           alt="Bidet Spray Banner"
-          className="w-full h-auto object-contain"
+          className="w-full h-full object-cover"
         />
       </section>
 

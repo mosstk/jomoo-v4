@@ -34,7 +34,7 @@ const HeroSection = () => {
       className="relative overflow-hidden bg-transparent group w-full max-w-[1120px] mx-auto" 
       style={{ 
         marginTop: '0', 
-        height: 'clamp(240px, 40vw, 587px)',
+        height: '587px',
         aspectRatio: '1120/587'
       }}
     >
