@@ -44,7 +44,7 @@ export const accessoriesProducts: AccessoriesProduct[] = [
   },
   {
     id: 'accessories6',
-    name: 'Accessories 3',
+    name: 'Accessories 6',
     model: 'รุ่น XXX',
     description: 'อุปกรณ์ห้องน้ำ', 
     image: '/lovable-uploads/3596eeb1-f851-4dca-8778-2847225bfe72.png'
