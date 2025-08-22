@@ -44,7 +44,7 @@ export const showerProducts: ShowerProduct[] = [
   },
   {
     id: 'shower6',
-    name: 'Shower Enclosure 3',
+    name: 'Shower Enclosure 6',
     model: 'รุ่น XXX',
     description: 'ฉากกั้นอาบน้ำ', 
     image: '/lovable-uploads/3596eeb1-f851-4dca-8778-2847225bfe72.png'
