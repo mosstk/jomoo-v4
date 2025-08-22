@@ -21,8 +21,8 @@ const DesktopBasinPage = () => {
       </section>
 
       {/* TOA | JOMOO Logo Section */}
-      <section className="bg-background py-8">
-        <div className="max-w-[1120px] mx-auto px-4 text-center">
+      <section className="bg-white py-8 w-[1120px] mx-auto">
+        <div className="px-4 text-center">
           <img 
             src="/lovable-uploads/71ce025e-b030-4065-ab22-8ca999d67ebc.png" 
             alt="TOA | JOMOO Logo" 
@@ -32,15 +32,15 @@ const DesktopBasinPage = () => {
       </section>
 
       {/* Breadcrumb */}
-      <section className="bg-background py-4">
-        <div className="max-w-[1120px] mx-auto px-4">
+      <section className="bg-white py-4 w-[1120px] mx-auto">
+        <div className="px-4">
           <p className="text-muted-foreground">Product &gt; Basin</p>
         </div>
       </section>
 
       {/* Products Grid */}
-      <section className="bg-background py-16">
-        <div className="max-w-[1120px] mx-auto px-4">
+      <section className="bg-white py-16 w-[1120px] mx-auto">
+        <div className="px-4">
           <div className="grid grid-cols-3 gap-8 max-w-6xl mx-auto">
             {basinProducts.map((product) => (
               <div key={product.id} className="bg-white rounded-lg overflow-hidden shadow-sm">
