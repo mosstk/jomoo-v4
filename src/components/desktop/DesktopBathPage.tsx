@@ -43,7 +43,7 @@ const DesktopBathPage = () => {
         <div className="max-w-[1120px] mx-auto px-4">
           <div className="grid grid-cols-3 gap-8 max-w-6xl mx-auto">
             {bathProducts.map((product) => (
-              <div key={product.id} className="bg-card rounded-lg overflow-hidden shadow-sm">
+              <div key={product.id} className="bg-white rounded-lg overflow-hidden shadow-sm">
                 <div className="aspect-square bg-gray-100 p-8">
                   <img 
                     src={product.image} 
