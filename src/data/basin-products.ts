@@ -30,7 +30,7 @@ export const basinProducts: BasinProduct[] = [
   },
   {
     id: 'basin4',
-    name: 'Basin 1',
+    name: 'Basin 4',
     model: 'รุ่น XXX', 
     description: 'อ่างล้างหน้า',
     image: '/lovable-uploads/d6be546b-c8ea-4590-8a79-fcad68288779.png'
