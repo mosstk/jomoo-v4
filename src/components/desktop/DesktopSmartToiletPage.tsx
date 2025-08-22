@@ -21,7 +21,7 @@ const DesktopSmartToiletPage = () => {
       </section>
 
       {/* TOA | JOMOO Logo Section */}
-      <section className="bg-white py-8">
+      <section className="bg-white py-8 w-[1120px] mx-auto">
         <div className="w-[1120px] mx-auto px-4 text-center">
           <img 
             src="/lovable-uploads/71ce025e-b030-4065-ab22-8ca999d67ebc.png" 
