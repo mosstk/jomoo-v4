@@ -44,7 +44,7 @@ export const rainShowerProducts: RainShowerProduct[] = [
   },
   {
     id: 'rainshower6',
-    name: 'Rain Shower 3',
+    name: 'Rain Shower 6',
     model: 'รุ่น XXX',
     description: 'ชุดเรนชาวเวอร์อาบน้ำ', 
     image: '/lovable-uploads/3596eeb1-f851-4dca-8778-2847225bfe72.png'
