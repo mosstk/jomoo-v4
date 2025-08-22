@@ -30,7 +30,7 @@ export const onePieceToiletProducts: OnePieceToiletProduct[] = [
   },
   {
     id: 'opt4',
-    name: 'One Piece Toilet 1',
+    name: 'One Piece Toilet 4',
     model: 'รุ่น XXX', 
     description: 'สุขภัณฑ์ชิ้นเดียว',
     image: '/lovable-uploads/807e61b6-4e0d-4ab4-a90f-0ec22edfd7c5.png'
