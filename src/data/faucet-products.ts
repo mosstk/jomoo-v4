@@ -44,7 +44,7 @@ export const faucetProducts: FaucetProduct[] = [
   },
   {
     id: 'faucet6',
-    name: 'Faucet 3',
+    name: 'Faucet 6',
     model: 'รุ่น XXX',
     description: 'สุขภัณฑ์อัจฉริยะ', 
     image: '/lovable-uploads/3596eeb1-f851-4dca-8778-2847225bfe72.png'
