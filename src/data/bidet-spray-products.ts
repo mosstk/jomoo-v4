@@ -30,7 +30,7 @@ export const bidetSprayProducts: BidetSprayProduct[] = [
   },
   {
     id: 'bidetspray4',
-    name: 'Bidet Spray 1',
+    name: 'Bidet Spray 4',
     model: 'รุ่น XXX', 
     description: 'ชุดสายฉีดชำระ',
     image: '/lovable-uploads/7299e673-1f0a-4cb0-a94c-93727a6d4205.png'
