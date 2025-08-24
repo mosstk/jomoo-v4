@@ -2,6 +2,27 @@ import React from 'react';
 import { User, Bot } from 'lucide-react';
 import { ChatMessage } from '@/services/ai-widget/types';
 
+// Helper function to format message content and convert markdown links to HTML
+const formatMessageContent = (content: string, isUser: boolean): string => {
+  if (isUser) {
+    return content; // Don't format user messages
+  }
+  
+  // Convert markdown links [text](url) to HTML links
+  let formatted = content.replace(
+    /\[([^\]]+)\]\(([^)]+)\)/g, 
+    `<a href="$2" class="text-blue-400 hover:text-blue-300 underline" target="_blank" rel="noopener noreferrer">$1</a>`
+  );
+  
+  // Convert **bold** to HTML bold
+  formatted = formatted.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  
+  // Convert line breaks to HTML br tags
+  formatted = formatted.replace(/\n/g, '<br>');
+  
+  return formatted;
+};
+
 interface AIChatMessageProps {
   message: ChatMessage;
 }
@@ -31,7 +52,12 @@ const AIChatMessage: React.FC<AIChatMessageProps> = ({ message }) => {
             ? 'bg-blue-500 text-white rounded-br-sm'
             : 'bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-bl-sm'
         }`}>
-          <div className="whitespace-pre-wrap">{message.content}</div>
+          <div 
+            className="whitespace-pre-wrap"
+            dangerouslySetInnerHTML={{ 
+              __html: formatMessageContent(message.content, isUser) 
+            }}
+          />
         </div>
         
         {/* Timestamp */}
