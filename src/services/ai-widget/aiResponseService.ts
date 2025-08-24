@@ -150,31 +150,60 @@ ${companyInfo.content}`;
       }
     }
 
-    // Find most relevant data with improved matching logic
+    // Find most relevant data with context-aware logic
     console.log('🎯 Available data:', kbData.map(item => ({ title: item.title, category: item.category })));
     
-    // Step 1: Look for exact keyword matches in title (prioritizing Thai terms)
-    let relevantData = kbData.find(item => 
-      item.title && query.split(' ').some(word => 
-        item.title.toLowerCase().includes(word.toLowerCase()) && word.length > 2
-      )
-    );
+    // Step 1: Identify query intent based on key terms
+    const queryLower = query.toLowerCase();
+    const isInspirationQuery = queryLower.includes('แรงบันดาลใจ') || queryLower.includes('ไอเดีย') || queryLower.includes('สไตล์');
+    const isProductQuery = queryLower.includes('ราคา') || queryLower.includes('รุ่น') || queryLower.includes('คุณสมบัติ');
     
-    // Step 2: If no title match, look for content matches in product_info category
-    if (!relevantData) {
+    console.log('🎯 Query intent - Inspiration:', isInspirationQuery, 'Product:', isProductQuery);
+    
+    let relevantData;
+    
+    // Step 2: Priority-based search based on query intent
+    if (isInspirationQuery) {
+      // For inspiration queries, prioritize inspiration_info category
       relevantData = kbData.find(item => 
-        item.category === 'product_info' && 
-        item.content && query.split(' ').some(word => 
-          item.content.toLowerCase().includes(word.toLowerCase()) && word.length > 2
+        item.category === 'inspiration_info' && (
+          item.title?.toLowerCase().includes('แรงบันดาลใจ') ||
+          item.content?.toLowerCase().includes('แรงบันดาลใจ')
         )
       );
     }
     
-    // Step 3: Look for partial matches based on keywords extracted
+    // Step 3: Look for exact title matches if no category-specific match
+    if (!relevantData) {
+      relevantData = kbData.find(item => 
+        item.title && query.split(' ').some(word => 
+          word.length > 3 && item.title.toLowerCase().includes(word.toLowerCase())
+        )
+      );
+    }
+    
+    // Step 4: Look for content matches, but respect query intent
+    if (!relevantData) {
+      const preferredCategory = isInspirationQuery ? 'inspiration_info' : 'product_info';
+      relevantData = kbData.find(item => 
+        item.category === preferredCategory && 
+        item.content && query.split(' ').some(word => 
+          word.length > 3 && item.content.toLowerCase().includes(word.toLowerCase())
+        )
+      );
+    }
+    
+    // Step 5: Fallback to keyword matching with category preference
     if (!relevantData) {
       const keywords = this.extractKeywords(query);
       console.log('🔍 Extracted keywords:', keywords);
-      for (const keyword of keywords) {
+      
+      // For inspiration queries, exclude generic keywords that might match products
+      const filteredKeywords = isInspirationQuery 
+        ? keywords.filter(k => !['ห้องน้ำ', 'ห้องครัว'].includes(k))
+        : keywords;
+        
+      for (const keyword of filteredKeywords) {
         relevantData = kbData.find(item => 
           (item.title && item.title.toLowerCase().includes(keyword.toLowerCase())) ||
           (item.content && item.content.toLowerCase().includes(keyword.toLowerCase()))
