@@ -5,14 +5,14 @@ export class SuggestionsService {
   // Cache for knowledge base questions
   private static cachedQuestions: SmartSuggestion[] | null = null;
   
-  // Get suggestions from real RAG knowledge base
+  // Get suggestions from real RAG knowledge base with validation
   static async getSuggestionsFromKnowledgeBase(): Promise<SmartSuggestion[]> {
     try {
       // Get all unique titles from knowledge base as questions
       const { data, error } = await supabase
         .from('knowledge_base')
-        .select('id, title, category, product_type')
-        .limit(20);
+        .select('id, title, category, product_type, content')
+        .limit(30);
 
       if (error) {
         console.error('Error fetching knowledge base:', error);
@@ -23,9 +23,14 @@ export class SuggestionsService {
         return this.getFallbackSuggestions();
       }
 
-      // Convert knowledge base titles to questions
+      // Convert knowledge base titles to questions and validate content exists
       const suggestions: SmartSuggestion[] = data
-        .filter(item => item.title && item.title.trim())
+        .filter(item => 
+          item.title && 
+          item.title.trim() && 
+          item.content && 
+          item.content.trim().length > 20 // Ensure substantial content exists
+        )
         .map((item, index) => ({
           id: `kb-${item.id || index}`,
           text: this.convertTitleToQuestion(item.title),
@@ -97,20 +102,27 @@ export class SuggestionsService {
       // Get suggestions from knowledge base
       const kbSuggestions = await this.getSuggestionsFromKnowledgeBase();
       
-      // If we have context, try to get context-specific suggestions
+      // If we have context, try to get context-specific suggestions with validation
       if (context?.category) {
         const { data, error } = await supabase
           .from('knowledge_base')
-          .select('id, title, category, product_type')
+          .select('id, title, category, product_type, content')
           .eq('product_type', this.mapCategoryToProductType(context.category))
-          .limit(10);
+          .limit(15);
 
         if (!error && data && data.length > 0) {
-          const contextSuggestions = data.map((item, index) => ({
-            id: `ctx-${item.id || index}`,
-            text: this.convertTitleToQuestion(item.title),
-            category: this.mapCategoryToSuggestionCategory(item.category)
-          }));
+          const contextSuggestions = data
+            .filter(item => 
+              item.title && 
+              item.title.trim() && 
+              item.content && 
+              item.content.trim().length > 20 // Validate content exists
+            )
+            .map((item, index) => ({
+              id: `ctx-${item.id || index}`,
+              text: this.convertTitleToQuestion(item.title),
+              category: this.mapCategoryToSuggestionCategory(item.category)
+            }));
           
           // Mix context-specific and general suggestions
           const mixed = [
@@ -211,15 +223,20 @@ export class SuggestionsService {
   // Get follow-up suggestions from knowledge base
   static async getFollowUpSuggestions(lastMessage: string, context: ProductContext | null): Promise<SmartSuggestion[]> {
     try {
-      // Get fresh suggestions from knowledge base, different from initial ones
+      // Get fresh suggestions from knowledge base with content validation
       const { data, error } = await supabase
         .from('knowledge_base')
-        .select('id, title, category, product_type')
-        .limit(15);
+        .select('id, title, category, product_type, content')
+        .limit(20);
 
       if (!error && data && data.length > 0) {
         const followUpSuggestions = data
-          .filter(item => item.title && item.title.trim())
+          .filter(item => 
+            item.title && 
+            item.title.trim() && 
+            item.content && 
+            item.content.trim().length > 20 // Ensure substantial content
+          )
           .map((item, index) => ({
             id: `fu-${item.id || index}`,
             text: this.convertTitleToQuestion(item.title),
