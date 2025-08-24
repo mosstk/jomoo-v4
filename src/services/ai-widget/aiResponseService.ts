@@ -52,16 +52,18 @@ export class AIResponseService {
       const keywords = this.extractKeywords(message);
       console.log('🔍 Keywords:', keywords);
 
-      // Search by keywords in title and content
+      // Search by keywords in title and content with better prioritization
       for (const keyword of keywords) {
         const { data, error } = await supabase
           .from('knowledge_base')
           .select('*')
           .or(`title.ilike.%${keyword}%,content.ilike.%${keyword}%`)
-          .limit(3);
+          .order('category', { ascending: false }) // Prioritize product_info over company_info
+          .limit(5);
 
         if (!error && data && data.length > 0) {
           console.log('✅ Found KB results for keyword:', keyword, data.length);
+          console.log('🔍 Results:', data.map(item => ({ title: item.title, category: item.category })));
           return {
             success: true,
             response: this.createAnswerFromKBData(message, data, context),
@@ -147,23 +149,40 @@ ${companyInfo.content}`;
       }
     }
 
-    // Find most relevant data with priority to product_info category (has page_link)
+    // Find most relevant data with improved matching logic
+    console.log('🎯 Available data:', kbData.map(item => ({ title: item.title, category: item.category })));
+    
+    // Step 1: Look for exact keyword matches in title
     let relevantData = kbData.find(item => 
-      item.category === 'product_info' && (
-        item.title?.toLowerCase().includes(query.toLowerCase()) ||
-        item.content?.toLowerCase().includes(query.toLowerCase()) ||
-        query.toLowerCase().includes(item.title?.toLowerCase())
-      )
+      item.title?.toLowerCase().includes(query.toLowerCase())
     );
     
-    // If no product_info found, try other categories
+    // Step 2: If no title match, look for content matches in product_info category
     if (!relevantData) {
       relevantData = kbData.find(item => 
-        item.title?.toLowerCase().includes(query.toLowerCase()) ||
-        item.content?.toLowerCase().includes(query.toLowerCase()) ||
-        query.toLowerCase().includes(item.title?.toLowerCase())
-      ) || kbData[0];
+        item.category === 'product_info' && 
+        item.content?.toLowerCase().includes(query.toLowerCase())
+      );
     }
+    
+    // Step 3: Look for partial matches based on keywords extracted
+    if (!relevantData) {
+      const keywords = this.extractKeywords(query);
+      for (const keyword of keywords) {
+        relevantData = kbData.find(item => 
+          item.title?.toLowerCase().includes(keyword.toLowerCase()) ||
+          item.content?.toLowerCase().includes(keyword.toLowerCase())
+        );
+        if (relevantData) break;
+      }
+    }
+    
+    // Step 4: Last resort - use first available data
+    if (!relevantData) {
+      relevantData = kbData[0];
+    }
+    
+    console.log('🎯 Selected data:', { title: relevantData.title, category: relevantData.category });
 
     let response = `**${relevantData.title}**
 
