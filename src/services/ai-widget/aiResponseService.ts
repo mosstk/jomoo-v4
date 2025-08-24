@@ -43,34 +43,86 @@ export class AIResponseService {
     }
   }
 
-  // Search knowledge base using RAG
+  // Search knowledge base directly from database (bypass OpenAI issues)
   private static async searchKnowledgeBase(message: string, context: ProductContext | null) {
     try {
-      console.log('🔍 Searching RAG with message:', message);
-      console.log('🔍 Context:', context);
+      console.log('🔍 Direct KB search for:', message);
       
-      const { data, error } = await supabase.functions.invoke('rag-search', {
-        body: {
-          query: message,
-          limit: 5,
-          category: context?.category ? this.mapCategoryToKnowledgeBase(context.category) : undefined,
-          product_type: context?.category ? this.mapCategoryToProductType(context.category) : undefined
+      // Extract keywords for better matching
+      const keywords = this.extractKeywords(message);
+      console.log('🔍 Keywords:', keywords);
+
+      // Search by keywords in title and content
+      for (const keyword of keywords) {
+        const { data, error } = await supabase
+          .from('knowledge_base')
+          .select('*')
+          .or(`title.ilike.%${keyword}%,content.ilike.%${keyword}%`)
+          .limit(3);
+
+        if (!error && data && data.length > 0) {
+          console.log('✅ Found KB results for keyword:', keyword, data.length);
+          return {
+            success: true,
+            response: this.createAnswerFromKBData(message, data, context),
+            results: data
+          };
         }
-      });
-
-      console.log('📡 RAG response data:', data);
-      console.log('❌ RAG response error:', error);
-
-      if (error) {
-        console.error('RAG search error:', error);
-        return null;
       }
 
-      return data;
+      // If no keyword match, try broader search
+      const { data, error } = await supabase
+        .from('knowledge_base')
+        .select('*')
+        .limit(10);
+
+      if (!error && data && data.length > 0) {
+        console.log('✅ Using general KB data');
+        return {
+          success: true,
+          response: this.createAnswerFromKBData(message, data, context),
+          results: data
+        };
+      }
+
+      return null;
     } catch (error) {
       console.error('Failed to search knowledge base:', error);
       return null;
     }
+  }
+
+  // Extract keywords from query for better matching
+  private static extractKeywords(query: string): string[] {
+    const productKeywords = [
+      'JOMOO', 'Smart Toilet', 'One Piece', 'Basin', 'Bathtub', 'Shower', 'Faucet', 
+      'Rain Shower', 'Bidet', 'Urinal', 'Accessories',
+      'อ่างล้างหน้า', 'อ่างอาบน้ำ', 'ห้องอาบน้ำ', 'ก๊อกน้ำ', 'ฝักบัว', 'โถส้วม',
+      'สุขภัณฑ์', 'ห้องน้ำ', 'วัสดุ', 'เซรามิก', 'กระจก', 'โลหะ'
+    ];
+
+    return productKeywords.filter(keyword => 
+      query.toLowerCase().includes(keyword.toLowerCase())
+    );
+  }
+
+  // Create answer from knowledge base data
+  private static createAnswerFromKBData(query: string, kbData: any[], context: ProductContext | null): string {
+    // Find most relevant data based on query
+    const relevantData = kbData.find(item => 
+      query.toLowerCase().includes(item.title?.toLowerCase()) ||
+      item.content?.toLowerCase().includes(query.toLowerCase())
+    ) || kbData[0];
+
+    if (!relevantData) {
+      return 'ขออภัยครับ ไม่พบข้อมูลที่ตรงกับคำถามของคุณ กรุณาติดต่อทีมงานเพื่อข้อมูลเพิ่มเติมครับ';
+    }
+
+    // Format response based on the data found
+    return `${relevantData.content}
+
+📞 **ต้องการข้อมูลเพิ่มเติม?**
+กรุณาติดต่อทีมงาน TOA JOMOO เพื่อรายละเอียดเฉพาะครับ`;
   }
 
   // Map website categories to knowledge base categories
