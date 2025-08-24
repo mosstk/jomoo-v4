@@ -102,7 +102,8 @@ export class AIResponseService {
       'สุขภัณฑ์', 'ห้องน้ำ', 'วัสดุ', 'เซรามิก', 'บริษัท', 'แบรนด์', 'Bathtub',
       'รับประกัน', 'warranty', 'product', 'material', 'ceramic', 'Shower',
       'Bidet', 'Urinal', 'Accessories', 'Rain Shower', 'บริการ', 'service',
-      'Inspiration', 'แรงบันดาลใจ', 'One Piece', 'ล้างหน้า', 'อาบน้ำ'
+      'Inspiration', 'แรงบันดาลใจ', 'One Piece', 'ล้างหน้า', 'อาบน้ำ',
+      'ฉากกั้น', 'ฉากกั้นอาบน้ำ', 'Shower Enclosure', 'กระจกกั้น', 'ห้องแชมพู'
     ];
 
     const foundKeywords = productKeywords.filter(keyword => 
