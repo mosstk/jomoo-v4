@@ -75,7 +75,6 @@ const AIChatMessage: React.FC<AIChatMessageProps> = ({ message, suggestions, onS
         {/* Show suggestions after AI responses (only for the last AI message) */}
         {!isUser && isLastMessage && suggestions && suggestions.length > 0 && onSuggestionClick && (
           <div className="mt-3">
-            <p className="text-xs text-slate-500 mb-2">คำถามยอดนิยม:</p>
             <AISuggestionChips
               suggestions={suggestions}
               onSuggestionClick={onSuggestionClick}
