@@ -13,56 +13,56 @@ const Footer = ({ useProductPageStyle = false }: { useProductPageStyle?: boolean
   return (
     <footer>
       {/* White divider line */}
-      <div className="container-content">
+      <div className="mx-auto px-4 max-w-[1080px]">
         <div className="w-full bg-white/30 h-0.5"></div>
       </div>
       
-      {/* Main Footer Content - Enhanced Responsive design */}
-      <div className={`section-spacing ${useProductPageStyle ? 'luxury-backdrop' : ''}`}>
-        <div className="container-content">
-          <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center mb-8 space-y-8 xl:space-y-0 gap-8">
+      {/* Main Footer Content - Responsive design */}
+      <div className={`py-8 w-full max-w-[1120px] mx-auto ${useProductPageStyle ? 'luxury-backdrop' : ''}`}>
+        <div className="mx-auto px-4 max-w-[1080px]">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 space-y-6 lg:space-y-0">
             {/* Left Side */}
-            <div className="flex flex-col space-y-6 w-full xl:w-auto">
+            <div className="flex flex-col space-y-4 w-full lg:w-auto">
               {/* Follow TOA LIVING SPACE */}
-              <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-6">
-                <span className="text-gray-300 text-body font-medium">Follow TOA LIVING SPACE</span>
-                <div className="flex space-x-3">
-                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white hover:bg-white/10 w-10 h-10 p-0 transition-all duration-300">
-                    <Facebook className="h-5 w-5" />
+              <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                <span className="text-gray-300 text-sm">Follow TOA LIVING SPACE</span>
+                <div className="flex space-x-2">
+                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
+                    <Facebook className="h-4 w-4" />
                   </Button>
-                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white hover:bg-white/10 w-10 h-10 p-0 transition-all duration-300">
-                    <Instagram className="h-5 w-5" />
+                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
+                    <Instagram className="h-4 w-4" />
                   </Button>
-                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white hover:bg-white/10 w-10 h-10 p-0 transition-all duration-300">
-                    <Youtube className="h-5 w-5" />
+                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
+                    <Youtube className="h-4 w-4" />
                   </Button>
-                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white hover:bg-white/10 w-10 h-10 p-0 transition-all duration-300">
+                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
                     <LineIcon />
                   </Button>
                 </div>
               </div>
 
               {/* Contact Showroom */}
-              <div className="flex items-center space-x-3">
-                <span className="text-gray-300 text-body font-medium">Contact Showroom</span>
-                <MapPin className="h-5 w-5 text-gray-400" />
+              <div className="flex items-center space-x-2">
+                <span className="text-gray-300 text-sm">Contact Showroom</span>
+                <MapPin className="h-4 w-4 text-gray-400" />
               </div>
             </div>
 
             {/* Right Side - Newsletter */}
-            <div className="flex flex-col items-start xl:items-end space-y-6 w-full xl:w-auto">
-              <div className="text-left xl:text-right max-w-md xl:max-w-none">
-                <p className="text-body text-white leading-relaxed">
-                  Sign up to receive email, news, promotions<br className="hidden sm:block" />
+            <div className="flex flex-col items-start lg:items-end space-y-4 w-full lg:w-auto">
+              <div className="text-left lg:text-right">
+                <p className="text-white text-sm">
+                  Sign up to receive email, news, promotions<br />
                   and information about <span className="text-white font-semibold">JOMOO</span>.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 w-full xl:w-auto">
+              <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 w-full lg:w-auto">
                 <Input 
                   placeholder="E-mail Address" 
-                  className="bg-gray-600/80 border-gray-500 text-white placeholder:text-gray-400 w-full sm:w-72 h-12 px-4 rounded-lg focus:ring-2 focus:ring-primary transition-all duration-300"
+                  className="bg-gray-600 border-gray-500 text-white placeholder:text-gray-400 w-full sm:w-64"
                 />
-                <Button className="bg-gray-500 hover:bg-gray-400 text-white px-8 h-12 w-full sm:w-auto rounded-lg font-medium transition-all duration-300 hover-lift">
+                <Button className="bg-gray-500 hover:bg-gray-400 text-white px-6 w-full sm:w-auto">
                   Sign Up
                 </Button>
               </div>
@@ -73,19 +73,21 @@ const Footer = ({ useProductPageStyle = false }: { useProductPageStyle?: boolean
 
       {/* Bottom Copyright with dark background */}
       <div className="bg-slate-800">
-        <div className="container-content py-8">
-          <div className="flex flex-col xl:flex-row justify-between items-center space-y-6 xl:space-y-0 gap-6">
-            <p className="text-gray-400 text-caption text-center xl:text-left max-w-md xl:max-w-none">
-              © Copyright 2023 TOA Paint (Thailand) Public Company Limited. All rights reserved.
-            </p>
-            <div className="flex flex-wrap justify-center xl:justify-end gap-x-6 gap-y-2">
-              <a href="#" className="text-gray-400 hover:text-white text-caption transition-colors duration-300">Terms & Conditions</a>
-              <span className="text-gray-400 text-caption hidden sm:inline">|</span>
-              <a href="#" className="text-gray-400 hover:text-white text-caption transition-colors duration-300">Privacy Notice</a>
-              <span className="text-gray-400 text-caption hidden sm:inline">|</span>
-              <a href="#" className="text-gray-400 hover:text-white text-caption transition-colors duration-300">Cookies Policy</a>
-              <span className="text-gray-400 text-caption hidden sm:inline">|</span>
-              <a href="#" className="text-gray-400 hover:text-white text-caption transition-colors duration-300">Site Map</a>
+        <div className="mx-auto px-4 max-w-[1080px]">
+          <div className="pt-6 pb-8">
+            <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+              <p className="text-gray-400 text-xs text-center lg:text-left">
+                © Copyright 2023 TOA Paint (Thailand) Public Company Limited. All rights reserved.
+              </p>
+              <div className="flex flex-wrap justify-center lg:justify-end space-x-2 sm:space-x-6">
+                <a href="#" className="text-gray-400 hover:text-white text-xs">Terms & Conditions</a>
+                <span className="text-gray-400 text-xs hidden sm:inline">|</span>
+                <a href="#" className="text-gray-400 hover:text-white text-xs">Privacy Notice</a>
+                <span className="text-gray-400 text-xs hidden sm:inline">|</span>
+                <a href="#" className="text-gray-400 hover:text-white text-xs">Cookies Policy</a>
+                <span className="text-gray-400 text-xs hidden sm:inline">|</span>
+                <a href="#" className="text-gray-400 hover:text-white text-xs">Site Map</a>
+              </div>
             </div>
           </div>
         </div>

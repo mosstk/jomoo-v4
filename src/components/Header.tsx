@@ -5,9 +5,9 @@ import { navigationItems } from "@/data/navigation";
 
 const Header = () => {
   return (
-    <header className="luxury-backdrop border-b border-border/50 sticky top-0 z-50">
-      <div className="container-content">
-        <div className="flex items-center justify-between py-4 lg:py-6">
+    <header className="luxury-backdrop border-b border-border/50 sticky top-0 z-50 mb-0">
+      <div className="max-w-[1120px] mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Logo 
               src=""
@@ -15,12 +15,10 @@ const Header = () => {
             />
           </div>
           
-          {/* Desktop Navigation - Hide on smaller screens */}
-          <div className="hidden lg:flex">
-            <NavigationMenu items={navigationItems} />
-          </div>
+          {/* Desktop Navigation */}
+          <NavigationMenu items={navigationItems} />
           
-          {/* Action Buttons - Responsive sizing */}
+          {/* Desktop Action Buttons */}
           <div className="flex">
             <ActionButtons />
           </div>

@@ -35,24 +35,18 @@ const DesktopProductGrid = () => {
       title=""
       description=""
       backgroundImage=""
-      className="section-spacing"
+      className="relative pt-0 pb-20"
     >
-      <div className="container-content">
-        <div className="grid-products animate-fade-in">
-          {products.map((product, index) => (
-            <div
-              key={product.id}
-              className="hover-lift"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <ProductCard
-                name={product.name}
-                image={product.image}
-                onClick={() => handleProductClick(product.name)}
-              />
-            </div>
-          ))}
-        </div>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mx-auto px-4 w-full max-w-[864px]">
+        {products.map((product) => (
+          <ProductCard
+            key={product.id}
+            name={product.name}
+            image={product.image}
+            
+            onClick={() => handleProductClick(product.name)}
+          />
+        ))}
       </div>
     </ProductSection>
   );
