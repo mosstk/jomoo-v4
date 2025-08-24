@@ -1,6 +1,7 @@
 import React from 'react';
 import { User, Bot } from 'lucide-react';
-import { ChatMessage } from '@/services/ai-widget/types';
+import { ChatMessage, SmartSuggestion } from '@/services/ai-widget/types';
+import AISuggestionChips from './AISuggestionChips';
 
 // Helper function to format message content and convert markdown links to HTML
 const formatMessageContent = (content: string, isUser: boolean): string => {
@@ -25,9 +26,12 @@ const formatMessageContent = (content: string, isUser: boolean): string => {
 
 interface AIChatMessageProps {
   message: ChatMessage;
+  suggestions?: SmartSuggestion[];
+  onSuggestionClick?: (suggestion: string) => void;
+  isLastMessage?: boolean;
 }
 
-const AIChatMessage: React.FC<AIChatMessageProps> = ({ message }) => {
+const AIChatMessage: React.FC<AIChatMessageProps> = ({ message, suggestions, onSuggestionClick, isLastMessage }) => {
   const isUser = message.type === 'user';
   
   return (
@@ -67,6 +71,18 @@ const AIChatMessage: React.FC<AIChatMessageProps> = ({ message }) => {
             minute: '2-digit' 
           })}
         </div>
+
+        {/* Show suggestions after AI responses (only for the last AI message) */}
+        {!isUser && isLastMessage && suggestions && suggestions.length > 0 && onSuggestionClick && (
+          <div className="mt-3">
+            <p className="text-xs text-slate-500 mb-2">คำถามยอดนิยม:</p>
+            <AISuggestionChips
+              suggestions={suggestions}
+              onSuggestionClick={onSuggestionClick}
+              disabled={false}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

@@ -62,7 +62,7 @@ const AIChatWindow: React.FC<AIChatWindowProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed bottom-20 right-6 z-40 w-80 h-96 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col overflow-hidden animate-in slide-in-from-bottom-4 duration-300">
+    <div className="fixed bottom-20 right-6 z-40 w-80 h-[500px] md:h-[500px] sm:h-[450px] bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col overflow-hidden animate-in slide-in-from-bottom-4 duration-300">
       {/* Header */}
       <div className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white">
         <div className="flex items-center space-x-2">
@@ -107,9 +107,19 @@ const AIChatWindow: React.FC<AIChatWindowProps> = ({
             <p className="text-xs text-slate-400">มีคำถามเกี่ยวกับสินค้า TOA ไหมครับ?</p>
           </div>
         ) : (
-          messages.map((message) => (
-            <AIChatMessage key={message.id} message={message} />
-          ))
+          messages.map((message, index) => {
+            const isLastAIMessage = message.type === 'assistant' && 
+                                   index === messages.length - 1;
+            return (
+              <AIChatMessage 
+                key={message.id} 
+                message={message}
+                suggestions={isLastAIMessage ? suggestions : undefined}
+                onSuggestionClick={isLastAIMessage ? handleSuggestionClick : undefined}
+                isLastMessage={isLastAIMessage}
+              />
+            );
+          })
         )}
         
         {isLoading && (
@@ -126,16 +136,7 @@ const AIChatWindow: React.FC<AIChatWindowProps> = ({
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Suggestions */}
-      {suggestions.length > 0 && !isLoading && (
-        <div className="px-3 py-2 border-t border-slate-200 dark:border-slate-700">
-          <AISuggestionChips
-            suggestions={suggestions}
-            onSuggestionClick={handleSuggestionClick}
-            disabled={isLoading}
-          />
-        </div>
-      )}
+      {/* Suggestions - removed the separate section, will be included in messages */}
 
       {/* Input Form */}
       <form onSubmit={handleSubmit} className="p-3 border-t border-slate-200 dark:border-slate-700">
