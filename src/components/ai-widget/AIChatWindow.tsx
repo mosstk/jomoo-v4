@@ -136,7 +136,17 @@ const AIChatWindow: React.FC<AIChatWindowProps> = ({
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Suggestions - removed the separate section, will be included in messages */}
+      {/* Initial Suggestions - shown when no messages yet */}
+      {suggestions.length > 0 && messages.length === 0 && (
+        <div className="px-3 py-2 border-t border-slate-200 dark:border-slate-700">
+          <p className="text-xs text-slate-500 mb-2">คำถามยอดนิยม:</p>
+          <AISuggestionChips
+            suggestions={suggestions}
+            onSuggestionClick={handleSuggestionClick}
+            disabled={isLoading}
+          />
+        </div>
+      )}
 
       {/* Input Form */}
       <form onSubmit={handleSubmit} className="p-3 border-t border-slate-200 dark:border-slate-700">
