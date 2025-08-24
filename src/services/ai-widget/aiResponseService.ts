@@ -155,26 +155,36 @@ ${companyInfo.content}`;
     
     // Step 1: Identify query intent based on key terms
     const queryLower = query.toLowerCase();
-    const isInspirationQuery = queryLower.includes('แรงบันดาลใจ') || queryLower.includes('ไอเดีย') || queryLower.includes('สไตล์');
+    const isInspirationQuery = queryLower.includes('แรงบันดาลใจ') || 
+                             queryLower.includes('ไอเดีย') || 
+                             queryLower.includes('สไตล์') ||
+                             queryLower.includes('การแต่ง') ||
+                             queryLower.includes('การตกแต่ง') ||
+                             queryLower.includes('ออกแบบ');
     const isProductQuery = queryLower.includes('ราคา') || queryLower.includes('รุ่น') || queryLower.includes('คุณสมบัติ');
     
     console.log('🎯 Query intent - Inspiration:', isInspirationQuery, 'Product:', isProductQuery);
+    console.log('🎯 Query text:', query);
     
     let relevantData;
     
     // Step 2: Priority-based search based on query intent
     if (isInspirationQuery) {
-      // For inspiration queries, prioritize inspiration_info category
+      // For inspiration queries, prioritize inspiration_info category STRICTLY
       relevantData = kbData.find(item => 
         item.category === 'inspiration_info' && (
           item.title?.toLowerCase().includes('แรงบันดาลใจ') ||
-          item.content?.toLowerCase().includes('แรงบันดาลใจ')
+          item.title?.toLowerCase().includes('ไอเดีย') ||
+          item.title?.toLowerCase().includes('ออกแบบ') ||
+          item.content?.toLowerCase().includes('แรงบันดาลใจ') ||
+          item.content?.toLowerCase().includes('ไอเดีย')
         )
       );
+      console.log('🎯 Found inspiration data:', relevantData?.title || 'none');
     }
     
-    // Step 3: Look for exact title matches if no category-specific match
-    if (!relevantData) {
+    // Step 3: Look for exact title matches if no category-specific match (but avoid wrong categories for inspiration)
+    if (!relevantData && !isInspirationQuery) {
       relevantData = kbData.find(item => 
         item.title && query.split(' ').some(word => 
           word.length > 3 && item.title.toLowerCase().includes(word.toLowerCase())
