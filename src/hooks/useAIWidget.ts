@@ -78,13 +78,17 @@ export const useAIWidget = () => {
         timestamp: new Date()
       };
 
-      // Update suggestions with either response suggestions or new ones from knowledge base
+      // Update suggestions with follow-up questions based on the AI response
       let newSuggestions = aiResponse.suggestions;
       if (!newSuggestions) {
         try {
-          newSuggestions = await SuggestionsService.getSuggestionsForContext(state.currentContext);
+          // Generate follow-up suggestions based on the AI response content
+          newSuggestions = await SuggestionsService.getFollowUpSuggestions(
+            aiResponse.content,
+            state.currentContext
+          );
         } catch (error) {
-          console.error('Error getting new suggestions:', error);
+          console.error('Error getting follow-up suggestions:', error);
           newSuggestions = [];
         }
       }

@@ -127,7 +127,7 @@ const AIChatWindow: React.FC<AIChatWindowProps> = ({
       </div>
 
       {/* Suggestions */}
-      {suggestions.length > 0 && messages.length === 0 && (
+      {suggestions.length > 0 && !isLoading && (
         <div className="px-3 py-2 border-t border-slate-200 dark:border-slate-700">
           <AISuggestionChips
             suggestions={suggestions}

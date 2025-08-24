@@ -126,7 +126,8 @@ export class AIResponseService {
     if (query.includes('ประเภท') || query.includes('สินค้า') || query.includes('หมวดหมู่')) {
       const companyInfo = kbData.find(item => item.category === 'company_info' && item.title.includes('ประเภทสินค้า'));
       if (companyInfo) {
-        const metadata = companyInfo.metadata ? JSON.parse(companyInfo.metadata) : {};
+        // metadata is already parsed JSONB object from Supabase
+        const metadata = companyInfo.metadata || {};
         const pageLinks = metadata.page_links || [];
         
         let response = `**${companyInfo.title}**
@@ -160,13 +161,14 @@ ${relevantData.content}`;
     // Add product page link if available
     if (relevantData.metadata) {
       try {
-        const metadata = JSON.parse(relevantData.metadata);
+        // metadata is already parsed JSONB object from Supabase
+        const metadata = relevantData.metadata;
         if (metadata.page_link) {
           const productName = this.getProductNameFromLink(metadata.page_link);
           response += `\n\n🔗 **ดูสินค้า:** [${productName}](${metadata.page_link})`;
         }
       } catch (e) {
-        console.log('Error parsing metadata:', e);
+        console.log('Error accessing metadata:', e);
       }
     }
 
