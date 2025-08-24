@@ -235,7 +235,8 @@ export class SuggestionsService {
             item.title && 
             item.title.trim() && 
             item.content && 
-            item.content.trim().length > 20 // Ensure substantial content
+            item.content.trim().length > 50 && // Ensure substantial content
+            !item.title.toLowerCase().includes('เกี่ยวกับ') // Exclude generic company info
           )
           .map((item, index) => ({
             id: `fu-${item.id || index}`,
