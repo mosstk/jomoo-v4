@@ -96,11 +96,11 @@ export class AIResponseService {
   private static extractKeywords(query: string): string[] {
     const productKeywords = [
       'สินค้า', 'ประเภท', 'หมวดหมู่', 'JOMOO', 'Smart Toilet', 'Basin', 'Faucet', 
-      'อ่างล้างหน้า', 'ก๊อกน้ำ', 'โถส้วม', 'ห้องอาบน้ำ', 'ฝักบัว', 'อ่างอาบน้ำ',
+      'อ่างล้างหน้า', 'อ่าง', 'ก๊อกน้ำ', 'โถส้วม', 'ห้องอาบน้ำ', 'ฝักบัว', 'อ่างอาบน้ำ',
       'สุขภัณฑ์', 'ห้องน้ำ', 'วัสดุ', 'เซรามิก', 'บริษัท', 'แบรนด์', 'Bathtub',
       'รับประกัน', 'warranty', 'product', 'material', 'ceramic', 'Shower',
       'Bidet', 'Urinal', 'Accessories', 'Rain Shower', 'บริการ', 'service',
-      'Inspiration', 'แรงบันดาลใจ', 'One Piece'
+      'Inspiration', 'แรงบันดาลใจ', 'One Piece', 'ล้างหน้า', 'อาบน้ำ'
     ];
 
     const foundKeywords = productKeywords.filter(keyword => 
