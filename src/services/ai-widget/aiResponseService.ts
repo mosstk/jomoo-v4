@@ -95,34 +95,55 @@ export class AIResponseService {
   // Extract keywords from query for better matching
   private static extractKeywords(query: string): string[] {
     const productKeywords = [
-      'JOMOO', 'Smart Toilet', 'One Piece', 'Basin', 'Bathtub', 'Shower', 'Faucet', 
-      'Rain Shower', 'Bidet', 'Urinal', 'Accessories',
-      'อ่างล้างหน้า', 'อ่างอาบน้ำ', 'ห้องอาบน้ำ', 'ก๊อกน้ำ', 'ฝักบัว', 'โถส้วม',
-      'สุขภัณฑ์', 'ห้องน้ำ', 'วัสดุ', 'เซรามิก', 'กระจก', 'โลหะ'
+      'สินค้า', 'ประเภท', 'หมวดหมู่', 'JOMOO', 'Smart Toilet', 'Basin', 'Faucet', 
+      'อ่างล้างหน้า', 'ก๊อกน้ำ', 'โถส้วม', 'ห้องอาบน้ำ', 'ฝักบัว',
+      'สุขภัณฑ์', 'ห้องน้ำ', 'วัสดุ', 'เซรามิก', 'บริษัท', 'แบรนด์',
+      'รับประกัน', 'warranty', 'product', 'material', 'ceramic'
     ];
 
-    return productKeywords.filter(keyword => 
+    const foundKeywords = productKeywords.filter(keyword => 
       query.toLowerCase().includes(keyword.toLowerCase())
     );
+    
+    console.log('🔍 Query:', query);
+    console.log('🔍 Found keywords:', foundKeywords);
+    
+    return foundKeywords;
   }
 
   // Create answer from knowledge base data
   private static createAnswerFromKBData(query: string, kbData: any[], context: ProductContext | null): string {
-    // Find most relevant data based on query
-    const relevantData = kbData.find(item => 
-      query.toLowerCase().includes(item.title?.toLowerCase()) ||
-      item.content?.toLowerCase().includes(query.toLowerCase())
-    ) || kbData[0];
-
-    if (!relevantData) {
-      return 'ขออภัยครับ ไม่พบข้อมูลที่ตรงกับคำถามของคุณ กรุณาติดต่อทีมงานเพื่อข้อมูลเพิ่มเติมครับ';
+    console.log('🎯 Creating answer from KB data:', kbData.length, 'items');
+    console.log('🎯 Query:', query);
+    
+    if (!kbData || kbData.length === 0) {
+      return 'ขออภัยครับ ไม่พบข้อมูลที่เกี่ยวข้องในระบบ กรุณาติดต่อทีมงานเพื่อข้อมูลเพิ่มเติมครับ';
     }
 
-    // Format response based on the data found
-    return `${relevantData.content}
+    // For product types/categories question
+    if (query.includes('ประเภท') || query.includes('สินค้า') || query.includes('หมวดหมู่')) {
+      const companyInfo = kbData.find(item => item.category === 'company_info');
+      if (companyInfo) {
+        return `**${companyInfo.title}**
 
-📞 **ต้องการข้อมูลเพิ่มเติม?**
-กรุณาติดต่อทีมงาน TOA JOMOO เพื่อรายละเอียดเฉพาะครับ`;
+${companyInfo.content}
+
+📞 **สำหรับข้อมูลเพิ่มเติม:** กรุณาติดต่อทีมงาน TOA JOMOO`;
+      }
+    }
+
+    // Find most relevant data
+    const relevantData = kbData.find(item => 
+      item.title?.toLowerCase().includes(query.toLowerCase()) ||
+      item.content?.toLowerCase().includes(query.toLowerCase()) ||
+      query.toLowerCase().includes(item.title?.toLowerCase())
+    ) || kbData[0];
+
+    return `**${relevantData.title}**
+
+${relevantData.content}
+
+📞 **สำหรับข้อมูลเพิ่มเติม:** กรุณาติดต่อทีมงาน TOA JOMOO`;
   }
 
   // Map website categories to knowledge base categories
