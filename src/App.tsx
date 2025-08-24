@@ -30,7 +30,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <AIWidget />
+        {/* <AIWidget /> */}
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/product" element={<Product />} />
