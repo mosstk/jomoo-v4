@@ -1,7 +1,7 @@
 import { smartToiletProducts } from './smart-toilet-products';
 import { onePieceToiletProducts } from './one-piece-toilet-products';
 import { basinProducts } from './basin-products';
-import { bathProducts } from './bath-products';
+import { bathProducts } from './bathtub-products';
 import { showerProducts } from './shower-products';
 import { faucetProducts } from './faucet-products';
 import { rainShowerProducts } from './rain-shower-products';

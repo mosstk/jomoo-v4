@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { bathProducts } from "@/data/bath-products";
+import { bathProducts } from "@/data/bathtub-products";
 
 const DesktopBathPage = () => {
   return (
