@@ -153,28 +153,36 @@ ${companyInfo.content}`;
     // Find most relevant data with improved matching logic
     console.log('🎯 Available data:', kbData.map(item => ({ title: item.title, category: item.category })));
     
-    // Step 1: Look for exact keyword matches in title
+    // Step 1: Look for exact keyword matches in title (prioritizing Thai terms)
     let relevantData = kbData.find(item => 
-      item.title?.toLowerCase().includes(query.toLowerCase())
+      item.title && query.split(' ').some(word => 
+        item.title.toLowerCase().includes(word.toLowerCase()) && word.length > 2
+      )
     );
     
     // Step 2: If no title match, look for content matches in product_info category
     if (!relevantData) {
       relevantData = kbData.find(item => 
         item.category === 'product_info' && 
-        item.content?.toLowerCase().includes(query.toLowerCase())
+        item.content && query.split(' ').some(word => 
+          item.content.toLowerCase().includes(word.toLowerCase()) && word.length > 2
+        )
       );
     }
     
     // Step 3: Look for partial matches based on keywords extracted
     if (!relevantData) {
       const keywords = this.extractKeywords(query);
+      console.log('🔍 Extracted keywords:', keywords);
       for (const keyword of keywords) {
         relevantData = kbData.find(item => 
-          item.title?.toLowerCase().includes(keyword.toLowerCase()) ||
-          item.content?.toLowerCase().includes(keyword.toLowerCase())
+          (item.title && item.title.toLowerCase().includes(keyword.toLowerCase())) ||
+          (item.content && item.content.toLowerCase().includes(keyword.toLowerCase()))
         );
-        if (relevantData) break;
+        if (relevantData) {
+          console.log('🎯 Found match with keyword:', keyword);
+          break;
+        }
       }
     }
     
@@ -194,9 +202,11 @@ ${relevantData.content}`;
       try {
         // metadata is already parsed JSONB object from Supabase
         const metadata = relevantData.metadata;
+        console.log('🔗 Metadata found:', metadata);
         if (metadata.page_link) {
           const productName = this.getProductNameFromLink(metadata.page_link);
           response += `\n\n🔗 **ดูสินค้า:** [${productName}](${metadata.page_link})`;
+          console.log('🔗 Added link:', productName, metadata.page_link);
         }
       } catch (e) {
         console.log('Error accessing metadata:', e);
@@ -214,7 +224,7 @@ ${relevantData.content}`;
       '/one-piece-toilet': 'One Piece Toilet', 
       '/basin': 'อ่างล้างหน้า Basin',
       '/bathtub': 'อ่างอาบน้ำ Bathtub',
-      '/shower-enclosure': 'ห้องอาบน้ำ Shower',
+      '/shower-enclosure': 'ฉากกั้นอาบน้ำ Shower Enclosure',
       '/faucet': 'ก๊อกน้ำ Faucet',
       '/rain-shower': 'ฝักบัวสายฝน Rain Shower',
       '/bidet-spray': 'สายฉีดชำระ Bidet Spray',
