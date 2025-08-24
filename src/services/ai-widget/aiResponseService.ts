@@ -147,12 +147,23 @@ ${companyInfo.content}`;
       }
     }
 
-    // Find most relevant data
-    const relevantData = kbData.find(item => 
-      item.title?.toLowerCase().includes(query.toLowerCase()) ||
-      item.content?.toLowerCase().includes(query.toLowerCase()) ||
-      query.toLowerCase().includes(item.title?.toLowerCase())
-    ) || kbData[0];
+    // Find most relevant data with priority to product_info category (has page_link)
+    let relevantData = kbData.find(item => 
+      item.category === 'product_info' && (
+        item.title?.toLowerCase().includes(query.toLowerCase()) ||
+        item.content?.toLowerCase().includes(query.toLowerCase()) ||
+        query.toLowerCase().includes(item.title?.toLowerCase())
+      )
+    );
+    
+    // If no product_info found, try other categories
+    if (!relevantData) {
+      relevantData = kbData.find(item => 
+        item.title?.toLowerCase().includes(query.toLowerCase()) ||
+        item.content?.toLowerCase().includes(query.toLowerCase()) ||
+        query.toLowerCase().includes(item.title?.toLowerCase())
+      ) || kbData[0];
+    }
 
     let response = `**${relevantData.title}**
 
