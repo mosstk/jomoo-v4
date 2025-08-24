@@ -182,7 +182,7 @@ ${relevantData.content}`;
       '/smart-toilet': 'Smart Toilet',
       '/one-piece-toilet': 'One Piece Toilet', 
       '/basin': 'อ่างล้างหน้า Basin',
-      '/bath': 'อ่างอาบน้ำ Bathtub',
+      '/bathtub': 'อ่างอาบน้ำ Bathtub',
       '/shower-enclosure': 'ห้องอาบน้ำ Shower',
       '/faucet': 'ก๊อกน้ำ Faucet',
       '/rain-shower': 'ฝักบัวสายฝน Rain Shower',

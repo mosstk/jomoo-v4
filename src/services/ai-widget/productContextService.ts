@@ -3,6 +3,7 @@ import { products } from '@/data/products';
 import { smartToiletProducts } from '@/data/smart-toilet-products';
 import { onePieceToiletProducts } from '@/data/one-piece-toilet-products';
 import { basinProducts } from '@/data/basin-products';
+import { bathProducts } from '@/data/bath-products';
 import { bidetSprayProducts } from '@/data/bidet-spray-products';
 import { faucetProducts } from '@/data/faucet-products';
 
@@ -32,7 +33,7 @@ export class ProductContextService {
       'bathtub': {
         category: 'bathtub',
         productName: 'Bathtub',
-        availableProducts: []
+        availableProducts: bathProducts
       },
       'shower-enclosure': {
         category: 'shower',
