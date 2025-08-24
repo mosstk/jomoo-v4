@@ -10,12 +10,13 @@ export class AIResponseService {
       // ตรวจสอบความเกี่ยวข้องของคำถามก่อน
       const relevanceCheck = KnowledgeBaseService.isQuestionRelevant(message);
       
-      if (!relevanceCheck.isRelevant) {
-        return {
-          content: KnowledgeBaseService.getIrrelevantQuestionResponse(relevanceCheck.reason),
-          suggestions: SuggestionsService.getSuggestionsForContext(context).slice(0, 3)
-        };
-      }
+    if (!relevanceCheck.isRelevant) {
+      const suggestions = await SuggestionsService.getSuggestionsForContext(context);
+      return {
+        content: KnowledgeBaseService.getIrrelevantQuestionResponse(relevanceCheck.reason),
+        suggestions: suggestions.slice(0, 3)
+      };
+    }
 
       // Use RAG search for real knowledge base data
       console.log('🚀 Starting RAG search for message:', message);
@@ -23,9 +24,10 @@ export class AIResponseService {
       
       if (ragResponse && ragResponse.success && ragResponse.response) {
         console.log('✅ RAG search successful, returning RAG response');
+        const suggestions = await SuggestionsService.getSuggestionsForContext(context);
         return {
           content: ragResponse.response,
-          suggestions: SuggestionsService.getSuggestionsForContext(context).slice(0, 2),
+          suggestions: suggestions.slice(0, 2),
           productRecommendations: this.getProductRecommendations(context)
         };
       }
@@ -33,11 +35,11 @@ export class AIResponseService {
       // Fallback to previous response system if RAG fails
       console.log('❌ RAG search failed, using fallback response');
       console.log('RAG response:', ragResponse);
-      return this.getMockResponse(message, context);
+      return await this.getMockResponse(message, context);
       
     } catch (error) {
       console.error('Error in AI response generation:', error);
-      return this.getMockResponse(message, context);
+      return await this.getMockResponse(message, context);
     }
   }
 
@@ -110,16 +112,17 @@ export class AIResponseService {
     return typeMap[category];
   }
 
-  private static getMockResponse(message: string, context: ProductContext | null): AIResponse {
+  private static async getMockResponse(message: string, context: ProductContext | null): Promise<AIResponse> {
     const lowerMessage = message.toLowerCase();
     console.log('🤖 Generating mock response for:', message);
 
     // ตรวจสอบความเกี่ยวข้องอีกครั้งเพื่อความปลอดภัย
     const relevanceCheck = KnowledgeBaseService.isQuestionRelevant(message);
     if (!relevanceCheck.isRelevant) {
+      const suggestions = await SuggestionsService.getSuggestionsForContext(context);
       return {
         content: KnowledgeBaseService.getIrrelevantQuestionResponse(),
-        suggestions: SuggestionsService.getSuggestionsForContext(context)
+        suggestions: suggestions
       };
     }
 
@@ -293,7 +296,7 @@ ${context ? `📍 คุณกำลังดูหน้า ${this.getProductDi
 📞 **สำหรับข้อมูลเพิ่มเติม:**
 ราคา สเปค การติดตั้ง และการรับประกัน
 กรุณาติดต่อทีมงานโดยตรงครับ`,
-      suggestions: SuggestionsService.getSuggestionsForContext(context).slice(0, 3)
+      suggestions: (await SuggestionsService.getSuggestionsForContext(context)).slice(0, 3)
     };
   }
 

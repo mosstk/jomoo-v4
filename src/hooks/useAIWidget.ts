@@ -18,12 +18,26 @@ export const useAIWidget = () => {
 
   // Update context when location changes
   useEffect(() => {
-    const newContext = ProductContextService.getCurrentContext(location.pathname);
-    setState(prev => ({
-      ...prev,
-      currentContext: newContext,
-      suggestions: SuggestionsService.getSuggestionsForContext(newContext)
-    }));
+    const updateContext = async () => {
+      const newContext = ProductContextService.getCurrentContext(location.pathname);
+      try {
+        const suggestions = await SuggestionsService.getSuggestionsForContext(newContext);
+        setState(prev => ({
+          ...prev,
+          currentContext: newContext,
+          suggestions
+        }));
+      } catch (error) {
+        console.error('Error updating context:', error);
+        setState(prev => ({
+          ...prev,
+          currentContext: newContext,
+          suggestions: []
+        }));
+      }
+    };
+    
+    updateContext();
   }, [location.pathname]);
 
   const toggleWidget = useCallback(() => {
@@ -64,11 +78,22 @@ export const useAIWidget = () => {
         timestamp: new Date()
       };
 
+      // Update suggestions with either response suggestions or new ones from knowledge base
+      let newSuggestions = aiResponse.suggestions;
+      if (!newSuggestions) {
+        try {
+          newSuggestions = await SuggestionsService.getSuggestionsForContext(state.currentContext);
+        } catch (error) {
+          console.error('Error getting new suggestions:', error);
+          newSuggestions = [];
+        }
+      }
+
       setState(prev => ({
         ...prev,
         messages: [...prev.messages, assistantMessage],
         isLoading: false,
-        suggestions: aiResponse.suggestions || SuggestionsService.getSuggestionsForContext(state.currentContext)
+        suggestions: newSuggestions
       }));
 
     } catch (error) {
@@ -93,13 +118,23 @@ export const useAIWidget = () => {
     await sendMessage(suggestion);
   }, [sendMessage]);
 
-  const clearMessages = useCallback(() => {
-    setState(prev => ({
-      ...prev,
-      messages: [],
-      suggestions: SuggestionsService.getSuggestionsForContext(prev.currentContext)
-    }));
-  }, []);
+  const clearMessages = useCallback(async () => {
+    try {
+      const suggestions = await SuggestionsService.getSuggestionsForContext(state.currentContext);
+      setState(prev => ({
+        ...prev,
+        messages: [],
+        suggestions
+      }));
+    } catch (error) {
+      console.error('Error clearing messages:', error);
+      setState(prev => ({
+        ...prev,
+        messages: [],
+        suggestions: []
+      }));
+    }
+  }, [state.currentContext]);
 
   return {
     isOpen: state.isOpen,

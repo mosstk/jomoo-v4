@@ -1,279 +1,185 @@
-import { SmartSuggestion, ProductContext } from './types';
+import type { SmartSuggestion, ProductContext } from './types';
+import { supabase } from '@/integrations/supabase/client';
 
 export class SuggestionsService {
-  // สร้าง suggestions pool ที่ใหญ่และหลากหลาย ใช้ข้อมูลจริงจากเว็บไซต์
-  private static readonly realDataSuggestions: SmartSuggestion[] = [
-    // คำถามเกี่ยวกับสินค้าจริงที่มีในเว็บไซต์
-    {
-      id: 'real-1',
-      text: 'JOMOO มีสินค้าอะไรบ้าง?',
-      category: 'product'
-    },
-    {
-      id: 'real-2', 
-      text: 'Smart Toilet ของ JOMOO มีฟีเจอร์อะไรบ้าง?',
-      category: 'product'
-    },
-    {
-      id: 'real-3',
-      text: 'One Piece Toilet คืออะไร?',
-      category: 'product'
-    },
-    {
-      id: 'real-4',
-      text: 'อ่างล้างหน้า Basin มีกี่แบบ?',
-      category: 'product'
-    },
-    {
-      id: 'real-5',
-      text: 'ก๊อกน้ำ Faucet มีรุ่นไหนบ้าง?',
-      category: 'product'
-    },
-    {
-      id: 'real-6',
-      text: 'ฝักบัวสายฝน Rain Shower ให้ความรู้สึกอย่างไร?',
-      category: 'product'
-    },
-    {
-      id: 'real-7',
-      text: 'สายฉีดชำระ Bidet Spray ช่วยอะไรบ้าง?',
-      category: 'product'
-    },
-    {
-      id: 'real-8',
-      text: 'อ่างอาบน้ำ Bathtub ใช้สำหรับอะไร?',
-      category: 'product'
-    },
-    {
-      id: 'real-9',
-      text: 'ห้องอาบน้ำ Shower Enclosure มีแบบไหนบ้าง?',
-      category: 'product'
-    },
-    {
-      id: 'real-10',
-      text: 'โถปัสสาวะชาย Urinal ออกแบบอย่างไร?',
-      category: 'product'
-    },
-    {
-      id: 'real-11',
-      text: 'อุปกรณ์เสริม Accessories มีอะไรบ้าง?',
-      category: 'product'
-    },
-    {
-      id: 'real-12',
-      text: 'JOMOO เป็นแบรนด์จากไหน?',
-      category: 'product'
-    },
-    {
-      id: 'real-13',
-      text: 'ติดต่อทีมงาน JOMOO ได้อย่างไร?',
-      category: 'product'
-    },
-    {
-      id: 'real-14',
-      text: 'สินค้า JOMOO มีการรับประกันไหม?',
-      category: 'product'
-    },
-    {
-      id: 'real-15',
-      text: 'อยากดูรูปภาพสินค้า JOMOO',
-      category: 'product'
-    },
-    {
-      id: 'real-16',
-      text: 'สินค้า JOMOO ทำจากวัสดุอะไร?',
-      category: 'product'
-    },
-    {
-      id: 'real-17',
-      text: 'JOMOO มีประสบการณ์กี่ปี?',
-      category: 'product'
-    },
-    {
-      id: 'real-18',
-      text: 'สินค้า JOMOO เหมาะกับใคร?',
-      category: 'product'
+  // Cache for knowledge base questions
+  private static cachedQuestions: SmartSuggestion[] | null = null;
+  
+  // Get suggestions from real RAG knowledge base
+  static async getSuggestionsFromKnowledgeBase(): Promise<SmartSuggestion[]> {
+    try {
+      // Get all unique titles from knowledge base as questions
+      const { data, error } = await supabase
+        .from('knowledge_base')
+        .select('id, title, category, product_type')
+        .limit(20);
+
+      if (error) {
+        console.error('Error fetching knowledge base:', error);
+        return this.getFallbackSuggestions();
+      }
+
+      if (!data || data.length === 0) {
+        return this.getFallbackSuggestions();
+      }
+
+      // Convert knowledge base titles to questions
+      const suggestions: SmartSuggestion[] = data
+        .filter(item => item.title && item.title.trim())
+        .map((item, index) => ({
+          id: `kb-${item.id || index}`,
+          text: this.convertTitleToQuestion(item.title),
+          category: this.mapCategoryToSuggestionCategory(item.category)
+        }));
+
+      return this.shuffleArray(suggestions).slice(0, 8);
+    } catch (error) {
+      console.error('Error in getSuggestionsFromKnowledgeBase:', error);
+      return this.getFallbackSuggestions();
     }
-  ];
-
-  private static readonly categorySpecificSuggestions: Record<string, SmartSuggestion[]> = {
-    'smart-toilet': [
-      {
-        id: 'smart-specific-1',
-        text: 'Smart Toilet มีเทคโนโลยีอะไรบ้าง?',
-        category: 'product'
-      },
-      {
-        id: 'smart-specific-2',
-        text: 'Smart Toilet ช่วยเพิ่มความสะดวกสบายอย่างไร?',
-        category: 'product'
-      },
-      {
-        id: 'smart-specific-3',
-        text: 'Smart Toilet กับโถส้วมทั่วไปต่างกันอย่างไร?',
-        category: 'comparison'
-      }
-    ],
-    'one-piece-toilet': [
-      {
-        id: 'onepiece-specific-1',
-        text: 'One Piece Toilet ดีอย่างไร?',
-        category: 'product'
-      },
-      {
-        id: 'onepiece-specific-2',
-        text: 'One Piece Toilet ง่ายต่อการดูแลไหม?',
-        category: 'product'
-      },
-      {
-        id: 'onepiece-specific-3',
-        text: 'One Piece Toilet เหมาะกับบ้านแบบไหน?',
-        category: 'product'
-      }
-    ],
-    basin: [
-      {
-        id: 'basin-specific-1',
-        text: 'อ่างล้างหน้า JOMOO มีแบบแขวนผนังไหม?',
-        category: 'product'
-      },
-      {
-        id: 'basin-specific-2',
-        text: 'อ่างล้างหน้าทำจากเซรามิกคุณภาพสูงไหม?',
-        category: 'product'
-      },
-      {
-        id: 'basin-specific-3',
-        text: 'อ่างล้างหน้ามีแบบฝังเคาน์เตอร์ไหม?',
-        category: 'product'
-      }
-    ],
-    bathtub: [
-      {
-        id: 'bathtub-specific-1',
-        text: 'อ่างอาบน้ำ JOMOO ช่วยผ่อนคลายไหม?',
-        category: 'product'
-      },
-      {
-        id: 'bathtub-specific-2',
-        text: 'อ่างอาบน้ำมีแบบวางอิสระไหม?',
-        category: 'product'
-      },
-      {
-        id: 'bathtub-specific-3',
-        text: 'อ่างอาบน้ำมีแบบมุมไหม?',
-        category: 'product'
-      }
-    ],
-    faucet: [
-      {
-        id: 'faucet-specific-1',
-        text: 'ก๊อกน้ำ JOMOO ทนทานไหม?',
-        category: 'product'
-      },
-      {
-        id: 'faucet-specific-2',
-        text: 'ก๊อกน้ำมีระบบประหยัดน้ำไหม?',
-        category: 'product'
-      },
-      {
-        id: 'faucet-specific-3',
-        text: 'ก๊อกน้ำใช้ได้ทั้งห้องครัวและห้องน้ำไหม?',
-        category: 'product'
-      }
-    ],
-    'rain-shower': [
-      {
-        id: 'rainshower-specific-1',
-        text: 'ฝักบัวสายฝนให้ความรู้สึกเหมือนสายฝนจริงไหม?',
-        category: 'product'
-      },
-      {
-        id: 'rainshower-specific-2',
-        text: 'ฝักบัวสายฝนมีหลายขนาดไหม?',
-        category: 'product'
-      },
-      {
-        id: 'rainshower-specific-3',
-        text: 'ฝักบัวสายฝนปรับแรงดันน้ำได้ไหม?',
-        category: 'product'
-      }
-    ],
-    'bidet-spray': [
-      {
-        id: 'bidet-specific-1',
-        text: 'สายฉีดชำระเพิ่มความสะอาดจริงไหม?',
-        category: 'product'
-      },
-      {
-        id: 'bidet-specific-2',
-        text: 'สายฉีดชำระใช้งานง่ายไหม?',
-        category: 'product'
-      },
-      {
-        id: 'bidet-specific-3',
-        text: 'สายฉีดชำระมีหัวฉีดแบบไหนบ้าง?',
-        category: 'product'
-      }
-    ]
-  };
-
-  // สุ่มเลือก suggestions จาก pool ใหญ่
-  private static getRandomSuggestions(pool: SmartSuggestion[], count: number): SmartSuggestion[] {
-    const shuffled = [...pool].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, count);
   }
 
-  static getSuggestionsForContext(context: ProductContext | null): SmartSuggestion[] {
-    let suggestions: SmartSuggestion[] = [];
-
-    // หากมี context เฉพาะ ให้ผสมระหว่าง category specific และ general
-    if (context?.category && this.categorySpecificSuggestions[context.category]) {
-      const categorySpecific = this.getRandomSuggestions(
-        this.categorySpecificSuggestions[context.category], 
-        2
-      );
-      const general = this.getRandomSuggestions(this.realDataSuggestions, 2);
-      suggestions = [...categorySpecific, ...general];
-    } else {
-      // ไม่มี context เฉพาะ ให้สุ่มจาก general pool
-      suggestions = this.getRandomSuggestions(this.realDataSuggestions, 4);
+  // Convert knowledge base title to question format
+  private static convertTitleToQuestion(title: string): string {
+    // If already a question, return as is
+    if (title.includes('?') || title.includes('คือ') || title.includes('อะไร') || title.includes('อย่างไร')) {
+      return title;
     }
 
-    return suggestions;
-  }
-
-  static getFollowUpSuggestions(lastMessage: string, context: ProductContext | null): SmartSuggestion[] {
-    // Follow-up suggestions ที่อิงจากข้อมูลจริง
-    const followUpSuggestions: SmartSuggestion[] = [
-      {
-        id: 'followup-1',
-        text: 'ติดต่อทีมงานเพื่อสอบถามเพิ่มเติม',
-        category: 'product'
-      },
-      {
-        id: 'followup-2',
-        text: 'ดูสินค้าหมวดอื่นๆ',
-        category: 'product'
-      },
-      {
-        id: 'followup-3',
-        text: 'เกี่ยวกับ JOMOO',
-        category: 'product'
-      },
-      {
-        id: 'followup-4',
-        text: 'สินค้า JOMOO มีการรับประกันไหม?',
-        category: 'product'
-      },
-      {
-        id: 'followup-5',
-        text: 'อยากทราบข้อมูลการติดต่อ',
-        category: 'product'
-      }
+    // Convert statements to questions
+    const questionPatterns = [
+      { pattern: /^เกี่ยวกับ (.+)/, replacement: '$1 คืออะไร?' },
+      { pattern: /^(.+) คืออะไร$/, replacement: '$1 คืออะไร?' },
+      { pattern: /^(.+)$/, replacement: '$1 เป็นอย่างไร?' }
     ];
 
-    // สุ่มเลือก follow-up suggestions
-    return this.getRandomSuggestions(followUpSuggestions, 3);
+    for (const { pattern, replacement } of questionPatterns) {
+      if (pattern.test(title)) {
+        return title.replace(pattern, replacement);
+      }
+    }
+
+    return title + '?';
+  }
+
+  // Map knowledge base category to suggestion category
+  private static mapCategoryToSuggestionCategory(category: string): SmartSuggestion['category'] {
+    const categoryMap: Record<string, SmartSuggestion['category']> = {
+      'product_info': 'product',
+      'company_info': 'product',
+      'warranty_info': 'warranty',
+      'installation_info': 'installation',
+      'contact_info': 'product'
+    };
+    return categoryMap[category] || 'product';
+  }
+
+  // Fallback suggestions if knowledge base is not available
+  private static getFallbackSuggestions(): SmartSuggestion[] {
+    return [
+      { id: 'fb1', text: 'JOMOO คืออะไร?', category: 'product' },
+      { id: 'fb2', text: 'Smart Toilet คืออะไร?', category: 'product' },
+      { id: 'fb3', text: 'สินค้ามีประกันไหม?', category: 'warranty' },
+      { id: 'fb4', text: 'ติดต่อสอบถามได้อย่างไร?', category: 'product' }
+    ];
+  }
+
+  static async getSuggestionsForContext(context: ProductContext | null): Promise<SmartSuggestion[]> {
+    try {
+      // Get suggestions from knowledge base
+      const kbSuggestions = await this.getSuggestionsFromKnowledgeBase();
+      
+      // If we have context, try to get context-specific suggestions
+      if (context?.category) {
+        const { data, error } = await supabase
+          .from('knowledge_base')
+          .select('id, title, category, product_type')
+          .eq('product_type', this.mapCategoryToProductType(context.category))
+          .limit(10);
+
+        if (!error && data && data.length > 0) {
+          const contextSuggestions = data.map((item, index) => ({
+            id: `ctx-${item.id || index}`,
+            text: this.convertTitleToQuestion(item.title),
+            category: this.mapCategoryToSuggestionCategory(item.category)
+          }));
+          
+          // Mix context-specific and general suggestions
+          const mixed = [
+            ...this.shuffleArray(contextSuggestions).slice(0, 3),
+            ...this.shuffleArray(kbSuggestions).slice(0, 2)
+          ];
+          
+          return this.shuffleArray(mixed).slice(0, 4);
+        }
+      }
+      
+      // Return general knowledge base suggestions
+      return this.shuffleArray(kbSuggestions).slice(0, 4);
+    } catch (error) {
+      console.error('Error getting suggestions for context:', error);
+      return this.getFallbackSuggestions().slice(0, 4);
+    }
+  }
+
+  // Map website category to product type
+  private static mapCategoryToProductType(category: string): string {
+    const typeMap: Record<string, string> = {
+      'smart-toilet': 'smart_toilet',
+      'one-piece-toilet': 'one_piece_toilet',
+      'basin': 'basin',
+      'bathtub': 'bathtub',
+      'shower-enclosure': 'shower_enclosure',
+      'faucet': 'faucet',
+      'rain-shower': 'rain_shower',
+      'bidet-spray': 'bidet_spray',
+      'urinal': 'urinal',
+      'accessories': 'accessories'
+    };
+    return typeMap[category] || category;
+  }
+
+  // Helper function to shuffle array
+  private static shuffleArray<T>(array: T[]): T[] {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  }
+
+  // Get follow-up suggestions from knowledge base
+  static async getFollowUpSuggestions(lastMessage: string, context: ProductContext | null): Promise<SmartSuggestion[]> {
+    try {
+      // Get fresh suggestions from knowledge base, different from initial ones
+      const { data, error } = await supabase
+        .from('knowledge_base')
+        .select('id, title, category, product_type')
+        .limit(15);
+
+      if (!error && data && data.length > 0) {
+        const followUpSuggestions = data
+          .filter(item => item.title && item.title.trim())
+          .map((item, index) => ({
+            id: `fu-${item.id || index}`,
+            text: this.convertTitleToQuestion(item.title),
+            category: this.mapCategoryToSuggestionCategory(item.category)
+          }));
+
+        return this.shuffleArray(followUpSuggestions).slice(0, 3);
+      }
+    } catch (error) {
+      console.error('Error getting follow-up suggestions:', error);
+    }
+
+    // Fallback follow-up suggestions
+    const fallbackFollowUps: SmartSuggestion[] = [
+      { id: 'fu-fb1', text: 'มีข้อมูลการติดต่อไหม?', category: 'product' },
+      { id: 'fu-fb2', text: 'สินค้ามีการรับประกันไหม?', category: 'warranty' },
+      { id: 'fu-fb3', text: 'JOMOO เป็นแบรนด์อย่างไร?', category: 'product' }
+    ];
+
+    return this.shuffleArray(fallbackFollowUps).slice(0, 3);
   }
 }
