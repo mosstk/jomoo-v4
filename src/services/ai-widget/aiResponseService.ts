@@ -24,10 +24,10 @@ export class AIResponseService {
       
       if (ragResponse && ragResponse.success && ragResponse.response) {
         console.log('✅ RAG search successful, returning RAG response');
-        const suggestions = await SuggestionsService.getSuggestionsForContext(context);
+        const suggestions = await SuggestionsService.getSuggestionsForContext(context, ragResponse.response);
         return {
           content: ragResponse.response,
-          suggestions: suggestions.slice(0, 2),
+          suggestions: suggestions.slice(0, 3),
           productRecommendations: this.getProductRecommendations(context)
         };
       }
@@ -96,9 +96,11 @@ export class AIResponseService {
   private static extractKeywords(query: string): string[] {
     const productKeywords = [
       'สินค้า', 'ประเภท', 'หมวดหมู่', 'JOMOO', 'Smart Toilet', 'Basin', 'Faucet', 
-      'อ่างล้างหน้า', 'ก๊อกน้ำ', 'โถส้วม', 'ห้องอาบน้ำ', 'ฝักบัว',
-      'สุขภัณฑ์', 'ห้องน้ำ', 'วัสดุ', 'เซรามิก', 'บริษัท', 'แบรนด์',
-      'รับประกัน', 'warranty', 'product', 'material', 'ceramic'
+      'อ่างล้างหน้า', 'ก๊อกน้ำ', 'โถส้วม', 'ห้องอาบน้ำ', 'ฝักบัว', 'อ่างอาบน้ำ',
+      'สุขภัณฑ์', 'ห้องน้ำ', 'วัสดุ', 'เซรามิก', 'บริษัท', 'แบรนด์', 'Bathtub',
+      'รับประกัน', 'warranty', 'product', 'material', 'ceramic', 'Shower',
+      'Bidet', 'Urinal', 'Accessories', 'Rain Shower', 'บริการ', 'service',
+      'Inspiration', 'แรงบันดาลใจ', 'One Piece'
     ];
 
     const foundKeywords = productKeywords.filter(keyword => 
@@ -122,13 +124,25 @@ export class AIResponseService {
 
     // For product types/categories question
     if (query.includes('ประเภท') || query.includes('สินค้า') || query.includes('หมวดหมู่')) {
-      const companyInfo = kbData.find(item => item.category === 'company_info');
+      const companyInfo = kbData.find(item => item.category === 'company_info' && item.title.includes('ประเภทสินค้า'));
       if (companyInfo) {
-        return `**${companyInfo.title}**
+        const metadata = companyInfo.metadata ? JSON.parse(companyInfo.metadata) : {};
+        const pageLinks = metadata.page_links || [];
+        
+        let response = `**${companyInfo.title}**
 
-${companyInfo.content}
+${companyInfo.content}`;
 
-📞 **สำหรับข้อมูลเพิ่มเติม:** กรุณาติดต่อทีมงาน TOA JOMOO`;
+        if (pageLinks.length > 0) {
+          response += `\n\n🔗 **ดูสินค้าแต่ละประเภท:**`;
+          pageLinks.forEach((link: string) => {
+            const productName = this.getProductNameFromLink(link);
+            response += `\n• [${productName}](${link})`;
+          });
+        }
+
+        response += `\n\n📞 **สำหรับข้อมูลเพิ่มเติม:** กรุณาติดต่อทีมงาน TOA JOMOO`;
+        return response;
       }
     }
 
@@ -139,11 +153,45 @@ ${companyInfo.content}
       query.toLowerCase().includes(item.title?.toLowerCase())
     ) || kbData[0];
 
-    return `**${relevantData.title}**
+    let response = `**${relevantData.title}**
 
-${relevantData.content}
+${relevantData.content}`;
 
-📞 **สำหรับข้อมูลเพิ่มเติม:** กรุณาติดต่อทีมงาน TOA JOMOO`;
+    // Add product page link if available
+    if (relevantData.metadata) {
+      try {
+        const metadata = JSON.parse(relevantData.metadata);
+        if (metadata.page_link) {
+          const productName = this.getProductNameFromLink(metadata.page_link);
+          response += `\n\n🔗 **ดูสินค้า:** [${productName}](${metadata.page_link})`;
+        }
+      } catch (e) {
+        console.log('Error parsing metadata:', e);
+      }
+    }
+
+    response += `\n\n📞 **สำหรับข้อมูลเพิ่มเติม:** กรุณาติดต่อทีมงาน TOA JOMOO`;
+    return response;
+  }
+
+  // Get product display name from page link
+  private static getProductNameFromLink(link: string): string {
+    const linkMap: { [key: string]: string } = {
+      '/smart-toilet': 'Smart Toilet',
+      '/one-piece-toilet': 'One Piece Toilet', 
+      '/basin': 'อ่างล้างหน้า Basin',
+      '/bath': 'อ่างอาบน้ำ Bathtub',
+      '/shower-enclosure': 'ห้องอาบน้ำ Shower',
+      '/faucet': 'ก๊อกน้ำ Faucet',
+      '/rain-shower': 'ฝักบัวสายฝน Rain Shower',
+      '/bidet-spray': 'สายฉีดชำระ Bidet Spray',
+      '/urinal': 'โถปัสสาวะชาย Urinal',
+      '/accessories': 'อุปกรณ์เสริม Accessories',
+      '/service': 'บริการ Service',
+      '/inspiration': 'แรงบันดาลใจ Inspiration'
+    };
+    
+    return linkMap[link] || 'สินค้า';
   }
 
   // Map website categories to knowledge base categories
@@ -356,8 +404,8 @@ Smart Toilet, Basin, Faucet, Shower และอีกมากมาย
     }
 
     // Default response - ตอบตามข้อมูลจริงที่มี
-    return {
-      content: `สวัสดีครับ! ยินดีให้คำปรึกษาเกี่ยวกับสินค้า TOA JOMOO 
+      return {
+        content: `สวัสดีครับ! ยินดีให้คำปรึกษาเกี่ยวกับสินค้า TOA JOMOO 
 
 ${context ? `📍 คุณกำลังดูหน้า ${this.getProductDisplayName(context.category)} ใช่ไหมครับ?` : '🏢 มีอะไรให้ช่วยเหลือเกี่ยวกับสุขภัณฑ์ TOA JOMOO ไหมครับ?'}
 
@@ -369,8 +417,8 @@ ${context ? `📍 คุณกำลังดูหน้า ${this.getProductDi
 📞 **สำหรับข้อมูลเพิ่มเติม:**
 ราคา สเปค การติดตั้ง และการรับประกัน
 กรุณาติดต่อทีมงานโดยตรงครับ`,
-      suggestions: (await SuggestionsService.getSuggestionsForContext(context)).slice(0, 3)
-    };
+        suggestions: (await SuggestionsService.getSuggestionsForContext(context)).slice(0, 3)
+      };
   }
 
   // Get display name for product category

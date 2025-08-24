@@ -84,8 +84,16 @@ export class SuggestionsService {
     ];
   }
 
-  static async getSuggestionsForContext(context: ProductContext | null): Promise<SmartSuggestion[]> {
+  static async getSuggestionsForContext(context: ProductContext | null, lastResponse?: string): Promise<SmartSuggestion[]> {
     try {
+      // If we have a previous response about a specific product, create follow-up suggestions
+      if (lastResponse) {
+        const followUpSuggestions = this.generateFollowUpSuggestions(lastResponse, context);
+        if (followUpSuggestions.length > 0) {
+          return followUpSuggestions;
+        }
+      }
+
       // Get suggestions from knowledge base
       const kbSuggestions = await this.getSuggestionsFromKnowledgeBase();
       
@@ -120,6 +128,57 @@ export class SuggestionsService {
       console.error('Error getting suggestions for context:', error);
       return this.getFallbackSuggestions().slice(0, 4);
     }
+  }
+
+  // Generate follow-up suggestions based on previous response
+  private static generateFollowUpSuggestions(lastResponse: string, context: ProductContext | null): SmartSuggestion[] {
+    const suggestions: SmartSuggestion[] = [];
+
+    // If response mentions a specific product, suggest related questions
+    if (lastResponse.includes('Smart Toilet')) {
+      suggestions.push(
+        { id: 'followup-1', text: 'Smart Toilet มีฟีเจอร์อะไรบ้าง?', category: 'product' },
+        { id: 'followup-2', text: 'ราคา Smart Toilet เป็นอย่างไร?', category: 'product' }
+      );
+    }
+    
+    if (lastResponse.includes('Basin') || lastResponse.includes('อ่างล้างหน้า')) {
+      suggestions.push(
+        { id: 'followup-3', text: 'Basin มีแบบไหนบ้าง?', category: 'product' },
+        { id: 'followup-4', text: 'วัสดุของ Basin เป็นอย่างไร?', category: 'product' }
+      );
+    }
+    
+    if (lastResponse.includes('Bathtub') || lastResponse.includes('อ่างอาบน้ำ')) {
+      suggestions.push(
+        { id: 'followup-5', text: 'อ่างอาบน้ำมีขนาดไหนบ้าง?', category: 'product' },
+        { id: 'followup-6', text: 'การดูแลรักษาอ่างอาบน้ำ', category: 'product' }
+      );
+    }
+
+    if (lastResponse.includes('Faucet') || lastResponse.includes('ก๊อกน้ำ')) {
+      suggestions.push(
+        { id: 'followup-7', text: 'ก๊อกน้ำประหยัดน้ำได้จริงไหม?', category: 'product' },
+        { id: 'followup-8', text: 'การติดตั้งก๊อกน้ำยากไหม?', category: 'product' }
+      );
+    }
+
+    if (lastResponse.includes('Shower') || lastResponse.includes('ห้องอาบน้ำ')) {
+      suggestions.push(
+        { id: 'followup-9', text: 'ห้องอาบน้ำมีกระจกนิรภัยไหม?', category: 'product' },
+        { id: 'followup-10', text: 'การติดตั้งห้องอาบน้ำ', category: 'installation' }
+      );
+    }
+
+    // Add general follow-up suggestions
+    if (suggestions.length > 0) {
+      suggestions.push(
+        { id: 'followup-contact', text: 'ติดต่อสอบถามข้อมูลเพิ่มเติม', category: 'product' },
+        { id: 'followup-service', text: 'บริการของ JOMOO มีอะไรบ้าง?', category: 'product' }
+      );
+    }
+
+    return suggestions.slice(0, 4);
   }
 
   // Map website category to product type
