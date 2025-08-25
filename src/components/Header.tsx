@@ -86,7 +86,22 @@ const Header = () => {
                               className="group cursor-pointer transition-all duration-300 hover:scale-105 animate-fade-in border-b border-slate-600/30 last:border-b-0"
                               style={{ animationDelay: `${index * 80}ms` }}
                               onClick={() => {
-                                console.log(`Product selected: ${product.name}`);
+                                const routeMap: { [key: string]: string } = {
+                                  "Smart Toilet": "/smart-toilet",
+                                  "One Piece Toilet": "/one-piece-toilet", 
+                                  "Basin": "/basin",
+                                  "Bathtub": "/bath",
+                                  "Shower Enclosure": "/shower-enclosure",
+                                  "Faucet": "/faucet",
+                                  "Rain Shower": "/rain-shower",
+                                  "Bidet Sprayer": "/bidet-spray",
+                                  "Urinal": "/uniral",
+                                  "Accessories": "/accessories"
+                                };
+                                const route = routeMap[product.name];
+                                if (route) {
+                                  window.location.href = route;
+                                }
                                 setIsMobileMenuOpen(false);
                                 setIsProductMenuExpanded(false);
                               }}
