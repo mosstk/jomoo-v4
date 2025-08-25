@@ -1,7 +1,7 @@
 import { smartToiletProducts } from './smart-toilet-products';
 import { onePieceToiletProducts } from './one-piece-toilet-products';
 import { basinProducts } from './basin-products';
-import { bathProducts } from './bathtub-products';
+import { bathProducts } from './bath-products';
 import { showerProducts } from './shower-products';
 import { faucetProducts } from './faucet-products';
 import { rainShowerProducts } from './rain-shower-products';
@@ -30,7 +30,7 @@ const createSearchIndex = (): SearchResult[] => {
     { id: 'smart-toilet', name: 'Smart Toilet', url: '/smart-toilet', products: smartToiletProducts, description: 'สุขภัณฑ์อัจฉริยะ' },
     { id: 'one-piece-toilet', name: 'One Piece Toilet', url: '/one-piece-toilet', products: onePieceToiletProducts, description: 'สุขภัณฑ์ชิ้นเดียว' },
     { id: 'basin', name: 'Basin', url: '/basin', products: basinProducts, description: 'อ่างล้างหน้า' },
-    { id: 'bathtub', name: 'Bathtub', url: '/bathtub', products: bathProducts, description: 'อ่างอาบน้ำ' },
+    { id: 'bath', name: 'Bath', url: '/bath', products: bathProducts, description: 'อ่างอาบน้ำ' },
     { id: 'shower-enclosure', name: 'Shower Enclosure', url: '/shower-enclosure', products: showerProducts, description: 'ฉากกั้นอาบน้ำ' },
     { id: 'faucet', name: 'Faucet', url: '/faucet', products: faucetProducts, description: 'ก๊อกน้ำ' },
     { id: 'rain-shower', name: 'Rain Shower', url: '/rain-shower', products: rainShowerProducts, description: 'ชุดเรนชาวเวอร์อาบน้ำ' },

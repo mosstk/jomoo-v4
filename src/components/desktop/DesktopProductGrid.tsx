@@ -37,13 +37,13 @@ const DesktopProductGrid = () => {
       backgroundImage=""
       className="relative pt-0 pb-20"
     >
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mx-auto px-4 w-full max-w-[864px]">
+      <div className="grid grid-cols-3 gap-6 mx-auto px-0 w-full max-w-[864px]">
         {products.map((product) => (
           <ProductCard
             key={product.id}
             name={product.name}
             image={product.image}
-            
+            imageMobile={product.imageMobile}
             onClick={() => handleProductClick(product.name)}
           />
         ))}

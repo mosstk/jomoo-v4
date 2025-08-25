@@ -7,145 +7,43 @@ export type Json =
   | Json[]
 
 export type Database = {
-  // Allows to automatically instantiate createClient with right options
+  // Allows to automatically instanciate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
     PostgrestVersion: "12.2.3 (519615d)"
   }
   public: {
     Tables: {
-      admin_users: {
+      contact_inquiries: {
         Row: {
           created_at: string
-          full_name: string | null
+          email: string
           id: string
-          is_active: boolean
-          password_hash: string
+          inquiry_type: string | null
+          message: string
+          name: string
+          phone: string
           updated_at: string
-          username: string
         }
         Insert: {
           created_at?: string
-          full_name?: string | null
+          email: string
           id?: string
-          is_active?: boolean
-          password_hash: string
+          inquiry_type?: string | null
+          message: string
+          name: string
+          phone: string
           updated_at?: string
-          username: string
         }
         Update: {
           created_at?: string
-          full_name?: string | null
-          id?: string
-          is_active?: boolean
-          password_hash?: string
-          updated_at?: string
-          username?: string
-        }
-        Relationships: []
-      }
-      jomoo_waranty: {
-        Row: {
-          address: string
-          dealer: string | null
-          email: string
-          first_name: string
-          id: number
-          image_url: string | null
-          install_date: string | null
-          installer: string | null
-          invoice_url: string | null
-          last_name: string
-          notes: string | null
-          phone: string
-          product_model: string
-          product_type: string
-          purchase_date: string
-          registration_date: string | null
-          serial_number: string | null
-          status: string | null
-          warranty_id: string
-        }
-        Insert: {
-          address: string
-          dealer?: string | null
-          email: string
-          first_name: string
-          id?: number
-          image_url?: string | null
-          install_date?: string | null
-          installer?: string | null
-          invoice_url?: string | null
-          last_name: string
-          notes?: string | null
-          phone: string
-          product_model: string
-          product_type: string
-          purchase_date: string
-          registration_date?: string | null
-          serial_number?: string | null
-          status?: string | null
-          warranty_id: string
-        }
-        Update: {
-          address?: string
-          dealer?: string | null
           email?: string
-          first_name?: string
-          id?: number
-          image_url?: string | null
-          install_date?: string | null
-          installer?: string | null
-          invoice_url?: string | null
-          last_name?: string
-          notes?: string | null
+          id?: string
+          inquiry_type?: string | null
+          message?: string
+          name?: string
           phone?: string
-          product_model?: string
-          product_type?: string
-          purchase_date?: string
-          registration_date?: string | null
-          serial_number?: string | null
-          status?: string | null
-          warranty_id?: string
-        }
-        Relationships: []
-      }
-      knowledge_base: {
-        Row: {
-          category: string
-          content: string
-          created_at: string | null
-          embedding: string | null
-          id: string
-          metadata: Json | null
-          product_id: string | null
-          product_type: string | null
-          title: string
-          updated_at: string | null
-        }
-        Insert: {
-          category: string
-          content: string
-          created_at?: string | null
-          embedding?: string | null
-          id?: string
-          metadata?: Json | null
-          product_id?: string | null
-          product_type?: string | null
-          title: string
-          updated_at?: string | null
-        }
-        Update: {
-          category?: string
-          content?: string
-          created_at?: string | null
-          embedding?: string | null
-          id?: string
-          metadata?: Json | null
-          product_id?: string | null
-          product_type?: string | null
-          title?: string
-          updated_at?: string | null
+          updated_at?: string
         }
         Relationships: []
       }
@@ -154,114 +52,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      binary_quantize: {
-        Args: { "": string } | { "": unknown }
-        Returns: unknown
-      }
-      halfvec_avg: {
-        Args: { "": number[] }
-        Returns: unknown
-      }
-      halfvec_out: {
-        Args: { "": unknown }
-        Returns: unknown
-      }
-      halfvec_send: {
-        Args: { "": unknown }
-        Returns: string
-      }
-      halfvec_typmod_in: {
-        Args: { "": unknown[] }
-        Returns: number
-      }
-      hnsw_bit_support: {
-        Args: { "": unknown }
-        Returns: unknown
-      }
-      hnsw_halfvec_support: {
-        Args: { "": unknown }
-        Returns: unknown
-      }
-      hnsw_sparsevec_support: {
-        Args: { "": unknown }
-        Returns: unknown
-      }
-      hnswhandler: {
-        Args: { "": unknown }
-        Returns: unknown
-      }
-      ivfflat_bit_support: {
-        Args: { "": unknown }
-        Returns: unknown
-      }
-      ivfflat_halfvec_support: {
-        Args: { "": unknown }
-        Returns: unknown
-      }
-      ivfflathandler: {
-        Args: { "": unknown }
-        Returns: unknown
-      }
-      l2_norm: {
-        Args: { "": unknown } | { "": unknown }
-        Returns: number
-      }
-      l2_normalize: {
-        Args: { "": string } | { "": unknown } | { "": unknown }
-        Returns: unknown
-      }
-      match_documents: {
-        Args: {
-          match_count?: number
-          match_threshold?: number
-          query_embedding: string
-        }
-        Returns: {
-          category: string
-          content: string
-          id: string
-          metadata: Json
-          product_type: string
-          similarity: number
-          title: string
-        }[]
-      }
-      sparsevec_out: {
-        Args: { "": unknown }
-        Returns: unknown
-      }
-      sparsevec_send: {
-        Args: { "": unknown }
-        Returns: string
-      }
-      sparsevec_typmod_in: {
-        Args: { "": unknown[] }
-        Returns: number
-      }
-      vector_avg: {
-        Args: { "": number[] }
-        Returns: string
-      }
-      vector_dims: {
-        Args: { "": string } | { "": unknown }
-        Returns: number
-      }
-      vector_norm: {
-        Args: { "": string }
-        Returns: number
-      }
-      vector_out: {
-        Args: { "": string }
-        Returns: unknown
-      }
-      vector_send: {
-        Args: { "": string }
-        Returns: string
-      }
-      vector_typmod_in: {
-        Args: { "": unknown[] }
-        Returns: number
-      }
+      [_ in never]: never
     }
     Enums: {
       [_ in never]: never

@@ -13,18 +13,18 @@ const Footer = ({ useProductPageStyle = false }: { useProductPageStyle?: boolean
   return (
     <footer>
       {/* White divider line */}
-      <div className="mx-auto px-4 max-w-[1080px]">
-        <div className="w-full bg-white/30 h-0.5"></div>
+      <div className="mx-auto px-4" style={{ width: '1080px', maxWidth: '100%' }}>
+        <div className="w-full bg-white/30" style={{ height: '2px' }}></div>
       </div>
       
-      {/* Main Footer Content - Responsive design */}
-      <div className={`py-8 w-full max-w-[1120px] mx-auto ${useProductPageStyle ? 'luxury-backdrop' : ''}`}>
-        <div className="mx-auto px-4 max-w-[1080px]">
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 space-y-6 lg:space-y-0">
+      {/* Main Footer Content - Transparent background to show main background */}
+      <div className={`py-8 w-[1120px] mx-auto ${useProductPageStyle ? 'luxury-backdrop' : ''}`}>
+        <div className="mx-auto px-4" style={{ width: '1080px', maxWidth: '100%' }}>
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8">
             {/* Left Side */}
-            <div className="flex flex-col space-y-4 w-full lg:w-auto">
+            <div className="flex flex-col space-y-4 mb-6 lg:mb-0">
               {/* Follow TOA LIVING SPACE */}
-              <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
+              <div className="flex items-center space-x-4">
                 <span className="text-gray-300 text-sm">Follow TOA LIVING SPACE</span>
                 <div className="flex space-x-2">
                   <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
@@ -50,19 +50,19 @@ const Footer = ({ useProductPageStyle = false }: { useProductPageStyle?: boolean
             </div>
 
             {/* Right Side - Newsletter */}
-            <div className="flex flex-col items-start lg:items-end space-y-4 w-full lg:w-auto">
-              <div className="text-left lg:text-right">
+            <div className="flex flex-col items-end space-y-4">
+              <div className="text-right">
                 <p className="text-white text-sm">
                   Sign up to receive email, news, promotions<br />
                   and information about <span className="text-white font-semibold">JOMOO</span>.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 w-full lg:w-auto">
+              <div className="flex space-x-2">
                 <Input 
                   placeholder="E-mail Address" 
-                  className="bg-gray-600 border-gray-500 text-white placeholder:text-gray-400 w-full sm:w-64"
+                  className="bg-gray-600 border-gray-500 text-white placeholder:text-gray-400 w-64"
                 />
-                <Button className="bg-gray-500 hover:bg-gray-400 text-white px-6 w-full sm:w-auto">
+                <Button className="bg-gray-500 hover:bg-gray-400 text-white px-6">
                   Sign Up
                 </Button>
               </div>
@@ -73,19 +73,19 @@ const Footer = ({ useProductPageStyle = false }: { useProductPageStyle?: boolean
 
       {/* Bottom Copyright with dark background */}
       <div className="bg-slate-800">
-        <div className="mx-auto px-4 max-w-[1080px]">
+        <div className="mx-auto px-4" style={{ width: '1080px', maxWidth: '100%' }}>
           <div className="pt-6 pb-8">
             <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
-              <p className="text-gray-400 text-xs text-center lg:text-left">
+              <p className="text-gray-400 text-xs">
                 © Copyright 2023 TOA Paint (Thailand) Public Company Limited. All rights reserved.
               </p>
-              <div className="flex flex-wrap justify-center lg:justify-end space-x-2 sm:space-x-6">
+              <div className="flex space-x-6">
                 <a href="#" className="text-gray-400 hover:text-white text-xs">Terms & Conditions</a>
-                <span className="text-gray-400 text-xs hidden sm:inline">|</span>
+                <span className="text-gray-400 text-xs">|</span>
                 <a href="#" className="text-gray-400 hover:text-white text-xs">Privacy Notice</a>
-                <span className="text-gray-400 text-xs hidden sm:inline">|</span>
+                <span className="text-gray-400 text-xs">|</span>
                 <a href="#" className="text-gray-400 hover:text-white text-xs">Cookies Policy</a>
-                <span className="text-gray-400 text-xs hidden sm:inline">|</span>
+                <span className="text-gray-400 text-xs">|</span>
                 <a href="#" className="text-gray-400 hover:text-white text-xs">Site Map</a>
               </div>
             </div>

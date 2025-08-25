@@ -44,7 +44,7 @@ const ProductGrid = () => {
             key={product.id}
             name={product.name}
             image={product.image}
-            
+            imageMobile={product.imageMobile}
             onClick={() => handleProductClick(product.name)}
           />
         ))}
