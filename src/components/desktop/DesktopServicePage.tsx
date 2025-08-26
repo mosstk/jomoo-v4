@@ -11,15 +11,12 @@ const DesktopServicePage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative overflow-hidden h-[400px]">
+      <section className="relative">
         <img 
           src="/lovable-uploads/b71eac7f-5d6a-4a76-90d4-0df515997797.png"
           alt="Smart Digital Services"
-          className="w-full h-full object-cover"
+          className="w-full h-auto object-cover"
         />
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute left-8 top-1/2 transform -translate-y-1/2 text-white">
-        </div>
       </section>
 
       {/* TOA JOMOO Logo Section */}
