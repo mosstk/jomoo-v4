@@ -45,7 +45,7 @@ const DesktopInspirationPage = () => {
           </div>
           <div className="text-center">
             <h2 className="text-lg mb-6 text-gray-900">SIGNATURE Collection</h2>
-            <p className="text-gray-600 max-w-5xl mx-auto leading-relaxed text-lg">
+            <p className="text-gray-600 leading-relaxed text-lg text-left">
               SIGNATURE is a bathroom collection that can be highly customized to customer requirements. The vanity unit can be put together from 
               different modules to measure and function. A selection of interchangeable drawer fronts in a variety of materials gives the ensemble a 
               personal touch. Thanks to customizable panels, fittings and toilets can also be matched to the material of the front panels.
@@ -66,7 +66,7 @@ const DesktopInspirationPage = () => {
           </div>
           <div className="text-center">
             <h2 className="text-lg mb-6 text-gray-900">VOYAGE Collection</h2>
-            <p className="text-gray-600 max-w-5xl mx-auto leading-relaxed text-lg">
+            <p className="text-gray-600 leading-relaxed text-lg text-left">
               The VOYAGE collection is a holistic sanitary system, developed for and with hotel architects. In order to meet the diverse international 
               building situations, the system is designed for different versions: surface-mounted as well as flush-mounted, free-standing as well as 
               for built-in situations, floor-standing as well as wall-mounted. The generic form of the VOYAGE collection enables planners to always 
