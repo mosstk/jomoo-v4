@@ -19,26 +19,6 @@ const DesktopServicePage = () => {
         />
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute left-8 top-1/2 transform -translate-y-1/2 text-white">
-          <div className="space-y-4">
-            <div className="flex items-center gap-4">
-              <div className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center">
-                <div className="w-4 h-4 bg-white rounded-full" />
-              </div>
-              <span className="text-lg">Trustworthy Warranty</span>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center">
-                <div className="w-4 h-4 bg-white rounded-full" />
-              </div>
-              <span className="text-lg">After Sales Service</span>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center">
-                <div className="w-4 h-4 bg-white rounded-full" />
-              </div>
-              <span className="text-lg">Standard Quality</span>
-            </div>
-          </div>
         </div>
       </section>
 
