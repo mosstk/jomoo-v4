@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import ProductCard from "@/components/products/ProductCard";
 import ProductSection from "@/components/products/ProductSection";
-import { products } from "@/data/products";
+import { products, type Product } from "@/data/products";
 import { useNavigate } from "react-router-dom";
 
 const ProductGrid = () => {
@@ -39,15 +39,24 @@ const ProductGrid = () => {
       className="relative pt-0 pb-20"
     >
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 lg:gap-6 mx-auto px-4 md:px-6 lg:px-0 w-full max-w-[864px]">
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            name={product.name}
-            image={product.image}
-            imageMobile={product.imageMobile}
-            onClick={() => handleProductClick(product.name)}
-          />
-        ))}
+        {products.map((product) => {
+          const typedProduct = product as {
+            id: string;
+            name: string;
+            image: string;
+            imageMobile: string;
+            category?: string;
+          };
+          return (
+            <ProductCard
+              key={typedProduct.id}
+              name={typedProduct.name}
+              image={typedProduct.image}
+              imageMobile={typedProduct.imageMobile}
+              onClick={() => handleProductClick(typedProduct.name)}
+            />
+          );
+        })}
       </div>
     </ProductSection>
   );

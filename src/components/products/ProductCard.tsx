@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-interface ProductCardProps {
+export interface ProductCardProps {
   name: string;
   image: string;
   imageMobile: string;
@@ -9,7 +9,7 @@ interface ProductCardProps {
   className?: string;
 }
 
-const ProductCard = ({ name, image, imageMobile, onClick, className = "" }: ProductCardProps) => {
+const ProductCard: React.FC<ProductCardProps> = ({ name, image, imageMobile, onClick, className = "" }) => {
   const isMobile = useIsMobile();
   const displayImage = isMobile ? imageMobile : image;
 

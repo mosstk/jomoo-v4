@@ -9,7 +9,11 @@ const LineIcon = () => (
   </svg>
 );
 
-const Footer = ({ useProductPageStyle = false }: { useProductPageStyle?: boolean }) => {
+interface FooterProps {
+  useProductPageStyle?: boolean;
+}
+
+const Footer = ({ useProductPageStyle = false }: FooterProps) => {
   return (
     <footer>
       {/* White divider line */}
