@@ -13,7 +13,7 @@ const DesktopInspirationPage = () => {
           aspectRatio: '1120/587'
         }}>
         <img 
-          src="/lovable-uploads/1ae5f4c3-b9f7-4236-a4a6-943c4a618284.png"
+          src="/lovable-uploads/25231772-4d2b-4b34-851b-15c7587c7410.png"
           alt="Inspiration Hero"
           className="w-full h-full object-cover"
         />
@@ -49,7 +49,7 @@ const DesktopInspirationPage = () => {
         <div className="px-4">
           <div className="mb-12">
             <img 
-              src="/lovable-uploads/6a645c05-0d87-4303-893c-a4464c4e988a.png"
+              src="/lovable-uploads/0df691d9-30f3-4bf4-8cc2-0c10a8a03391.png"
               alt="SIGNATURE Collection"
               className="w-full h-auto"
             />
@@ -70,7 +70,7 @@ const DesktopInspirationPage = () => {
         <div className="px-4">
           <div className="mb-12">
             <img 
-              src="/lovable-uploads/c366600e-3443-4d33-b8d0-73044d37fb9e.png"
+              src="/lovable-uploads/27b3024e-b9c1-4aff-92be-bb3b67f38013.png"
               alt="VOYAGE Collection"
               className="w-full h-auto"
             />
