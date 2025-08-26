@@ -91,7 +91,7 @@ const Header = () => {
                                   "Smart Toilet": "/smart-toilet",
                                   "One Piece Toilet": "/one-piece-toilet", 
                                   "Basin": "/basin",
-                                  "Bathtub": "/bath",
+                                  "Bathtub": "/bathtub",
                                   "Shower Enclosure": "/shower-enclosure",
                                   "Faucet": "/faucet",
                                   "Rain Shower": "/rain-shower",
