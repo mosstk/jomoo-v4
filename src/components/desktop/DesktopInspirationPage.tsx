@@ -27,7 +27,7 @@ const DesktopInspirationPage = () => {
             alt="TOA | JOMOO Logo" 
             className="w-auto h-auto object-contain mx-auto mb-3 scale-[0.225]"
           />
-          <p className="text-gray-600 max-w-4xl mx-auto text-lg leading-relaxed">
+          <p className="text-gray-600 text-lg leading-relaxed whitespace-nowrap">
             Our design seamlessly blends comfort, convenience, and health, offering a sophisticated, user-centric experience.
           </p>
         </div>
