@@ -99,30 +99,6 @@ const DesktopContactPage = () => {
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className="bg-white py-16 w-[1120px] mx-auto border-t">
-        <div className="px-4">
-          <div className="flex justify-between items-center">
-            <div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">Follow TOA LIVING SPACE</h3>
-              <p className="text-lg font-medium text-gray-900">Contact Showroom</p>
-            </div>
-            <div className="text-right">
-              <p className="text-sm text-gray-600 mb-4">Sign up to receive email, news, promotions<br />and information about JOMOO.</p>
-              <div className="flex space-x-2">
-                <input 
-                  type="email" 
-                  placeholder="E-mail Address" 
-                  className="px-4 py-2 border border-gray-300 rounded-md w-64"
-                />
-                <button className="px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors">
-                  Sign Up
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       
       <Footer />
     </div>
