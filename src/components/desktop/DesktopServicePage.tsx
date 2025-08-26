@@ -94,6 +94,8 @@ const DesktopServicePage = () => {
           </div>
         </div>
       </section>
+      
+      <Footer />
     </div>
   );
 };
