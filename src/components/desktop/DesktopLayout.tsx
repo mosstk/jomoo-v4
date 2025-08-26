@@ -11,7 +11,7 @@ const DesktopLayout = () => {
         className="fixed inset-0 z-[-2]" 
         style={{
           backgroundImage: 'url(/lovable-uploads/126761bf-015e-4d63-8193-81bb462dc1eb.png)',
-          backgroundSize: 'cover',
+          backgroundSize: '1120px 100vh',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
         }}
