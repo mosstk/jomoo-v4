@@ -1,7 +1,7 @@
-import DesktopAboutUsPage from "@/components/desktop/DesktopAboutUsPage";
+import DesktopInspirationPage from "@/components/desktop/DesktopInspirationPage";
 
 const AboutUs = () => {
-  return <DesktopAboutUsPage />;
+  return <DesktopInspirationPage />;
 };
 
 export default AboutUs;
