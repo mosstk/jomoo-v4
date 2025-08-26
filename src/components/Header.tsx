@@ -4,7 +4,8 @@ import Logo from "@/components/navigation/Logo";
 import NavigationMenu from "@/components/navigation/NavigationMenu";
 import ActionButtons from "@/components/navigation/ActionButtons";
 import { navigationItems } from "@/data/navigation";
-import { mobileProducts } from "@/data/mobile-products";
+import { products } from "@/data/products";
+
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -80,7 +81,7 @@ const Header = () => {
                       {/* Product Sub Menu */}
                       <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isProductMenuExpanded ? 'max-h-[1200px] opacity-100' : 'max-h-0 opacity-0'}`}>
                         <div className="mt-4 p-4 bg-gradient-to-br from-slate-900/90 to-slate-800/90 rounded-lg border border-slate-600/50">
-                          {mobileProducts.map((product, index) => (
+                          {products.map((product, index) => (
                             <div
                               key={product.id}
                               className="group cursor-pointer transition-all duration-300 hover:scale-105 animate-fade-in border-b border-slate-600/30 last:border-b-0"
