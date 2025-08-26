@@ -57,39 +57,6 @@ const DesktopAboutUsPage = () => {
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className="bg-white py-16 w-[1120px] mx-auto">
-        <div className="px-4">
-          <div className="flex justify-between items-end">
-            <div>
-              <h3 className="text-lg font-semibold mb-2">Follow TOA LIVING SPACE</h3>
-              <p className="text-gray-600 mb-4">Contact Showroom</p>
-              <div className="flex gap-4">
-                <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
-                <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
-                <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
-                <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
-              </div>
-            </div>
-            <div className="text-right">
-              <p className="text-sm text-gray-600 mb-4">
-                Sign up to receive email, news, promotions<br />
-                and information about JOMOO.
-              </p>
-              <div className="flex gap-2">
-                <input 
-                  type="email" 
-                  placeholder="E-mail Address" 
-                  className="px-4 py-2 border border-gray-300 rounded bg-gray-200 text-sm w-64"
-                />
-                <button className="px-6 py-2 bg-gray-400 text-white rounded text-sm">
-                  Sign Up
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       
       <Footer />
     </div>
