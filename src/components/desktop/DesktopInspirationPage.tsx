@@ -91,18 +91,18 @@ const DesktopInspirationPage = () => {
       <section className="bg-white py-16 w-[1120px] mx-auto">
         <div className="px-4">
           <h2 className="text-2xl font-bold text-center mb-12 text-gray-900">Award</h2>
-          <div className="flex justify-center items-center gap-6 flex-wrap">
-            <img src="/lovable-uploads/643dca45-bbaf-4fa7-a0f2-b554b80fbfa9.png" alt="Gold Award 2023" className="h-20 w-auto object-contain" />
-            <img src="/lovable-uploads/8d79bb69-1927-44bf-84f3-d482d88422f3.png" alt="Iconic Awards Innovative Interior" className="h-20 w-auto object-contain" />
-            <img src="/lovable-uploads/3bc5a26c-f5ec-4013-b4d0-7c2d46a19e3b.png" alt="Iconic Awards 2022" className="h-20 w-auto object-contain" />
-            <img src="/lovable-uploads/b9a1771d-0904-42df-a8c1-6799e4b0cc65.png" alt="German Innovation Award" className="h-20 w-auto object-contain" />
-            <img src="/lovable-uploads/88c74e39-0813-4038-a337-4bd14cd15137.png" alt="iF Design Award 2025" className="h-20 w-auto object-contain" />
-            <img src="/lovable-uploads/c1dcdea8-624b-4dca-b161-ca7ef235a9e0.png" alt="German Design Award Winner 2025" className="h-20 w-auto object-contain" />
-            <img src="/lovable-uploads/ee8e3349-4894-40e4-b8d2-3d831706b2da.png" alt="Red Dot Winner 2025" className="h-20 w-auto object-contain" />
-            <img src="/lovable-uploads/386d006c-ddca-4437-b432-9098e467594b.png" alt="iF Design Award 2024" className="h-20 w-auto object-contain" />
-            <img src="/lovable-uploads/ce2ea7ce-5d4a-4900-ab43-51c0e96bec09.png" alt="German Design Award Gold 2024" className="h-20 w-auto object-contain" />
-            <img src="/lovable-uploads/dd3f61dd-7b11-41b8-aa8b-51762d05d3ed.png" alt="Red Dot Winner 2024" className="h-20 w-auto object-contain" />
-            <img src="/lovable-uploads/6f635279-5f30-410b-8d50-8393755019aa.png" alt="Good Design Award 2023" className="h-20 w-auto object-contain" />
+          <div className="flex justify-center items-center gap-4 flex-nowrap overflow-x-auto">
+            <img src="/lovable-uploads/643dca45-bbaf-4fa7-a0f2-b554b80fbfa9.png" alt="Gold Award 2023" className="h-16 w-auto object-contain flex-shrink-0" />
+            <img src="/lovable-uploads/8d79bb69-1927-44bf-84f3-d482d88422f3.png" alt="Iconic Awards Innovative Interior" className="h-16 w-auto object-contain flex-shrink-0" />
+            <img src="/lovable-uploads/3bc5a26c-f5ec-4013-b4d0-7c2d46a19e3b.png" alt="Iconic Awards 2022" className="h-16 w-auto object-contain flex-shrink-0" />
+            <img src="/lovable-uploads/b9a1771d-0904-42df-a8c1-6799e4b0cc65.png" alt="German Innovation Award" className="h-16 w-auto object-contain flex-shrink-0" />
+            <img src="/lovable-uploads/88c74e39-0813-4038-a337-4bd14cd15137.png" alt="iF Design Award 2025" className="h-16 w-auto object-contain flex-shrink-0" />
+            <img src="/lovable-uploads/c1dcdea8-624b-4dca-b161-ca7ef235a9e0.png" alt="German Design Award Winner 2025" className="h-16 w-auto object-contain flex-shrink-0" />
+            <img src="/lovable-uploads/ee8e3349-4894-40e4-b8d2-3d831706b2da.png" alt="Red Dot Winner 2025" className="h-16 w-auto object-contain flex-shrink-0" />
+            <img src="/lovable-uploads/386d006c-ddca-4437-b432-9098e467594b.png" alt="iF Design Award 2024" className="h-16 w-auto object-contain flex-shrink-0" />
+            <img src="/lovable-uploads/ce2ea7ce-5d4a-4900-ab43-51c0e96bec09.png" alt="German Design Award Gold 2024" className="h-16 w-auto object-contain flex-shrink-0" />
+            <img src="/lovable-uploads/dd3f61dd-7b11-41b8-aa8b-51762d05d3ed.png" alt="Red Dot Winner 2024" className="h-16 w-auto object-contain flex-shrink-0" />
+            <img src="/lovable-uploads/6f635279-5f30-410b-8d50-8393755019aa.png" alt="Good Design Award 2023" className="h-16 w-auto object-contain flex-shrink-0" />
           </div>
         </div>
       </section>
