@@ -25,7 +25,7 @@ const DesktopAboutUsPage = () => {
           <img 
             src="/lovable-uploads/c2171c32-6150-4688-870a-1815a6b2ce9b.png" 
             alt="TOA | JOMOO Logo" 
-            className="h-16 mx-auto mb-8"
+            className="h-11 mx-auto mb-8"
           />
         </div>
       </section>
@@ -33,7 +33,7 @@ const DesktopAboutUsPage = () => {
       {/* About Content Section */}
       <section className="bg-white py-16 w-[1120px] mx-auto">
         <div className="px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">TOA x JOMOO – Leaders in Global Innovation for Building Materials and Sanitaryware</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 whitespace-nowrap">TOA x JOMOO – Leaders in Global Innovation for Building Materials and Sanitaryware</h2>
           
           <div className="space-y-8 text-gray-600 leading-relaxed">
             <p className="text-lg">
