@@ -57,14 +57,11 @@ const Footer = ({ useProductPageStyle = false }: { useProductPageStyle?: boolean
                   and information about <span className="text-white font-semibold">JOMOO</span>.
                 </p>
               </div>
-              <div className="flex space-x-2">
+              <div className="flex">
                 <Input 
                   placeholder="E-mail Address" 
                   className="bg-gray-600 border-gray-500 text-white placeholder:text-gray-400 w-64"
                 />
-                <Button className="bg-gray-500 hover:bg-gray-400 text-white px-6">
-                  Sign Up
-                </Button>
               </div>
             </div>
           </div>
