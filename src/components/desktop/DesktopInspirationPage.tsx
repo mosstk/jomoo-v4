@@ -20,7 +20,7 @@ const DesktopInspirationPage = () => {
       </section>
 
       {/* TOA | JOMOO Logo Section */}
-      <section className="bg-white py-12 w-[1120px] mx-auto">
+      <section className="bg-white py-5 w-[1120px] mx-auto">
         <div className="px-4 text-center">
           <img 
             src="/lovable-uploads/dcb2abeb-2ea6-4570-ae55-7fa7c9ae2801.png" 
