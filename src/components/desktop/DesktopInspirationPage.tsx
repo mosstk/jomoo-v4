@@ -4,44 +4,94 @@ import Footer from "@/components/Footer";
 const DesktopInspirationPage = () => {
   return (
     <div className="min-h-screen relative">
-      {/* Background image */}
-      <div 
-        className="fixed inset-0 z-[-2]" 
-        style={{
-          backgroundImage: 'url(/lovable-uploads/775eda3f-ca6c-419c-a23c-490dd2295f81.png)',
-          backgroundSize: '1400px 100vh',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      />
-      
       <Header />
       
-      <main className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold text-foreground mb-8">Inspiration</h1>
-          <div className="bg-white/90 backdrop-blur-sm rounded-lg p-8 shadow-lg">
-            <h2 className="text-2xl font-semibold mb-6">Design Inspiration</h2>
-            <p className="text-gray-700 mb-4">
-              Get inspired by our curated collection of bathroom design ideas and trends.
+      {/* Hero Section */}
+      <section className="relative overflow-hidden w-full max-w-[1120px] mx-auto" 
+        style={{ 
+          height: '587px',
+          aspectRatio: '1120/587'
+        }}>
+        <img 
+          src="/lovable-uploads/08e32869-12ba-41be-87f8-8a243b9c008a.png"
+          alt="Inspiration Banner"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="text-6xl font-bold text-white">Inspiration</h1>
+        </div>
+      </section>
+
+      {/* TOA | JOMOO Logo Section */}
+      <section className="bg-white py-8 w-[1120px] mx-auto">
+        <div className="px-4 text-center">
+          <img 
+            src="/lovable-uploads/71ce025e-b030-4065-ab22-8ca999d67ebc.png" 
+            alt="TOA | JOMOO Logo" 
+            className="h-11 w-auto object-contain mx-auto mb-4"
+          />
+          <p className="text-gray-600 max-w-3xl mx-auto">
+            Our design seamlessly blends comfort, convenience, and health, offering a sophisticated, user-centric experience.
+          </p>
+        </div>
+      </section>
+
+      {/* SIGNATURE Collection Section */}
+      <section className="bg-white py-16 w-[1120px] mx-auto">
+        <div className="px-4">
+          <div className="mb-8">
+            <img 
+              src="/lovable-uploads/6a645c05-0d87-4303-893c-a4464c4e988a.png"
+              alt="SIGNATURE Collection"
+              className="w-full h-auto rounded-lg"
+            />
+          </div>
+          <div className="text-center">
+            <h2 className="text-2xl font-bold mb-4">SIGNATURE Collection</h2>
+            <p className="text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              SIGNATURE is a bathroom collection that can be highly customized to customer requirements. The vanity unit can be put together from 
+              different modules to measure and function. A selection of interchangeable drawer fronts in a variety of materials gives the ensemble a 
+              personal touch. Thanks to customizable panels, fittings and toilets can also be matched to the material of the front panels.
             </p>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="p-4 border rounded-lg">
-                <h3 className="font-semibold mb-2">Modern Minimalist</h3>
-                <p className="text-sm text-gray-600">Clean lines and sophisticated simplicity</p>
-              </div>
-              <div className="p-4 border rounded-lg">
-                <h3 className="font-semibold mb-2">Luxury Spa</h3>
-                <p className="text-sm text-gray-600">Transform your bathroom into a spa experience</p>
-              </div>
-              <div className="p-4 border rounded-lg">
-                <h3 className="font-semibold mb-2">Contemporary Classic</h3>
-                <p className="text-sm text-gray-600">Timeless elegance with modern functionality</p>
-              </div>
-            </div>
           </div>
         </div>
-      </main>
+      </section>
+
+      {/* VOYAGE Collection Section */}
+      <section className="bg-white py-16 w-[1120px] mx-auto">
+        <div className="px-4">
+          <div className="mb-8">
+            <img 
+              src="/lovable-uploads/c366600e-3443-4d33-b8d0-73044d37fb9e.png"
+              alt="VOYAGE Collection"
+              className="w-full h-auto rounded-lg"
+            />
+          </div>
+          <div className="text-center">
+            <h2 className="text-2xl font-bold mb-4">VOYAGE Collection</h2>
+            <p className="text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              The VOYAGE collection is a holistic sanitary system, developed for and with hotel architects. In order to meet the diverse international 
+              building situations, the system is designed with different versions: surface-mounted as well as flush-mounted, free-standing as well as 
+              for built-in situations, floor-standing as well as wall-mounted. The generic form of the VOYAGE collection enables planners to always 
+              develop a harmonious, seamless room concept.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Award Section */}
+      <section className="bg-white py-16 w-[1120px] mx-auto">
+        <div className="px-4">
+          <h2 className="text-2xl font-bold text-center mb-8">Award</h2>
+          <div className="flex justify-center">
+            <img 
+              src="/lovable-uploads/5a467e79-4f95-485a-ae3a-ad3509137f68.png"
+              alt="Awards"
+              className="max-w-full h-auto"
+            />
+          </div>
+        </div>
+      </section>
       
       <Footer />
     </div>
