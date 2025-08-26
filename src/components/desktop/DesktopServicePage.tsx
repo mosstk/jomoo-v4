@@ -34,7 +34,7 @@ const DesktopServicePage = () => {
       </section>
 
       {/* Warranty Registration Form */}
-      <section className="py-16">
+      <section className="bg-white py-16">
         <div className="max-w-[1120px] mx-auto px-4 bg-white">
           {/* Customer Information */}
           <div className="bg-[#6B7DB8] text-white p-4 rounded-t-lg">
