@@ -56,14 +56,8 @@ const Footer = ({ useProductPageStyle = false }: FooterProps) => {
               </div>
             </div>
 
-            {/* Right Side - Newsletter */}
+            {/* Right Side - Empty space where newsletter was */}
             <div className="flex flex-col items-end space-y-4">
-              <div className="text-right">
-                <p className="text-white text-sm">
-                  Sign up to receive email, news, promotions<br />
-                  and information about <span className="text-white font-semibold">JOMOO</span>.
-                </p>
-              </div>
             </div>
           </div>
         </div>
