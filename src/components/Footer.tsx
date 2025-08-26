@@ -37,11 +37,6 @@ const Footer = ({ useProductPageStyle = false }: { useProductPageStyle?: boolean
                       <Instagram className="h-4 w-4" />
                     </Button>
                   </a>
-                  <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-                    <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
-                      <Youtube className="h-4 w-4" />
-                    </Button>
-                  </a>
                   <a href="https://page.line.me/656fflaj" target="_blank" rel="noopener noreferrer">
                     <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
                       <LineIcon />
