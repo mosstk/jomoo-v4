@@ -49,7 +49,7 @@ const DesktopAboutUsPage = () => {
             </p>
             
             <p className="text-lg">
-              The collaboration between TOA and JOMOO represents the synergy of two industry leaders, joining strengths to deliver an enhanced 
+              &nbsp;&nbsp;&nbsp;&nbsp;The collaboration between TOA and JOMOO represents the synergy of two industry leaders, joining strengths to deliver an enhanced 
               living experience for customers in Thailand. Together, they provide a comprehensive range of superior products, from exterior and 
               structural solutions to sanitaryware and bathroom innovations—bringing excellence to every corner of the home.
             </p>
