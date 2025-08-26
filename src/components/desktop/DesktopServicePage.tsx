@@ -13,7 +13,7 @@ const DesktopServicePage = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden h-[400px]">
         <img 
-          src="/lovable-uploads/7a830af5-b9ee-4f74-b619-08dd831a7d45.png"
+          src="/lovable-uploads/b71eac7f-5d6a-4a76-90d4-0df515997797.png"
           alt="Smart Digital Services"
           className="w-full h-full object-cover"
         />
