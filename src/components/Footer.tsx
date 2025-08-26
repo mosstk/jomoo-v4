@@ -27,18 +27,26 @@ const Footer = ({ useProductPageStyle = false }: { useProductPageStyle?: boolean
               <div className="flex items-center space-x-4">
                 <span className="text-gray-300 text-sm">Follow TOA LIVING SPACE</span>
                 <div className="flex space-x-2">
-                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
-                    <Facebook className="h-4 w-4" />
-                  </Button>
-                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
-                    <Instagram className="h-4 w-4" />
-                  </Button>
-                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
-                    <Youtube className="h-4 w-4" />
-                  </Button>
-                  <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
-                    <LineIcon />
-                  </Button>
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                    <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
+                      <Facebook className="h-4 w-4" />
+                    </Button>
+                  </a>
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                    <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
+                      <Instagram className="h-4 w-4" />
+                    </Button>
+                  </a>
+                  <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+                    <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
+                      <Youtube className="h-4 w-4" />
+                    </Button>
+                  </a>
+                  <a href="https://line.me" target="_blank" rel="noopener noreferrer">
+                    <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white w-8 h-8 p-0">
+                      <LineIcon />
+                    </Button>
+                  </a>
                 </div>
               </div>
 
