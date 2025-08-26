@@ -43,7 +43,7 @@ const DesktopAboutUsPage = () => {
             </p>
             
             <p className="text-lg">
-              JOMOO, a world-renowned brand from China, is a leading provider of sanitaryware and bathroom solutions. With cutting-edge 
+              &nbsp;&nbsp;&nbsp;&nbsp;JOMOO, a world-renowned brand from China, is a leading provider of sanitaryware and bathroom solutions. With cutting-edge 
               technology, elegant design, and premium quality, JOMOO is dedicated to creating products that reflect modern lifestyles—combining 
               convenience, advanced functionality, and sustainability.
             </p>
