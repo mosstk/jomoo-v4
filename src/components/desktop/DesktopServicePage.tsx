@@ -45,12 +45,11 @@ const DesktopServicePage = () => {
 
       {/* TOA JOMOO Logo Section */}
       <section className="bg-white py-8 text-center">
-        <div className="flex items-center justify-center gap-4 mb-2">
-          <div className="w-12 h-12 bg-red-600 rounded flex items-center justify-center">
-            <span className="text-white font-bold text-lg">TOA</span>
-          </div>
-          <span className="text-2xl font-bold text-gray-800">JOMOO</span>
-        </div>
+        <img 
+          src="/lovable-uploads/c2171c32-6150-4688-870a-1815a6b2ce9b.png"
+          alt="TOA | JOMOO Logo"
+          className="h-16 mx-auto mb-2"
+        />
         <p className="text-gray-600">register your warranty</p>
       </section>
 
