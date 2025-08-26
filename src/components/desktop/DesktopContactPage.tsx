@@ -25,7 +25,7 @@ const DesktopContactPage = () => {
           <img 
             src="/lovable-uploads/c2171c32-6150-4688-870a-1815a6b2ce9b.png" 
             alt="TOA | JOMOO Logo" 
-            className="h-16 mx-auto mb-8"
+            className="h-11 mx-auto mb-8"
           />
         </div>
       </section>
