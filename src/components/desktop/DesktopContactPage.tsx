@@ -68,7 +68,7 @@ const DesktopContactPage = () => {
         <div className="px-4">
           <h2 className="text-4xl font-bold mb-12 text-gray-900">Follow Us</h2>
           
-          <div className="flex justify-start space-x-12">
+          <div className="flex justify-between items-center w-full">
             <div className="text-center">
               <img 
                 src="/lovable-uploads/7142c809-bcc0-4ec0-a304-db05ffb65e42.png" 
