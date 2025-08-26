@@ -13,13 +13,10 @@ const DesktopInspirationPage = () => {
           aspectRatio: '1120/587'
         }}>
         <img 
-          src="/lovable-uploads/25231772-4d2b-4b34-851b-15c7587c7410.png"
+          src="/lovable-uploads/9bf37ee6-14be-4ecc-a6e4-f7bbc322cbd6.png"
           alt="Inspiration Hero"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-6xl font-light text-white tracking-wide">Inspiration</h1>
-        </div>
       </section>
 
       {/* TOA | JOMOO Logo Section */}
