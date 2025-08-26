@@ -25,7 +25,7 @@ const DesktopInspirationPage = () => {
           <img 
             src="/lovable-uploads/dcb2abeb-2ea6-4570-ae55-7fa7c9ae2801.png" 
             alt="TOA | JOMOO Logo" 
-            className="w-auto h-auto object-contain mx-auto mb-3 scale-[0.225]"
+            className="w-auto h-auto object-contain mx-auto mb-1 scale-[0.225]"
           />
           <p className="text-gray-600 text-lg leading-relaxed whitespace-nowrap">
             Our design seamlessly blends comfort, convenience, and health, offering a sophisticated, user-centric experience.
