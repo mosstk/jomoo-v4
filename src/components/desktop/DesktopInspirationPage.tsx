@@ -13,7 +13,7 @@ const DesktopInspirationPage = () => {
           aspectRatio: '1120/587'
         }}>
         <img 
-          src="/lovable-uploads/9bf37ee6-14be-4ecc-a6e4-f7bbc322cbd6.png"
+          src="/lovable-uploads/1d802a64-871e-4a8e-bfa0-efa3304a153b.png"
           alt="Inspiration Hero"
           className="w-full h-full object-cover"
         />
