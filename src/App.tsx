@@ -8,7 +8,7 @@ import Product from "./pages/Product";
 import SmartToilet from "./pages/SmartToilet";
 import OnePieceToilet from "./pages/OnePieceToilet";
 import Basin from "./pages/Basin";
-import Bath from "./pages/Bath";
+import Bathtub from "./pages/Bathtub";
 import ShowerEnclosure from "./pages/ShowerEnclosure";
 import Faucet from "./pages/Faucet";
 import RainShower from "./pages/RainShower";
@@ -35,7 +35,7 @@ const App = () => (
           <Route path="/smart-toilet" element={<SmartToilet />} />
           <Route path="/one-piece-toilet" element={<OnePieceToilet />} />
           <Route path="/basin" element={<Basin />} />
-          <Route path="/bathtub" element={<Bath />} />
+          <Route path="/bathtub" element={<Bathtub />} />
           <Route path="/shower-enclosure" element={<ShowerEnclosure />} />
           <Route path="/faucet" element={<Faucet />} />
           <Route path="/rain-shower" element={<RainShower />} />
