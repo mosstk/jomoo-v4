@@ -1,7 +1,7 @@
-import DesktopInspirationPage from "@/components/desktop/DesktopInspirationPage";
+import DesktopContactPage from "@/components/desktop/DesktopContactPage";
 
 const Contact = () => {
-  return <DesktopInspirationPage />;
+  return <DesktopContactPage />;
 };
 
 export default Contact;

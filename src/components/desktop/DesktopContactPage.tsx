@@ -4,73 +4,125 @@ import Footer from "@/components/Footer";
 const DesktopContactPage = () => {
   return (
     <div className="min-h-screen relative">
-      {/* Background image */}
-      <div 
-        className="fixed inset-0 z-[-2]" 
-        style={{
-          backgroundImage: 'url(/lovable-uploads/775eda3f-ca6c-419c-a23c-490dd2295f81.png)',
-          backgroundSize: '1400px 100vh',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      />
-      
       <Header />
       
-      <main className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold text-foreground mb-8">Contact</h1>
-          <div className="bg-white/90 backdrop-blur-sm rounded-lg p-8 shadow-lg">
-            <h2 className="text-2xl font-semibold mb-6">Get In Touch</h2>
-            <div className="grid md:grid-cols-2 gap-8">
+      {/* Hero Banner Section */}
+      <section className="relative overflow-hidden w-full max-w-[1120px] mx-auto" 
+        style={{ 
+          height: '587px',
+          aspectRatio: '1120/587'
+        }}>
+        <img 
+          src="/lovable-uploads/a794be13-6e9e-4fc0-b40d-f601cd3763dd.png"
+          alt="Contact Banner"
+          className="w-full h-full object-cover"
+        />
+      </section>
+
+      {/* TOA | JOMOO Logo Section */}
+      <section className="bg-white py-8 w-[1120px] mx-auto">
+        <div className="px-4 text-center">
+          <img 
+            src="/lovable-uploads/c2171c32-6150-4688-870a-1815a6b2ce9b.png" 
+            alt="TOA | JOMOO Logo" 
+            className="h-16 mx-auto mb-8"
+          />
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="bg-white py-16 w-[1120px] mx-auto">
+        <div className="px-4">
+          <h2 className="text-4xl font-bold mb-12 text-gray-900">Contact</h2>
+          
+          <div className="space-y-8">
+            <div className="flex items-center space-x-4">
+              <img 
+                src="/lovable-uploads/27ad0ff6-7ca2-455c-b951-d7d0fa542716.png" 
+                alt="Location Icon" 
+                className="w-16 h-16"
+              />
               <div>
-                <h3 className="text-lg font-semibold mb-4">Contact Information</h3>
-                <div className="space-y-3 text-gray-700">
-                  <div>
-                    <strong>Address:</strong><br />
-                    TOA Living Space Showroom<br />
-                    Bangkok, Thailand
-                  </div>
-                  <div>
-                    <strong>Phone:</strong><br />
-                    +66 (0) 2-xxx-xxxx
-                  </div>
-                  <div>
-                    <strong>Email:</strong><br />
-                    info@toalivingspace.com
-                  </div>
-                  <div>
-                    <strong>Business Hours:</strong><br />
-                    Monday - Friday: 9:00 AM - 6:00 PM<br />
-                    Saturday: 9:00 AM - 5:00 PM<br />
-                    Sunday: Closed
-                  </div>
-                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Showroom Office, Sukhumvit 26</h3>
+                <p className="text-gray-600">100/68 (Shop B) Warehouse 26, Soi Ari, Sukhumvit 26 Road, Khlong Ton, Khlong Toei, Bangkok 10110</p>
               </div>
+            </div>
+            
+            <div className="flex items-center space-x-4">
+              <img 
+                src="/lovable-uploads/0d95b0f0-4e1c-40ff-b185-19016ad7bf48.png" 
+                alt="Email Icon" 
+                className="w-16 h-16"
+              />
               <div>
-                <h3 className="text-lg font-semibold mb-4">Send us a Message</h3>
-                <form className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Name</label>
-                    <input type="text" className="w-full px-3 py-2 border rounded-md" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Email</label>
-                    <input type="email" className="w-full px-3 py-2 border rounded-md" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-1">Message</label>
-                    <textarea rows={4} className="w-full px-3 py-2 border rounded-md"></textarea>
-                  </div>
-                  <button type="submit" className="bg-primary text-primary-foreground px-6 py-2 rounded-md hover:bg-primary/90 transition-colors">
-                    Send Message
-                  </button>
-                </form>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">E-mail</h3>
+                <p className="text-gray-600">toalivingspace@toagroup.com</p>
               </div>
             </div>
           </div>
         </div>
-      </main>
+      </section>
+
+      {/* Follow Us Section */}
+      <section className="bg-white py-16 w-[1120px] mx-auto">
+        <div className="px-4">
+          <h2 className="text-4xl font-bold mb-12 text-gray-900">Follow Us</h2>
+          
+          <div className="flex justify-start space-x-12">
+            <div className="text-center">
+              <img 
+                src="/lovable-uploads/7142c809-bcc0-4ec0-a304-db05ffb65e42.png" 
+                alt="LINE Icon" 
+                className="w-20 h-20 mx-auto mb-4"
+              />
+              <p className="text-gray-900 font-medium">TOA_LivingSpace</p>
+            </div>
+            
+            <div className="text-center">
+              <img 
+                src="/lovable-uploads/472b8958-3e12-4f36-945e-70c960ecf0dd.png" 
+                alt="Facebook Icon" 
+                className="w-20 h-20 mx-auto mb-4"
+              />
+              <p className="text-gray-900 font-medium">TOA Living Space</p>
+            </div>
+            
+            <div className="text-center">
+              <img 
+                src="/lovable-uploads/491b5425-c914-40b6-a250-0437d768e12d.png" 
+                alt="Instagram Icon" 
+                className="w-20 h-20 mx-auto mb-4"
+              />
+              <p className="text-gray-900 font-medium">TOA Living Space</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="bg-white py-16 w-[1120px] mx-auto border-t">
+        <div className="px-4">
+          <div className="flex justify-between items-center">
+            <div>
+              <h3 className="text-lg font-medium text-gray-900 mb-2">Follow TOA LIVING SPACE</h3>
+              <p className="text-lg font-medium text-gray-900">Contact Showroom</p>
+            </div>
+            <div className="text-right">
+              <p className="text-sm text-gray-600 mb-4">Sign up to receive email, news, promotions<br />and information about JOMOO.</p>
+              <div className="flex space-x-2">
+                <input 
+                  type="email" 
+                  placeholder="E-mail Address" 
+                  className="px-4 py-2 border border-gray-300 rounded-md w-64"
+                />
+                <button className="px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors">
+                  Sign Up
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       
       <Footer />
     </div>
