@@ -22,19 +22,11 @@ const DesktopInspirationPage = () => {
       {/* TOA | JOMOO Logo Section */}
       <section className="bg-white py-12 w-[1120px] mx-auto">
         <div className="px-4 text-center">
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <img 
-              src="/lovable-uploads/b44d42d9-a83a-4154-8988-faa57edbe1cc.png" 
-              alt="TOA Logo" 
-              className="h-8 w-auto object-contain"
-            />
-            <span className="text-2xl font-medium text-gray-800">|</span>
-            <img 
-              src="/lovable-uploads/8fd2f234-50b7-439f-9827-338a4978eeda.png" 
-              alt="JOMOO Logo" 
-              className="h-8 w-auto object-contain"
-            />
-          </div>
+          <img 
+            src="/lovable-uploads/10e69853-78bc-4486-b1b4-70b62f58c151.png" 
+            alt="TOA Logo" 
+            className="h-8 w-auto object-contain mx-auto mb-6"
+          />
           <p className="text-gray-600 max-w-4xl mx-auto text-lg leading-relaxed">
             Our design seamlessly blends comfort, convenience, and health, offering a sophisticated, user-centric experience.
           </p>
