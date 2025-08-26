@@ -22,8 +22,8 @@ const DesktopServicePage = () => {
       </section>
 
       {/* TOA JOMOO Logo Section */}
-      <section className="py-8 text-center">
-        <div className="max-w-[1120px] mx-auto px-4 bg-white">
+      <section className="bg-white py-8 text-center">
+        <div className="max-w-[1120px] mx-auto px-4">
           <img 
             src="/lovable-uploads/c2171c32-6150-4688-870a-1815a6b2ce9b.png"
             alt="TOA | JOMOO Logo"
