@@ -68,12 +68,12 @@ const DesktopContactPage = () => {
         <div className="px-4">
           <h2 className="text-4xl font-bold mb-12 text-gray-900">Follow Us</h2>
           
-          <div className="flex justify-between items-center w-full">
+          <div className="flex justify-center items-center gap-32">
             <div className="text-center">
               <img 
                 src="/lovable-uploads/7142c809-bcc0-4ec0-a304-db05ffb65e42.png" 
                 alt="LINE Icon" 
-                className="w-20 h-20 mx-auto mb-4"
+                className="w-16 h-16 mx-auto mb-4"
               />
               <p className="text-gray-900 font-medium">TOA_LivingSpace</p>
             </div>
@@ -82,7 +82,7 @@ const DesktopContactPage = () => {
               <img 
                 src="/lovable-uploads/472b8958-3e12-4f36-945e-70c960ecf0dd.png" 
                 alt="Facebook Icon" 
-                className="w-20 h-20 mx-auto mb-4"
+                className="w-16 h-16 mx-auto mb-4"
               />
               <p className="text-gray-900 font-medium">TOA Living Space</p>
             </div>
@@ -91,7 +91,7 @@ const DesktopContactPage = () => {
               <img 
                 src="/lovable-uploads/491b5425-c914-40b6-a250-0437d768e12d.png" 
                 alt="Instagram Icon" 
-                className="w-20 h-20 mx-auto mb-4"
+                className="w-16 h-16 mx-auto mb-4"
               />
               <p className="text-gray-900 font-medium">TOA Living Space</p>
             </div>
