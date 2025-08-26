@@ -10,13 +10,13 @@ const DesktopFaucetPage = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden w-full max-w-[1120px] mx-auto px-4" 
         style={{ 
-          height: '587px',
-          aspectRatio: '1120/587'
+          minHeight: '200px',
+          height: 'auto'
         }}>
         <img 
           src="/lovable-uploads/fb6e7afc-6c54-45cc-978d-04c44eca7195.png"
           alt="Faucet Banner"
-          className="w-full h-full object-cover"
+          className="w-full h-auto object-cover rounded-lg"
         />
       </section>
 

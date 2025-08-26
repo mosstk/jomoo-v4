@@ -30,11 +30,11 @@ const DesktopHeroSection = () => {
 
   return (
     <section 
-      className="relative overflow-hidden bg-transparent group w-full max-w-[1120px] mx-auto" 
+      className="relative overflow-hidden bg-transparent group w-full max-w-[1120px] mx-auto px-4" 
       style={{ 
         marginTop: '0', 
-        height: '587px',
-        aspectRatio: '1120/587'
+        minHeight: '300px',
+        height: 'auto'
       }}
     >
       <HeroBackground 
@@ -47,18 +47,18 @@ const DesktopHeroSection = () => {
         variant="ghost"
         size="icon"
         onClick={prevImage}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/20 hover:bg-black/40 text-white border-none opacity-0 group-hover:opacity-100 transition-all duration-300 h-12 w-12"
+        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-black/20 hover:bg-black/40 text-white border-none opacity-0 group-hover:opacity-100 transition-all duration-300 h-8 w-8 md:h-12 md:w-12"
       >
-        <ChevronLeft className="h-6 w-6" />
+        <ChevronLeft className="h-4 w-4 md:h-6 md:w-6" />
       </Button>
       
       <Button
         variant="ghost"
         size="icon"
         onClick={nextImage}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/20 hover:bg-black/40 text-white border-none opacity-0 group-hover:opacity-100 transition-all duration-300 h-12 w-12"
+        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-black/20 hover:bg-black/40 text-white border-none opacity-0 group-hover:opacity-100 transition-all duration-300 h-8 w-8 md:h-12 md:w-12"
       >
-        <ChevronRight className="h-6 w-6" />
+        <ChevronRight className="h-4 w-4 md:h-6 md:w-6" />
       </Button>
       
       {/* Enhanced Banner indicators - Desktop optimized */}
