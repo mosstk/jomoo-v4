@@ -44,8 +44,8 @@ const DesktopInspirationPage = () => {
             />
           </div>
           <div className="text-center">
-            <h2 className="text-2xl font-bold mb-6 text-gray-900">SIGNATURE Collection</h2>
-            <p className="text-gray-600 max-w-5xl mx-auto leading-relaxed text-base">
+            <h2 className="text-lg mb-6 text-gray-900">SIGNATURE Collection</h2>
+            <p className="text-gray-600 max-w-5xl mx-auto leading-relaxed text-lg">
               SIGNATURE is a bathroom collection that can be highly customized to customer requirements. The vanity unit can be put together from 
               different modules to measure and function. A selection of interchangeable drawer fronts in a variety of materials gives the ensemble a 
               personal touch. Thanks to customizable panels, fittings and toilets can also be matched to the material of the front panels.
@@ -65,8 +65,8 @@ const DesktopInspirationPage = () => {
             />
           </div>
           <div className="text-center">
-            <h2 className="text-2xl font-bold mb-6 text-gray-900">VOYAGE Collection</h2>
-            <p className="text-gray-600 max-w-5xl mx-auto leading-relaxed text-base">
+            <h2 className="text-lg mb-6 text-gray-900">VOYAGE Collection</h2>
+            <p className="text-gray-600 max-w-5xl mx-auto leading-relaxed text-lg">
               The VOYAGE collection is a holistic sanitary system, developed for and with hotel architects. In order to meet the diverse international 
               building situations, the system is designed for different versions: surface-mounted as well as flush-mounted, free-standing as well as 
               for built-in situations, floor-standing as well as wall-mounted. The generic form of the VOYAGE collection enables planners to always 
@@ -79,7 +79,7 @@ const DesktopInspirationPage = () => {
       {/* Award Section */}
       <section className="bg-white py-16 w-[1120px] mx-auto">
         <div className="px-4">
-          <h2 className="text-2xl font-bold text-center mb-12 text-gray-900">Award</h2>
+          <h2 className="text-lg text-center mb-12 text-gray-900">Award</h2>
           <div className="flex justify-center items-center gap-4 flex-nowrap overflow-x-auto">
             <img src="/lovable-uploads/643dca45-bbaf-4fa7-a0f2-b554b80fbfa9.png" alt="Gold Award 2023" className="h-16 w-auto object-contain flex-shrink-0" />
             <img src="/lovable-uploads/8d79bb69-1927-44bf-84f3-d482d88422f3.png" alt="Iconic Awards Innovative Interior" className="h-16 w-auto object-contain flex-shrink-0" />
