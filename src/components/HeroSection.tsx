@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   const bannerImages = [
-    "/lovable-uploads/43dfaf93-72c8-47d1-bc4d-a393734006e7.png",
-    "/lovable-uploads/e6b5c584-c03d-4de5-97a2-5b655f7d50a9.png",
-    "/lovable-uploads/e44145de-6665-449f-a669-bc78646e2090.png"
+    "/lovable-uploads/2c4db2f0-00f5-40c2-94bb-ddf6ebd07e43.png",
+    "/lovable-uploads/b9cab368-460c-47ef-8628-16c2c92ba636.png",
+    "/lovable-uploads/b44d42d9-a83a-4154-8988-faa57edbe1cc.png"
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -31,11 +31,9 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="relative overflow-hidden bg-transparent group w-full max-w-[1120px] mx-auto" 
+      className="relative overflow-hidden bg-transparent group w-full mx-auto" 
       style={{ 
-        marginTop: '0', 
-        height: '587px',
-        aspectRatio: '1120/587'
+        marginTop: '0'
       }}
     >
       <HeroBackground 
