@@ -37,7 +37,7 @@ const DesktopAboutUsPage = () => {
           
           <div className="space-y-8 text-gray-600 leading-relaxed">
             <p className="text-lg">
-              TOA, Thailand's No.1 leader in paints and building materials with over 60 years of expertise, is committed to delivering high-quality 
+              &nbsp;&nbsp;&nbsp;&nbsp;TOA, Thailand's No.1 leader in paints and building materials with over 60 years of expertise, is committed to delivering high-quality 
               products that meet every consumer need. Guided by the vision "Creating a Better Quality of Life", TOA continuously develops innovative 
               solutions that are safe, environmentally friendly, and certified to international standards.
             </p>
