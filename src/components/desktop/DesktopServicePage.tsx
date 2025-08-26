@@ -12,26 +12,30 @@ const DesktopServicePage = () => {
       
       {/* Hero Section */}
       <section className="relative">
-        <img 
-          src="/lovable-uploads/b71eac7f-5d6a-4a76-90d4-0df515997797.png"
-          alt="Smart Digital Services"
-          className="w-4/5 h-auto object-cover mx-auto"
-        />
+        <div className="max-w-[1120px] mx-auto px-4">
+          <img 
+            src="/lovable-uploads/b71eac7f-5d6a-4a76-90d4-0df515997797.png"
+            alt="Smart Digital Services"
+            className="w-full h-auto object-cover"
+          />
+        </div>
       </section>
 
       {/* TOA JOMOO Logo Section */}
       <section className="bg-white py-8 text-center">
-        <img 
-          src="/lovable-uploads/c2171c32-6150-4688-870a-1815a6b2ce9b.png"
-          alt="TOA | JOMOO Logo"
-          className="h-16 mx-auto mb-2"
-        />
-        <p className="text-gray-600">register your warranty</p>
+        <div className="max-w-[1120px] mx-auto px-4">
+          <img 
+            src="/lovable-uploads/c2171c32-6150-4688-870a-1815a6b2ce9b.png"
+            alt="TOA | JOMOO Logo"
+            className="h-16 mx-auto mb-2"
+          />
+          <p className="text-gray-600">register your warranty</p>
+        </div>
       </section>
 
       {/* Warranty Registration Form */}
       <section className="bg-gray-50 py-16">
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="max-w-[1120px] mx-auto px-4">
           {/* Customer Information */}
           <div className="bg-[#6B7DB8] text-white p-4 rounded-t-lg">
             <h2 className="text-xl font-bold flex items-center gap-2">
