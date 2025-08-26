@@ -21,8 +21,8 @@ const Footer = ({ useProductPageStyle = false }: FooterProps) => {
         <div className="w-full bg-white/30" style={{ height: '2px' }}></div>
       </div>
       
-      {/* Main Footer Content - Transparent background to show main background */}
-      <div className={`py-8 w-[1120px] mx-auto ${useProductPageStyle ? 'luxury-backdrop' : ''}`}>
+      {/* Main Footer Content - Same background as header */}
+      <div className={`luxury-backdrop py-8 w-[1120px] mx-auto ${useProductPageStyle ? 'luxury-backdrop' : ''}`}>
         <div className="mx-auto px-4" style={{ width: '1080px', maxWidth: '100%' }}>
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8">
             {/* Left Side */}
