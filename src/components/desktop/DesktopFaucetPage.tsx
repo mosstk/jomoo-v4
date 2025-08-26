@@ -8,7 +8,7 @@ const DesktopFaucetPage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative overflow-hidden w-full max-w-[1120px] mx-auto" 
+      <section className="relative overflow-hidden w-full max-w-[1120px] mx-auto px-4" 
         style={{ 
           height: '587px',
           aspectRatio: '1120/587'
@@ -21,7 +21,7 @@ const DesktopFaucetPage = () => {
       </section>
 
       {/* TOA | JOMOO Logo Section */}
-      <section className="bg-white py-8 w-[1120px] mx-auto">
+      <section className="bg-white py-8 w-full max-w-[1120px] mx-auto">
         <div className="px-4 text-center">
           <img 
             src="/lovable-uploads/71ce025e-b030-4065-ab22-8ca999d67ebc.png" 
@@ -32,16 +32,16 @@ const DesktopFaucetPage = () => {
       </section>
 
       {/* Breadcrumb */}
-      <section className="bg-white py-4 w-[1120px] mx-auto">
+      <section className="bg-white py-4 w-full max-w-[1120px] mx-auto">
         <div className="px-4">
           <p className="text-muted-foreground">Product &gt; Faucet</p>
         </div>
       </section>
 
       {/* Products Grid */}
-      <section className="bg-white py-16 w-[1120px] mx-auto">
+      <section className="bg-white py-16 w-full max-w-[1120px] mx-auto">
         <div className="px-4">
-          <div className="grid grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {faucetProducts.map((product) => (
               <div key={product.id} className="bg-white rounded-lg overflow-hidden shadow-sm">
                 <div className="aspect-square bg-gray-100 p-8">
