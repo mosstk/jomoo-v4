@@ -120,45 +120,7 @@ const DesktopServicePage = () => {
         </div>
       </section>
 
-      {/* Footer Section */}
-      <section className="bg-white py-8">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="flex justify-between items-center">
-            <div>
-              <h3 className="font-bold mb-2">Follow TOA LIVING SPACE</h3>
-              <div className="flex gap-4">
-                <div className="w-8 h-8 bg-blue-600 rounded-full"></div>
-                <div className="w-8 h-8 bg-pink-500 rounded-full"></div>
-                <div className="w-8 h-8 bg-red-600 rounded-full"></div>
-                <div className="w-8 h-8 bg-green-500 rounded-full"></div>
-              </div>
-              <p className="text-sm text-gray-600 mt-2">Contact Showroom</p>
-            </div>
-            <div className="text-right">
-              <p className="text-sm text-gray-600 mb-2">Sign up to receive email news, promotions and information about JOMOO</p>
-              <div className="flex gap-2">
-                <Input placeholder="อีเมลของคุณ" className="w-64" />
-                <Button className="bg-gray-800 text-white px-6">Sign Up</Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Copyright Footer */}
-      <footer className="bg-gray-900 text-white py-4">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="flex justify-between items-center text-sm">
-            <p>© Copyright 2023 TOA Paint (Thailand) Public Company Limited. All rights reserved</p>
-            <div className="flex gap-6">
-              <a href="#" className="hover:underline">Terms & Conditions</a>
-              <a href="#" className="hover:underline">Privacy Policy</a>
-              <a href="#" className="hover:underline">Cookies Policy</a>
-              <a href="#" className="hover:underline">Site Map</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
