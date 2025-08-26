@@ -15,7 +15,7 @@ const DesktopServicePage = () => {
         <img 
           src="/lovable-uploads/b71eac7f-5d6a-4a76-90d4-0df515997797.png"
           alt="Smart Digital Services"
-          className="w-full h-auto object-cover"
+          className="w-4/5 h-auto object-cover mx-auto"
         />
       </section>
 
