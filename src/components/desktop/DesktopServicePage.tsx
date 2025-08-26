@@ -23,7 +23,7 @@ const DesktopServicePage = () => {
 
       {/* TOA JOMOO Logo Section */}
       <section className="py-8 text-center">
-        <div className="max-w-[1120px] mx-auto px-4">
+        <div className="max-w-[1120px] mx-auto px-4 bg-white">
           <img 
             src="/lovable-uploads/c2171c32-6150-4688-870a-1815a6b2ce9b.png"
             alt="TOA | JOMOO Logo"
@@ -35,7 +35,7 @@ const DesktopServicePage = () => {
 
       {/* Warranty Registration Form */}
       <section className="py-16">
-        <div className="max-w-[1120px] mx-auto px-4">
+        <div className="max-w-[1120px] mx-auto px-4 bg-white">
           {/* Customer Information */}
           <div className="bg-[#6B7DB8] text-white p-4 rounded-t-lg">
             <h2 className="text-xl font-bold flex items-center gap-2">
