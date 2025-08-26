@@ -93,6 +93,7 @@ const DesktopInspirationPage = () => {
           <h2 className="text-2xl font-bold text-center mb-12 text-gray-900">Award</h2>
           <div className="flex justify-center items-center gap-6 flex-wrap">
             <img src="/lovable-uploads/643dca45-bbaf-4fa7-a0f2-b554b80fbfa9.png" alt="Gold Award 2023" className="h-20 w-auto object-contain" />
+            <img src="/lovable-uploads/8d79bb69-1927-44bf-84f3-d482d88422f3.png" alt="Iconic Awards Innovative Interior" className="h-20 w-auto object-contain" />
             <img src="/lovable-uploads/3bc5a26c-f5ec-4013-b4d0-7c2d46a19e3b.png" alt="Iconic Awards 2022" className="h-20 w-auto object-contain" />
             <img src="/lovable-uploads/b9a1771d-0904-42df-a8c1-6799e4b0cc65.png" alt="German Innovation Award" className="h-20 w-auto object-contain" />
             <img src="/lovable-uploads/88c74e39-0813-4038-a337-4bd14cd15137.png" alt="iF Design Award 2025" className="h-20 w-auto object-contain" />
