@@ -4,54 +4,92 @@ import Footer from "@/components/Footer";
 const DesktopAboutUsPage = () => {
   return (
     <div className="min-h-screen relative">
-      {/* Background image */}
-      <div 
-        className="fixed inset-0 z-[-2]" 
-        style={{
-          backgroundImage: 'url(/lovable-uploads/775eda3f-ca6c-419c-a23c-490dd2295f81.png)',
-          backgroundSize: '1400px 100vh',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      />
-      
       <Header />
       
-      <main className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold text-foreground mb-8">About Us</h1>
-          <div className="bg-white/90 backdrop-blur-sm rounded-lg p-8 shadow-lg">
-            <h2 className="text-2xl font-semibold mb-6">TOA Living Space</h2>
-            <div className="space-y-4 text-gray-700">
-              <p>
-                TOA Living Space is a leading provider of premium bathroom fixtures and design solutions. 
-                With decades of experience in the industry, we are committed to transforming bathrooms 
-                into beautiful, functional spaces that enhance your daily life.
-              </p>
-              <p>
-                Our team of expert designers and craftsmen work closely with clients to create 
-                personalized bathroom solutions that reflect individual style and meet specific needs.
-              </p>
-              <div className="mt-8">
-                <h3 className="text-xl font-semibold mb-4">Our Mission</h3>
-                <p>
-                  To provide exceptional bathroom design solutions that combine innovation, 
-                  quality, and style to create spaces where comfort meets luxury.
-                </p>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden w-full max-w-[1120px] mx-auto" 
+        style={{ 
+          height: '587px',
+          aspectRatio: '1120/587'
+        }}>
+        <img 
+          src="/lovable-uploads/16a45631-9e9c-418c-a127-cf56324e80f2.png"
+          alt="About Us"
+          className="w-full h-full object-cover"
+        />
+      </section>
+
+      {/* TOA | JOMOO Logo Section */}
+      <section className="bg-white py-8 w-[1120px] mx-auto">
+        <div className="px-4 text-center">
+          <img 
+            src="/lovable-uploads/c2171c32-6150-4688-870a-1815a6b2ce9b.png" 
+            alt="TOA | JOMOO Logo" 
+            className="h-16 mx-auto mb-8"
+          />
+        </div>
+      </section>
+
+      {/* About Content Section */}
+      <section className="bg-white py-16 w-[1120px] mx-auto">
+        <div className="px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">TOA x JOMOO – Leaders in Global Innovation for Building Materials and Sanitaryware</h2>
+          
+          <div className="space-y-8 text-gray-600 leading-relaxed">
+            <p className="text-lg">
+              TOA, Thailand's No.1 leader in paints and building materials with over 60 years of expertise, is committed to delivering high-quality 
+              products that meet every consumer need. Guided by the vision "Creating a Better Quality of Life", TOA continuously develops innovative 
+              solutions that are safe, environmentally friendly, and certified to international standards.
+            </p>
+            
+            <p className="text-lg">
+              JOMOO, a world-renowned brand from China, is a leading provider of sanitaryware and bathroom solutions. With cutting-edge 
+              technology, elegant design, and premium quality, JOMOO is dedicated to creating products that reflect modern lifestyles—combining 
+              convenience, advanced functionality, and sustainability.
+            </p>
+            
+            <p className="text-lg">
+              The collaboration between TOA and JOMOO represents the synergy of two industry leaders, joining strengths to deliver an enhanced 
+              living experience for customers in Thailand. Together, they provide a comprehensive range of superior products, from exterior and 
+              structural solutions to sanitaryware and bathroom innovations—bringing excellence to every corner of the home.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="bg-white py-16 w-[1120px] mx-auto">
+        <div className="px-4">
+          <div className="flex justify-between items-end">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Follow TOA LIVING SPACE</h3>
+              <p className="text-gray-600 mb-4">Contact Showroom</p>
+              <div className="flex gap-4">
+                <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
+                <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
+                <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
+                <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
               </div>
-              <div className="mt-6">
-                <h3 className="text-xl font-semibold mb-4">Our Values</h3>
-                <ul className="list-disc list-inside space-y-2">
-                  <li>Quality craftsmanship in every product</li>
-                  <li>Innovative design solutions</li>
-                  <li>Exceptional customer service</li>
-                  <li>Sustainable practices</li>
-                </ul>
+            </div>
+            <div className="text-right">
+              <p className="text-sm text-gray-600 mb-4">
+                Sign up to receive email, news, promotions<br />
+                and information about JOMOO.
+              </p>
+              <div className="flex gap-2">
+                <input 
+                  type="email" 
+                  placeholder="E-mail Address" 
+                  className="px-4 py-2 border border-gray-300 rounded bg-gray-200 text-sm w-64"
+                />
+                <button className="px-6 py-2 bg-gray-400 text-white rounded text-sm">
+                  Sign Up
+                </button>
               </div>
             </div>
           </div>
         </div>
-      </main>
+      </section>
       
       <Footer />
     </div>
