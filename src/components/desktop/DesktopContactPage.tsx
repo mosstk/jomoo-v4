@@ -69,7 +69,7 @@ const DesktopContactPage = () => {
           <h2 className="text-4xl font-bold mb-12 text-gray-900">Follow Us</h2>
           
           <div className="flex justify-center items-center gap-32">
-            <a href="https://page.line.me/656fflaj" target="_blank" rel="noopener noreferrer" className="text-center transition-all duration-300 hover:drop-shadow-[0_0_20px_rgba(59,130,246,0.8)] hover:scale-105">
+            <a href="https://page.line.me/656fflaj" target="_blank" rel="noopener noreferrer" className="text-center transition-all duration-300 hover:scale-105">
               <img 
                 src="/lovable-uploads/7142c809-bcc0-4ec0-a304-db05ffb65e42.png" 
                 alt="LINE Icon" 
@@ -78,7 +78,7 @@ const DesktopContactPage = () => {
               <p className="text-gray-900 font-medium">TOA_LivingSpace</p>
             </a>
             
-            <a href="https://www.facebook.com/profile.php?id=61579248608655" target="_blank" rel="noopener noreferrer" className="text-center transition-all duration-300 hover:drop-shadow-[0_0_20px_rgba(59,130,246,0.8)] hover:scale-105">
+            <a href="https://www.facebook.com/profile.php?id=61579248608655" target="_blank" rel="noopener noreferrer" className="text-center transition-all duration-300 hover:scale-105">
               <img 
                 src="/lovable-uploads/472b8958-3e12-4f36-945e-70c960ecf0dd.png" 
                 alt="Facebook Icon" 
@@ -87,7 +87,7 @@ const DesktopContactPage = () => {
               <p className="text-gray-900 font-medium">TOA Living Space</p>
             </a>
             
-            <a href="https://www.instagram.com/toalivingspace" target="_blank" rel="noopener noreferrer" className="text-center transition-all duration-300 hover:drop-shadow-[0_0_20px_rgba(59,130,246,0.8)] hover:scale-105">
+            <a href="https://www.instagram.com/toalivingspace" target="_blank" rel="noopener noreferrer" className="text-center transition-all duration-300 hover:scale-105">
               <img 
                 src="/lovable-uploads/491b5425-c914-40b6-a250-0437d768e12d.png" 
                 alt="Instagram Icon" 
