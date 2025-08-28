@@ -74,9 +74,9 @@ const Footer = ({ useProductPageStyle = false }: FooterProps) => {
               <div className="flex space-x-6">
                 <a href="#" className="text-gray-400 hover:text-white text-xs">Terms & Conditions</a>
                 <span className="text-gray-400 text-xs">|</span>
-                <a href="#" className="text-gray-400 hover:text-white text-xs">Privacy Notice</a>
+                <a href="/privacy-notice" className="text-gray-400 hover:text-white text-xs">Privacy Notice</a>
                 <span className="text-gray-400 text-xs">|</span>
-                <a href="#" className="text-gray-400 hover:text-white text-xs">Cookies Policy</a>
+                <a href="/cookies-policy" className="text-gray-400 hover:text-white text-xs">Cookies Policy</a>
                 <span className="text-gray-400 text-xs">|</span>
                 <a href="#" className="text-gray-400 hover:text-white text-xs">Site Map</a>
               </div>
