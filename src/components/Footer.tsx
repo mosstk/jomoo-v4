@@ -78,7 +78,7 @@ const Footer = ({ useProductPageStyle = false }: FooterProps) => {
                 <span className="text-gray-400 text-xs">|</span>
                 <a href="/cookies-policy" className="text-gray-400 hover:text-white text-xs">Cookies Policy</a>
                 <span className="text-gray-400 text-xs">|</span>
-                <a href="#" className="text-gray-400 hover:text-white text-xs">Site Map</a>
+                <a href="/site-map" className="text-gray-400 hover:text-white text-xs">Site Map</a>
               </div>
             </div>
           </div>
