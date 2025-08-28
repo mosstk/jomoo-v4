@@ -65,7 +65,7 @@ const DesktopContactPage = () => {
 
       {/* Follow Us Section */}
       <section className="bg-white py-16 w-[1120px] mx-auto">
-        <div className="px-4">
+        <div className="px-4 ml-[50px]">
           <h2 className="text-4xl font-bold mb-12 text-gray-900">Follow Us</h2>
           
           <div className="flex justify-center items-center gap-32">
