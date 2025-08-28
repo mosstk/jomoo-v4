@@ -48,7 +48,7 @@ const DesktopContactPage = () => {
               </div>
             </div>
             
-            <div className="flex items-center space-x-4">
+            <a href="mailto:toalivingspace@toagroup.com" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
               <img 
                 src="/lovable-uploads/0d95b0f0-4e1c-40ff-b185-19016ad7bf48.png" 
                 alt="Email Icon" 
@@ -58,7 +58,7 @@ const DesktopContactPage = () => {
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">E-mail</h3>
                 <p className="text-gray-600">toalivingspace@toagroup.com</p>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </section>
@@ -69,32 +69,32 @@ const DesktopContactPage = () => {
           <h2 className="text-4xl font-bold mb-12 text-gray-900">Follow Us</h2>
           
           <div className="flex justify-center items-center gap-32">
-            <div className="text-center">
+            <a href="https://line.me/R/ti/p/@toa_livingspace" target="_blank" rel="noopener noreferrer" className="text-center hover:opacity-80 transition-opacity">
               <img 
                 src="/lovable-uploads/7142c809-bcc0-4ec0-a304-db05ffb65e42.png" 
                 alt="LINE Icon" 
                 className="w-16 h-16 mx-auto mb-4"
               />
               <p className="text-gray-900 font-medium">TOA_LivingSpace</p>
-            </div>
+            </a>
             
-            <div className="text-center">
+            <a href="https://www.facebook.com/TOALivingSpace" target="_blank" rel="noopener noreferrer" className="text-center hover:opacity-80 transition-opacity">
               <img 
                 src="/lovable-uploads/472b8958-3e12-4f36-945e-70c960ecf0dd.png" 
                 alt="Facebook Icon" 
                 className="w-16 h-16 mx-auto mb-4"
               />
               <p className="text-gray-900 font-medium">TOA Living Space</p>
-            </div>
+            </a>
             
-            <div className="text-center">
+            <a href="https://www.instagram.com/toalivingspace" target="_blank" rel="noopener noreferrer" className="text-center hover:opacity-80 transition-opacity">
               <img 
                 src="/lovable-uploads/491b5425-c914-40b6-a250-0437d768e12d.png" 
                 alt="Instagram Icon" 
                 className="w-16 h-16 mx-auto mb-4"
               />
               <p className="text-gray-900 font-medium">TOA Living Space</p>
-            </div>
+            </a>
           </div>
         </div>
       </section>
