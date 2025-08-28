@@ -40,7 +40,7 @@ const DesktopContactPage = () => {
               <img 
                 src="/lovable-uploads/27ad0ff6-7ca2-455c-b951-d7d0fa542716.png" 
                 alt="Location Icon" 
-                className="w-16 h-16"
+                className="w-11 h-11"
               />
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">Showroom Office, Sukhumvit 26</h3>
@@ -52,7 +52,7 @@ const DesktopContactPage = () => {
               <img 
                 src="/lovable-uploads/0d95b0f0-4e1c-40ff-b185-19016ad7bf48.png" 
                 alt="Email Icon" 
-                className="w-16 h-16"
+                className="w-11 h-11"
               />
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">E-mail</h3>
